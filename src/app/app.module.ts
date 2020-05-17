@@ -13,6 +13,9 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PostNewComponent } from './components/post-new/post-new.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
+import { UsersComponent } from './components/users/users.component';
+import { CategoriesComponent } from './components/categories/categories.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 
 @NgModule({
@@ -24,7 +27,10 @@ import { CategoryNewComponent } from './components/category-new/category-new.com
     UserEditComponent,
     RegisterComponent,
     PostNewComponent,
-    CategoryNewComponent
+    CategoryNewComponent,
+    UsersComponent,
+    CategoriesComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
