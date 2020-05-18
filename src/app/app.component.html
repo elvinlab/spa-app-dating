@@ -6,7 +6,7 @@
         <li class="active">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ajustes</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
-
+            
             <a [routerLink]="['/crear-entrada']">Crear entrada</a>
             <a [routerLink]="['/crear-categoria']">Crear categoria</a>
             <a [routerLink]="['/perfil']">Mi perfil</a>
@@ -76,7 +76,7 @@
 
       </div>
     </nav>
-    
+
     <router-outlet></router-outlet>
   </div>
 </div>
@@ -92,7 +92,8 @@
             <p>Subscribete para mantenerte actualizado</p>
             <form action="#" class="f_subscribe_two mailchimp" method="post" novalidate="true" _lpchecked="1">
               <input type="text" name="EMAIL" class="form-control memail" placeholder="Email">
-              <button class="btn btn_get btn_get_two" type="submit">Subscribete</button>
+              <br>
+              <button class="btn btn-primary" type="submit">Subscribete</button>
               <p class="mchimp-errmessage" style="display: none;"></p>
               <p class="mchimp-sucmessage" style="display: none;"></p>
             </form>
