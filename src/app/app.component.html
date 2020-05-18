@@ -6,27 +6,21 @@
         <li class="active">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ajustes</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
-            <li>
-              <a href="#">Crear Post</a>
-            </li>
-            <li>
-              <a href="#">Crear Categoria</a>
-            </li>
-            <li>
-              <a href="#">Mi perfil</a>
-            </li>
-            <li>
-              <a href="#">Configuración</a>
-            </li>
-       
+
+            <a [routerLink]="['/crear-entrada']">Crear entrada</a>
+            <a [routerLink]="['/crear-categoria']">Crear categoria</a>
+            <a [routerLink]="['/perfil']">Mi perfil</a>
+            <a [routerLink]="['/ajustes']">Ajustes</a>
+            <a [routerLink]="['/logout']">Salir</a>
+
           </ul>
         </li>
-    
+
         <li>
           <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Laboratorio 2</a>
           <ul class="collapse list-unstyled" id="pageSubmenu">
             <li>
-              <a  [routerLink]="['/users']">Usuarios</a>
+              <a [routerLink]="['/users']">Usuarios</a>
             </li>
             <li>
               <a [routerLink]="['/categories']">Categorias</a>
@@ -34,6 +28,7 @@
             <li>
               <a [routerLink]="['/posts']">Posts</a>
             </li>
+
           </ul>
         </li>
         <li>
@@ -50,15 +45,16 @@
   <!-- Page Content  -->
   <div id="content" class="p-4 p-md-5">
 
-  
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">
         <img src="assets/images/UNASIGLA.jpeg" width="70" height="40" class="d-inline-block align-top" alt="">
-    </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -66,21 +62,21 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-right">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/login']">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  [routerLink]="['/registro']">Registro</a>
-            </li>
-            
-            <li class="nav-item">
-              <a class="nav-link" >Cerrar sesión</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/login']">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/registro']">Registro</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link">Cerrar sesión</a>
+          </li>
         </ul>
 
       </div>
     </nav>
-
+    
     <router-outlet></router-outlet>
   </div>
 </div>
