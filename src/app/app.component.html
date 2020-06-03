@@ -1,9 +1,11 @@
 <div class="wrapper d-flex align-items-stretch">
-  <nav id="sidebar">
+  <nav id="sidebar" *ngIf="identity">
     <div class="p-4 pt-5">
       <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(assets/images/avatar.jpg);"></a>
       <ul class="list-unstyled components mb-5">
         <li class="active">
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            {{ (identity.name || identity.name_commerce)}}</a>
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ajustes</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
 
@@ -11,7 +13,6 @@
             <a [routerLink]="['/crear-categoria']">Crear categoria</a>
             <a [routerLink]="['/perfil']">Mi perfil</a>
             <a [routerLink]="['/ajustes']">Ajustes</a>
-            <a [routerLink]="['/logout']">Salir</a>
 
           </ul>
         </li>
@@ -39,7 +40,8 @@
         </li>
 
         <li>
-          <a href="#">Cerrar Sesion</a>
+          <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/logout-cliente/1']">Cerrar Sesion</a>
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/logout-comercio/1']">Cerrar Sesion</a>
         </li>
       </ul>
 
@@ -66,11 +68,12 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-right">
+
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/registro-cliente']">Registro de cliente</a>
+            <a class="nav-link" *ngIf="!identity" [routerLink]="['/registro-cliente']">Registro de cliente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/registro-comercio']">Registro de comercio</a>
+            <a class="nav-link" *ngIf="!identity" [routerLink]="['/registro-comercio']">Registro de comercio</a>
           </li>
 
 

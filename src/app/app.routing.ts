@@ -20,6 +20,8 @@ const appRoutes: Routes = [
 	{path: 'registro-cliente', component: RegisterClientComponent},
 	{path: 'registro-comercio', component: RegisterCommerceComponent},
 	{path: 'login-cliente', component: LoginClientComponent},
+	{path: 'logout-cliente/:sure', component: LoginClientComponent},
+	{path: 'logout-comercio/:sure', component: LoginCommerceComponent},
 	{path: 'login-comercio', component: LoginCommerceComponent},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
 	{path: 'categoria/:id', component: CategoryDetailComponent},
