@@ -1,1 +1,111 @@
-<p>register-commerce works!</p>
+<div class="col-md-12 mt-3">
+	<h1>{{page_title}}</h1>
+	<p *ngIf="status != 'success'">
+		Registrate en nuestra plataforma y lleva tu negocios a todas partes!!!
+	</p>
+
+	<div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+		El registro se ha completado correctamente, <a [routerLink]="['/login']">logeate aquí</a>
+	</div>
+
+	<div class="alert alert-danger col-md-5" *ngIf="status == 'error'">
+		El registro no se ha completado, vuelve a intentarlo mas tarde
+	</div>
+
+	<!--Formulario de registro-->
+	<form class="col-md-5 ml-0 pl-0" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        
+        <div class="form-group">
+			<label for="email">Email</label>
+			<input type="email" name="email" class="form-control" #email="ngModel" [(ngModel)]="commerce.email" required
+				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+			<small *ngIf="!email.valid && email.touched" class="invalid-feedback d-block">
+				El correo no es válido
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="password">Contraseña</label>
+			<input type="password" name="password" class="form-control" #password="ngModel"
+				[(ngModel)]="commerce.password" required>
+
+			<small *ngIf="!password.valid && password.touched" class="invalid-feedback d-block">
+				La contraseña no es válida
+			</small>
+        </div>
+        
+        <div class="form-group">
+			<label for="name_owner">Nombre de el dueño</label>
+			<input type="text" name="name_owner" class="form-control" #name_owner="ngModel" [(ngModel)]="commerce.name_owner" required
+				pattern="[a-zA-Z]+">
+
+			<small *ngIf="!name_owner.valid && name_owner.touched" class="invalid-feedback d-block">
+				El nombre no es válido
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="name_commerce">Nombre del comercio</label>
+			<input type="text" name="name_commerce" class="form-control" #name_commerce="ngModel" [(ngModel)]="commerce.name_commerce"
+				required pattern="[a-zA-Z]+">
+
+			<small *ngIf="!name_commerce.valid && name_commerce.touched" class="invalid-feedback d-block">
+				El nombre del comercio no es valido
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="cell">Numero celular</label>
+			<input type="text" name="cell" class="form-control" #cell="ngModel" [(ngModel)]="commerce.cell"
+				required>
+
+			<small *ngIf="!cell.valid && cell.touched" class="invalid-feedback d-block">
+				Numero celular requerido
+			</small>
+        </div>
+        
+        <div class="form-group">
+			<label for="tell">Numero telefonico</label>
+			<input type="text" name="tell" class="form-control" #tell="ngModel" [(ngModel)]="commerce.tell"
+				required>
+
+			<small *ngIf="!tell.valid && tell.touched" class="invalid-feedback d-block">
+				Numero de telefono requerido
+			</small>
+        </div>
+        
+        <div class="form-group">
+			<label for="recovery_email">Email de respaldo</label>
+			<input type="recovery_email" name="recovery_email" class="form-control" #recovery_email="ngModel" [(ngModel)]="commerce.recovery_email" required
+				pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+			<small *ngIf="!recovery_email.valid && recovery_email.touched" class="invalid-feedback d-block">
+				El correo de respaldo no es válido
+			</small>
+        </div>
+        
+        <div class="form-group">
+			<label for="description">Descripcion</label>
+			<input type="text" name="description" class="form-control" #description="ngModel" [(ngModel)]="commerce.description"
+				required>
+
+			<small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
+			Descripcion de comercio requerida
+			</small>
+        </div>
+
+		<div class="form-group">
+			<label for="address">Direccion fisica</label>
+			<input type="text" name="address" class="form-control" #address="ngModel" [(ngModel)]="commerce.address"
+				required>
+
+			<small *ngIf="!address.valid && address.touched" class="invalid-feedback d-block">
+				Direccion
+			</small>
+		</div>
+
+		<input type="submit" value="Registrarme" class="btn btn-success" [disabled]="registerForm.invalid" />
+	</form>
+
+</div>
