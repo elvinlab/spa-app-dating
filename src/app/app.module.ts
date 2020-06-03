@@ -7,7 +7,6 @@ import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AngularFileUploaderModule } from "angular-file-uploader";
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
 import { RegisterClientComponent } from './components/register-client/register-client.component';
 import { RegisterCommerceComponent } from './components/register-commerce/register-commerce.component';
 import { HomeComponent } from './components/home/home.component';
@@ -17,18 +16,21 @@ import { CategoryDetailComponent } from './components/category-detail/category-d
 import { ClientService } from './services/client.service';
 import { CommerceService } from './services/commerce.service';
 import { IdentityGuard } from './services/identity.guard';
+import { LoginClientComponent } from './components/login-client/login-client.component';
+import { LoginCommerceComponent } from './components/login-commerce/login-commerce.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     RegisterClientComponent,
     RegisterCommerceComponent,
     HomeComponent,
     ErrorComponent,
     CategoryNewComponent,
     CategoryDetailComponent,
+    LoginClientComponent,
+    LoginCommerceComponent,
   ],
   imports: [
     BrowserModule,

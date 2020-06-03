@@ -6,7 +6,7 @@
         <li class="active">
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ajustes</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
-            
+
             <a [routerLink]="['/crear-entrada']">Crear entrada</a>
             <a [routerLink]="['/crear-categoria']">Crear categoria</a>
             <a [routerLink]="['/perfil']">Mi perfil</a>
@@ -36,6 +36,10 @@
         </li>
         <li>
           <a href="#">Contacto</a>
+        </li>
+
+        <li>
+          <a href="#">Cerrar Sesion</a>
         </li>
       </ul>
 
@@ -68,13 +72,19 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/registro-comercio']">Registro de comercio</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/login']">Acceder</a>
-          </li>
 
-          <li class="nav-item">
-            <a class="nav-link">Cerrar sesión</a>
-          </li>
+
+          <!-- Example single danger button -->
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Acceder como
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" [routerLink]="['/login-cliente']">Cliente</a>
+              <a class="dropdown-item" [routerLink]="['/login-comercio']">Comercio</a>
+            </div>
+          </div>
         </ul>
 
       </div>

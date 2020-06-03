@@ -5,7 +5,8 @@ import { CommerceService } from '../../services/commerce.service';
 @Component({
   selector: 'app-register-commerce',
   templateUrl: './register-commerce.component.html',
-  styleUrls: ['./register-commerce.component.css']
+  styleUrls: ['./register-commerce.component.css'],
+  providers: [CommerceService]
 })
 export class RegisterCommerceComponent implements OnInit {
 

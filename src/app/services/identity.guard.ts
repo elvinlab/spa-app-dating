@@ -11,7 +11,7 @@ export class IdentityGuard implements CanActivate{
 	){}
 
 	canActivate(){
-		let identity// = this._ClientService.getIdentity();
+		let identity = this._ClientService.getIdentity();
 
 		if(identity){
 			return true;

@@ -3,9 +3,10 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // IMPORTAR COMPONENTES
-import { LoginComponent } from './components/login/login.component';
 import { RegisterClientComponent } from './components/register-client/register-client.component';
 import { RegisterCommerceComponent } from './components/register-commerce/register-commerce.component';
+import { LoginClientComponent } from './components/login-client/login-client.component';
+import { LoginCommerceComponent } from './components/login-commerce/login-commerce.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
@@ -16,10 +17,10 @@ import { IdentityGuard } from './services/identity.guard';
 const appRoutes: Routes = [
 	{path: '', component: HomeComponent},
 	{path: 'inicio', component: HomeComponent},
-	{path: 'login', component: LoginComponent},
-	{path: 'logout/:sure', component: LoginComponent},
 	{path: 'registro-cliente', component: RegisterClientComponent},
 	{path: 'registro-comercio', component: RegisterCommerceComponent},
+	{path: 'login-cliente', component: LoginClientComponent},
+	{path: 'login-comercio', component: LoginCommerceComponent},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
 	{path: 'categoria/:id', component: CategoryDetailComponent},
 	{path: 'error', component: ErrorComponent},

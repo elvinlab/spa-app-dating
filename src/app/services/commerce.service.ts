@@ -29,4 +29,55 @@ export class CommerceService {
 		return this._http.post(this.url+'commerce/register', params, {headers: headers});
 	}
 
+	signup(commerce, gettoken = null): Observable<any>{
+		if(gettoken != null){
+			commerce.gettoken = 'true';
+		}
+
+		//quiza ocupe guardar el token en el localstorage
+		
+		let json = JSON.stringify(commerce);
+		let params = 'json='+json;
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+
+		return this._http.post(this.url+'commerce/login', params, {headers:headers});
+	}
+
+	update(token, commerce): Observable<any>{
+	    // Limpiar campo content (editor texto enriquecido) htmlEntities > utf8
+		commerce.description = global.htmlEntities(commerce.description);
+
+		let json = JSON.stringify(commerce);
+		let params = "json="+json;
+
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+
+	   	return this._http.put(this.url + 'commerce/update', params, {headers: headers});
+	}
+
+	getIdentity(){
+		let identity = JSON.parse(localStorage.getItem('identity'));
+
+		if(identity && identity != "undefined"){
+			this.identity = identity;
+		}else{
+			this.identity = null;
+		}
+
+		return this.identity;
+	}
+
+	getToken(){
+		let token = localStorage.getItem('token');
+
+		if(token && token != "undefined"){
+			this.token = token;
+		}else{
+			this.token = null;
+		}
+
+		return this.token;
+	}
+
 }
