@@ -18,6 +18,8 @@ import { CommerceService } from './services/commerce.service';
 import { IdentityGuard } from './services/identity.guard';
 import { LoginClientComponent } from './components/login-client/login-client.component';
 import { LoginCommerceComponent } from './components/login-commerce/login-commerce.component';
+import { ClientEditComponent } from './components/client-edit/client-edit.component';
+import { CommerceEditComponent } from './components/commerce-edit/commerce-edit.component';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import { LoginCommerceComponent } from './components/login-commerce/login-commer
     CategoryDetailComponent,
     LoginClientComponent,
     LoginCommerceComponent,
+    ClientEditComponent,
+    CommerceEditComponent,
   ],
   imports: [
     BrowserModule,

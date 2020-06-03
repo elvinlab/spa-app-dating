@@ -4,9 +4,9 @@
       <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(assets/images/avatar.jpg);"></a>
       <ul class="list-unstyled components mb-5">
         <li class="active">
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-            {{ (identity.name || identity.name_commerce)}}</a>
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ajustes</a>
+         
+            
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ (identity.name || identity.name_commerce)}}</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
 
             <a [routerLink]="['/crear-entrada']">Crear entrada</a>
@@ -52,9 +52,9 @@
   <div id="content" class="p-4 p-md-5">
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
       <a class="navbar-brand" href="#">
-        <img src="assets/images/UNASIGLA.jpeg" width="70" height="40" class="d-inline-block align-top" alt="">
+        <img src="assets/images/calendar.svg" width="70" height="40" class="d-inline-block align-top" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -79,7 +79,7 @@
 
           <!-- Example single danger button -->
           <div class="btn-group">
-            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               Acceder como
             </button>
