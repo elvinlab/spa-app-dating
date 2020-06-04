@@ -1,28 +1,30 @@
 <div class="wrapper d-flex align-items-stretch">
   <nav id="sidebar" *ngIf="identity">
-    <div class="p-4 pt-5">  
-      <a href="#" *ngIf="identity.image" class="img logo rounded-circle mb-5" style="background-image: url({{url}});"></a>
-   
+    <div class="p-4 pt-5">
+      <a href="#" *ngIf="identity.image" class="img logo rounded-circle mb-5"
+        style="background-image: url({{url}});"></a>
+
       <ul class="list-unstyled components mb-5">
         <li class="active">
 
-          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ (identity.name || identity.name_commerce)}}</a>
+          <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+            class="dropdown-toggle">{{ (identity.name || identity.name_commerce)}}</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
 
             <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/editar-cliente']">Subir foto de perfil</a>
-            <a  *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Subir foto de perfil</a>
+            <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Subir foto de perfil</a>
             <a [routerLink]="['/perfil']">Mi perfil</a>
             <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/editar-cliente']">Ajustes</a>
-            <a  *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Ajustes</a>
+            <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Ajustes</a>
 
           </ul>
         </li>
 
         <li>
-          <a href="#">Galeria</a>
+          <a *ngIf="identity.role == 'ROLE_CLIENT'" href="#">Comercios Favoritos</a>
         </li>
         <li>
-          <a href="#">Contacto</a>
+          <a *ngIf="identity.role == 'ROLE_CLIENT'" href="#">Historial de Citas</a>
         </li>
 
         <li>
@@ -30,8 +32,9 @@
           <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/logout-comercio/1']">Cerrar Sesion</a>
         </li>
       </ul>
-      <iframe class="img logo rounded-circle mb-5"  src="http://free.timeanddate.com/clock/i7baxjk3/n2506/szw120/szh120/hoc00f/hbw0/hfc000/cf100/hgr0/facf90/mqcfff/mql6/mqw2/mqd74/mhcfff/mhl6/mhw1/mhd74/mmcf90/mml4/mmw1/mmd74/hhcfff/hmcfff" frameborder="0" width="120" height="120"></iframe>
-
+      <iframe class="img logo rounded-circle mb-5"
+        src="http://free.timeanddate.com/clock/i7baxjk3/n2506/szw120/szh120/hoc00f/hbw0/hfc000/cf100/hgr0/facf90/mqcfff/mql6/mqw2/mqd74/mhcfff/mhl6/mhw1/mhd74/mmcf90/mml4/mmw1/mmd74/hhcfff/hmcfff"
+        frameborder="0" width="120" height="120"></iframe>
 
     </div>
   </nav>
@@ -42,7 +45,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <a class="navbar-brand" href="#">
-        <img src="assets/images/calendario.png"  width="70" height="70" class="d-inline-block align-top" alt="">
+        <img src="assets/images/calendario.png" width="70" height="70" class="d-inline-block align-top" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,20 +55,24 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-warning" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-warning" [routerLink]="['/inicio']">Inicio <span
+                class="sr-only">(current)</span></a>
           </li>
-  
+
         </ul>
-        
+
         <ul class="navbar-nav navbar-center">
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-cliente']">Mis Citas</a>
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
+              [routerLink]="['/registro-cliente']">Mis Citas</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-cliente']">Explorar Comercios</a>
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
+              [routerLink]="['/registro-cliente']">Explorar Comercios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-cliente']">Ver Promociones</a>
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
+              [routerLink]="['/registro-cliente']">Ver Promociones</a>
           </li>
 
         </ul>
@@ -73,21 +80,24 @@
         <ul class="navbar-nav navbar-right">
 
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-comercio']">Registra tu comercio</a>
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
+              [routerLink]="['/registro-comercio']">Registra tu comercio</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-cliente']">Registro de cliente</a>
+            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-cliente']">Registro de
+              cliente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-comercio']">Registro de comercio</a>
+            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-comercio']">Registro de
+              comercio</a>
           </li>
 
 
           <!-- Example single danger button -->
           <div class="btn-group">
-            <button type="button" class="btn btn-primary text-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">
+            <button type="button" class="btn btn-primary text-dark dropdown-toggle" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Acceder como
             </button>
             <div class="dropdown-menu">
