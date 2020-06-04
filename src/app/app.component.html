@@ -40,9 +40,9 @@
   <div id="content" class="p-4 p-md-5">
 
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <nav class="navbar navbar-expand-lg navbar-light bg-dark">
       <a class="navbar-brand" href="#">
-        <img src="assets/images/calendar.svg" width="70" height="40" class="d-inline-block align-top" alt="">
+        <img src="assets/images/calendario.png"  width="70" height="70" class="d-inline-block align-top" alt="">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,22 +52,41 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-warning" [routerLink]="['/inicio']">Inicio <span class="sr-only">(current)</span></a>
           </li>
+  
         </ul>
+        
+        <ul class="navbar-nav navbar-center">
+          <li class="nav-item">
+            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-cliente']">Mis Citas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-cliente']">Explorar Comercios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-cliente']">Ver Promociones</a>
+          </li>
+
+        </ul>
+
         <ul class="navbar-nav navbar-right">
 
           <li class="nav-item">
-            <a class="nav-link" *ngIf="!identity" [routerLink]="['/registro-cliente']">Registro de cliente</a>
+            <a class="nav-link text-warning" *ngIf="identity" [routerLink]="['/registro-comercio']">Registra tu comercio</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-cliente']">Registro de cliente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" *ngIf="!identity" [routerLink]="['/registro-comercio']">Registro de comercio</a>
+            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-comercio']">Registro de comercio</a>
           </li>
 
 
           <!-- Example single danger button -->
           <div class="btn-group">
-            <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            <button type="button" class="btn btn-primary text-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
               aria-expanded="false">
               Acceder como
             </button>

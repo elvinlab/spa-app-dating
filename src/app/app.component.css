@@ -3,7 +3,9 @@
     left: 50%;
     transform: translatex(-50%);
 }
-
+.color_image {
+  fill: red;
+}
 body {
     background: #fbfbfd;
 }
