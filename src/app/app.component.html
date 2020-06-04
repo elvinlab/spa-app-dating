@@ -1,7 +1,7 @@
 <div class="wrapper d-flex align-items-stretch">
   <nav id="sidebar" *ngIf="identity">
-    <div class="p-4 pt-5">
-      <img class="img logo rounded-circle mb-5" style="background-image: url({{url}});"/>
+    <div class="p-4 pt-5">  
+      <a href="#" *ngIf="identity.image" class="img logo rounded-circle mb-5" style="background-image: url({{url}});"></a>
    
       <ul class="list-unstyled components mb-5">
         <li class="active">
@@ -80,6 +80,7 @@
     </nav>
 
     <router-outlet></router-outlet>
+
   </div>
 </div>
 
