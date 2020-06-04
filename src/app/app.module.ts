@@ -44,6 +44,7 @@ import { CommerceEditComponent } from './components/commerce-edit/commerce-edit.
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     AngularFileUploaderModule
+    
   ],
   providers: [
     appRoutingProviders,

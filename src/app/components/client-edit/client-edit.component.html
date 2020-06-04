@@ -1,1 +1,63 @@
-<p>client-edit works!</p>
+<div class="col-md-12 mt-3">
+	<h1>{{page_title}}</h1>
+	<p *ngIf="status != 'success'">
+		Modificando datos del cliente
+	</p>
+
+	<div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+		La modificacion se ha completado correctamente.
+	</div>
+
+	<div class="alert alert-danger col-md-5" *ngIf="status == 'error'">
+		La modificacion  no se ha completado, vuelve a intentarlo mas tarde
+	</div>
+
+	<!--Formulario de registro-->
+	<form class="col-md-5 ml-0 pl-0" #editForm="ngForm" (ngSubmit)="onSubmit(editForm)">
+		<div class="form-group">
+			<label for="name">Nombre</label>
+			<input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="client.name" required
+				pattern="[a-zA-Z]+">
+
+			<small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+				El nombre no es válido
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="surname">Apellidos</label>
+			<input type="text" name="surname" class="form-control" #surname="ngModel" [(ngModel)]="client.surname"
+				required pattern="[a-zA-Z]+">
+
+			<small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
+				Los apellidos no son validos
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="phone">Telefono</label>
+			<input type="text" name="phone" class="form-control" #phone="ngModel" [(ngModel)]="client.phone"
+				required>
+
+			<small *ngIf="!phone.valid && phone.touched" class="invalid-feedback d-block">
+				Numero de telefono requerido
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="image">Foto de perfil</label>
+
+			<div *ngIf="identity && identity.image">
+				<img src="{{url + 'client/avatar/' + identity.image }}" class="avatar_edit"/>
+			</div>
+
+			<angular-file-uploader
+			      [config]="afuConfig"
+			      (ApiResponse)="avatarUpload($event)">
+			</angular-file-uploader>
+		</div>
+	
+		<input type="submit" value="Cambiar" class="btn btn-success" [disabled]="editForm.invalid" />
+	</form>
+
+</div>

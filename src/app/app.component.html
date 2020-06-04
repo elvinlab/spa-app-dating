@@ -1,37 +1,23 @@
 <div class="wrapper d-flex align-items-stretch">
   <nav id="sidebar" *ngIf="identity">
     <div class="p-4 pt-5">
-      <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(assets/images/avatar.jpg);"></a>
+      <img class="img logo rounded-circle mb-5" style="background-image: url({{url}});"/>
+   
       <ul class="list-unstyled components mb-5">
         <li class="active">
          
-            
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ (identity.name || identity.name_commerce)}}</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
 
-            <a [routerLink]="['/crear-entrada']">Crear entrada</a>
-            <a [routerLink]="['/crear-categoria']">Crear categoria</a>
+            <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/editar-cliente']">Subir foto de perfil</a>
+            <a  *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Subir foto de perfil</a>
             <a [routerLink]="['/perfil']">Mi perfil</a>
-            <a [routerLink]="['/ajustes']">Ajustes</a>
+            <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/editar-cliente']">Ajustes</a>
+            <a  *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Ajustes</a>
 
           </ul>
         </li>
 
-        <li>
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Laboratorio 2</a>
-          <ul class="collapse list-unstyled" id="pageSubmenu">
-            <li>
-              <a [routerLink]="['/users']">Usuarios</a>
-            </li>
-            <li>
-              <a>Categorias</a>
-            </li>
-            <li>
-              <a [routerLink]="['/posts']">Posts</a>
-            </li>
-
-          </ul>
-        </li>
         <li>
           <a href="#">Galeria</a>
         </li>

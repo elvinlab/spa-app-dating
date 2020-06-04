@@ -1,7 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { ClientService } from './services/client.service';
 import { CommerceService } from './services/commerce.service';
-
+import { global } from './services/global';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,12 +12,14 @@ export class AppComponent implements OnInit, DoCheck {
   title = 'citas-online';
   public identity;
   public token;
+  public url;
 
   constructor(
     private _clientService: ClientService,
     private _commerceService: CommerceService,
   ) {
     this.loadAccount();
+    this.url = global.url + 'client/avatar/' + this.identity.image;
   }
 
   ngOnInit() {
@@ -26,6 +28,7 @@ export class AppComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.loadAccount();
+    this.url = global.url + 'client/avatar/' + this.identity.image;
   }
 
   loadAccount() {

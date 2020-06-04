@@ -8,6 +8,8 @@ import { RegisterCommerceComponent } from './components/register-commerce/regist
 import { LoginClientComponent } from './components/login-client/login-client.component';
 import { LoginCommerceComponent } from './components/login-commerce/login-commerce.component';
 import { HomeComponent } from './components/home/home.component';
+import { ClientEditComponent } from './components/client-edit/client-edit.component';
+import { CommerceEditComponent } from './components/commerce-edit/commerce-edit.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
 import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
@@ -21,6 +23,8 @@ const appRoutes: Routes = [
 	{path: 'registro-comercio', component: RegisterCommerceComponent},
 	{path: 'login-cliente', component: LoginClientComponent},
 	{path: 'logout-cliente/:sure', component: LoginClientComponent},
+	{path: 'editar-cliente', component: ClientEditComponent},
+	{path: 'editar-comercio', component: CommerceEditComponent},
 	{path: 'logout-comercio/:sure', component: LoginCommerceComponent},
 	{path: 'login-comercio', component: LoginCommerceComponent},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
