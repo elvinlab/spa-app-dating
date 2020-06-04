@@ -5,7 +5,7 @@
    
       <ul class="list-unstyled components mb-5">
         <li class="active">
-         
+
           <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">{{ (identity.name || identity.name_commerce)}}</a>
           <ul class="collapse list-unstyled" id="homeSubmenu">
 
@@ -30,6 +30,8 @@
           <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/logout-comercio/1']">Cerrar Sesion</a>
         </li>
       </ul>
+      <iframe class="img logo rounded-circle mb-5"  src="http://free.timeanddate.com/clock/i7baxjk3/n2506/szw120/szh120/hoc00f/hbw0/hfc000/cf100/hgr0/facf90/mqcfff/mql6/mqw2/mqd74/mhcfff/mhl6/mhw1/mhd74/mmcf90/mml4/mmw1/mmd74/hhcfff/hmcfff" frameborder="0" width="120" height="120"></iframe>
+
 
     </div>
   </nav>
