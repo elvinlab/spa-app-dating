@@ -26,6 +26,15 @@ export class RegisterCommerceComponent implements OnInit {
     console.log(this._commerceService.test());
   }
 
+  public froala_options: Object = {
+    charCounterCount: true,
+    language: 'es',
+    toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat'],
+    toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat'],
+    toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat'],
+    toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat'],
+  };
+
   onSubmit(form){
     
     this._commerceService.register(this.commerce).subscribe(

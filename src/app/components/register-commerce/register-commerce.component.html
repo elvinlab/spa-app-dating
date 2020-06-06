@@ -48,7 +48,7 @@
 		<div class="form-group">
 			<label for="name_commerce">Nombre del comercio</label>
 			<input type="text" name="name_commerce" class="form-control" #name_commerce="ngModel" [(ngModel)]="commerce.name_commerce"
-				required pattern="[a-zA-Z]+">
+				required>
 
 			<small *ngIf="!name_commerce.valid && name_commerce.touched" class="invalid-feedback d-block">
 				El nombre del comercio no es valido
@@ -85,16 +85,6 @@
 			</small>
         </div>
         
-        <div class="form-group">
-			<label for="description">Descripcion</label>
-			<input type="text" name="description" class="form-control" #description="ngModel" [(ngModel)]="commerce.description"
-				required>
-
-			<small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
-			Descripcion de comercio requerida
-			</small>
-        </div>
-
 		<div class="form-group">
 			<label for="address">Direccion fisica</label>
 			<input type="text" name="address" class="form-control" #address="ngModel" [(ngModel)]="commerce.address"
@@ -104,6 +94,15 @@
 				Direccion
 			</small>
 		</div>
+
+        <div class="form-group">
+			<label for="description">Descripcion</label>
+            <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel" [(ngModel)]="commerce.description"></textarea> 
+
+			<small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
+			Descripcion de comercio requerida
+			</small>
+        </div>
 
 		<input type="submit" value="Registrarme" class="btn btn-success" [disabled]="registerForm.invalid" />
 	</form>

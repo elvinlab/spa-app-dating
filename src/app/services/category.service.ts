@@ -24,19 +24,22 @@ export class CategoryService {
 		return this._http.post(this.url + 'category', params, {headers: headers});							   
 	}
 
-	getCategories():Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-		return this._http.get(this.url + 'category', {headers: headers});
+	delete(token, id){
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+
+	   return this._http.delete(this.url + 'category/' + id, {headers: headers});
 	}
+
 
 	getCategory(id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'category/' + id, {headers: headers});
 	}
 
-	getPosts(id):Observable<any>{
+	getCategories(id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-		return this._http.get(this.url + 'post/category/' + id, {headers: headers});
+		return this._http.get(this.url + 'category/getcategories/' + id, {headers: headers});
 	}
 
 }

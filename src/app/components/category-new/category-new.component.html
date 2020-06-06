@@ -1,1 +1,70 @@
-<p>category-new works!</p>
+<div class="col-md-12 mt-3">
+	<h1>{{page_title}}</h1>
+	<p *ngIf="status != 'success'">
+		Crea una nueva categoria para el blog.
+	</p>
+	<hr />
+
+	<div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+		La categoría se ha creado correctamente !!
+	</div>
+
+	<div class="alert alert-danger col-md-5" *ngIf="status == 'error'">
+		La categoría no se han guardado !!
+	</div>
+	<!--Formulario de crear categoria-->
+
+	<form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)" class="col-md-8">
+		<div class="form-group">
+			<label for="name">Nombre</label>
+			<input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="category.name" required />
+			<small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+				El nombre de la categoría no es válido
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="description">Descripcion</label>
+			<textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
+				[(ngModel)]="category.description"></textarea>
+
+			<small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
+				Descripcion de categoria requerida
+			</small>
+		</div>
+
+		<input type="submit" value="Guardar" class="btn btn-success" [disabled]="categoryForm.invalid" />
+	</form>
+
+	<br>
+
+	<div class="p-2">
+		<table class="table table-striped table-primary">
+			<thead>
+				<tr>
+					<th>Nombre</th>
+					<th>Descripcion</th>
+					<th>Creado el</th>
+					<th>Funcion</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td>
+						<a href="#" class="btn btn-secondary">
+							<i class="fas fa-marker"></i>
+						</a>
+						<a href="·" class="btn btn-danger">
+							<i class="far fa-trash-alt"></i>
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>

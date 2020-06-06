@@ -12,7 +12,6 @@ import { RegisterCommerceComponent } from './components/register-commerce/regist
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
-import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 import { ClientService } from './services/client.service';
 import { CommerceService } from './services/commerce.service';
 import { IdentityGuard } from './services/identity.guard';
@@ -30,7 +29,6 @@ import { CommerceEditComponent } from './components/commerce-edit/commerce-edit.
     HomeComponent,
     ErrorComponent,
     CategoryNewComponent,
-    CategoryDetailComponent,
     LoginClientComponent,
     LoginCommerceComponent,
     ClientEditComponent,

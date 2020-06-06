@@ -1,5 +1,5 @@
 <div class="wrapper d-flex align-items-stretch">
-  <nav id="sidebar" *ngIf="identity">
+  <nav id="sidebar" *ngIf="identity != 'none'">
     <div class="p-4 pt-5">
       <a href="#" *ngIf="identity.image" class="img logo rounded-circle mb-5"
         style="background-image: url({{url}});"></a>
@@ -24,7 +24,16 @@
           <a *ngIf="identity.role == 'ROLE_CLIENT'" href="#">Comercios Favoritos</a>
         </li>
         <li>
+        <li>
           <a *ngIf="identity.role == 'ROLE_CLIENT'" href="#">Historial de Citas</a>
+        </li>
+
+
+        <li>
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/crear-categoria']">Gestionar Categorias</a>
+        </li>
+        <li>
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#">Gestionar Promociones</a>
         </li>
 
         <li>
@@ -75,6 +84,21 @@
               [routerLink]="['/registro-cliente']">Ver Promociones</a>
           </li>
 
+
+          <li class="nav-item">
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
+              [routerLink]="['/registro-cliente']">Control De Citas</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
+              [routerLink]="['/registro-cliente']">Mis Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
+              [routerLink]="['/registro-cliente']">Mis Ventas</a>
+          </li>
+
         </ul>
 
         <ul class="navbar-nav navbar-right">
@@ -85,11 +109,11 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-cliente']">Registro de
+            <a class="nav-link text-warning"*ngIf="identity == 'none'" [routerLink]="['/registro-cliente']">Registro de
               cliente</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="!identity" [routerLink]="['/registro-comercio']">Registro de
+            <a class="nav-link text-warning" *ngIf="identity == 'none'" [routerLink]="['/registro-comercio']">Registro de
               comercio</a>
           </li>
 

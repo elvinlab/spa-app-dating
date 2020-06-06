@@ -6,7 +6,7 @@ export class Promotion {
         public max: number,
         public amount: number,
         public expiry: any,
-        public descripton: string,
+        public description: string,
         public image: string,
         public discount: number,
     ) { }

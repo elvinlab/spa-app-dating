@@ -20,9 +20,6 @@ export class AppComponent implements OnInit, DoCheck {
     private _commerceService: CommerceService,
   ) {
     this.loadAccount();
-
-   
-    
   }
 
   ngOnInit() {
@@ -31,7 +28,7 @@ export class AppComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.loadAccount();
-    if(this.identity){
+    if (this.identity) {
       this.url = global.url + this.role + this.identity.image;
     }
   }
@@ -42,16 +39,16 @@ export class AppComponent implements OnInit, DoCheck {
         this.identity = this._clientService.getIdentity();
         this.token = this._clientService.getToken();
         this.role = 'client/avatar/';
-      } else {
+      } else if (this._clientService.getIdentity().role == "ROLE_COMMERCE") {
         this.identity = this._commerceService.getIdentity();
         this.token = this._commerceService.getToken();
         this.role = 'commerce/avatar/';
       }
     } else {
-      this.identity = null;
       this.token = null;
+      this.role = null;
+      this.identity = 'none';
     }
-   
   }
 
 }
