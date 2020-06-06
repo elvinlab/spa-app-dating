@@ -39,10 +39,21 @@
 		<div class="form-group">
 			<label for="name_commerce">Nombre del comercio</label>
 			<input type="text" name="name_commerce" class="form-control" #name_commerce="ngModel" [(ngModel)]="commerce.name_commerce"
-				required pattern="[a-zA-Z]+">
+				required>
 
 			<small *ngIf="!name_commerce.valid && name_commerce.touched" class="invalid-feedback d-block">
 				El nombre del comercio no es valido
+			</small>
+		</div>
+
+		        
+        <div class="form-group">
+			<label for="name_owner">Nombre de el dueño</label>
+			<input type="text" name="name_owner" class="form-control" #name_owner="ngModel" [(ngModel)]="commerce.name_owner" required
+				pattern="[a-zA-Z]+">
+
+			<small *ngIf="!name_owner.valid && name_owner.touched" class="invalid-feedback d-block">
+				El nombre no es válido
 			</small>
 		</div>
 

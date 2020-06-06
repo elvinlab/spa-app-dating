@@ -29,12 +29,33 @@
         </li>
 
 
-        <li>
-          <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/crear-categoria']">Gestionar Categorias</a>
+
+        <li class="active">
+
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlCategory" data-toggle="collapse" aria-expanded="false"
+            class="dropdown-toggle">Categorias</a>
+          <ul class="collapse list-unstyled" id="controlCategory">
+
+            <a  [routerLink]="['/crear-categoria']">Crear Categoria</a>
+            <a  [routerLink]="['/gestionar-categorias']">Listar Categorias</a>
+            <a  [routerLink]="['/crear-categoria']">Editar una Categoria</a>
+
+          </ul>
         </li>
-        <li>
-          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#">Gestionar Promociones</a>
+
+        <li class="active">
+
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlPromotion" data-toggle="collapse" aria-expanded="false"
+            class="dropdown-toggle">Promociones</a>
+          <ul class="collapse list-unstyled" id="controlPromotion">
+
+            <a  [routerLink]="['/crear-categoria']">Crear Promocion</a>
+            <a  [routerLink]="['/crear-categoria']">Lista Promociones</a>
+            <a  [routerLink]="['/crear-categoria']">Editar una Promocion</a>
+
+          </ul>
         </li>
+
 
         <li>
           <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/logout-cliente/1']">Cerrar Sesion</a>

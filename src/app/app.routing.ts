@@ -12,6 +12,7 @@ import { ClientEditComponent } from './components/client-edit/client-edit.compon
 import { CommerceEditComponent } from './components/commerce-edit/commerce-edit.component';
 import { ErrorComponent } from './components/error/error.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 import { IdentityGuard } from './services/identity.guard';
 
 // DEFINIR RUTAS
@@ -26,6 +27,7 @@ const appRoutes: Routes = [
 	{path: 'editar-comercio', component: CommerceEditComponent},
 	{path: 'logout-comercio/:sure', component: LoginCommerceComponent},
 	{path: 'login-comercio', component: LoginCommerceComponent},
+	{path: 'gestionar-categorias', component: CategoryDetailComponent},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
 	{path: 'error', component: ErrorComponent},
 	{path: '**', component: ErrorComponent}
