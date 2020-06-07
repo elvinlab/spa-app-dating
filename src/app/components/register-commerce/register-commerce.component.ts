@@ -13,6 +13,7 @@ export class RegisterCommerceComponent implements OnInit {
   public page_title: string;
   public commerce: Commerce;
   public status: string;
+  public msg: string;
 
   constructor(
     private _commerceService: CommerceService

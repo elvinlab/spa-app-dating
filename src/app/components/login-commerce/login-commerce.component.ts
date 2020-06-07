@@ -86,5 +86,4 @@ export class LoginCommerceComponent implements OnInit {
 			}
 		});
 	}
-
 }
