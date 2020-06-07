@@ -4,6 +4,10 @@ import { Category } from '../../models/category';
 import { CategoryService } from '../../services/category.service';
 import { global } from '../../services/global';
 import { CommerceService } from '../../services/commerce.service';
+<<<<<<< HEAD
+=======
+
+>>>>>>> parent of 0a5ad8f... optimizando
 
 @Component({
   selector: 'app-category-detail',
@@ -48,6 +52,7 @@ export class CategoryDetailComponent implements OnInit {
           console.log(error);
         }
       );
+    
   }
 }
 
