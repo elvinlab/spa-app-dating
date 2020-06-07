@@ -23,6 +23,9 @@ import { CategoryDetailComponent } from './components/category-detail/category-d
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { FilterPipe } from './pipes/filter.pipe';
+import { PromotionNewComponent } from './components/promotion-new/promotion-new.component';
+import { PromotionEditComponent } from './components/promotion-edit/promotion-edit.component';
+import { PromotionDetailComponent } from './components/promotion-detail/promotion-detail.component';
 
 
 @NgModule({
@@ -40,6 +43,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     CategoryDetailComponent,
     CategoryEditComponent,
     FilterPipe,
+    PromotionNewComponent,
+    PromotionEditComponent,
+    PromotionDetailComponent,
   ],
   imports: [
     BrowserModule,
