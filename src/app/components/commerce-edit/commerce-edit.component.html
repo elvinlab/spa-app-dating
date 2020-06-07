@@ -99,7 +99,7 @@
 
         <div class="form-group">
 			<label for="description">Descripcion</label>
-            <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel" [(ngModel)]="commerce.description"></textarea> 
+            <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel" [(ngModel)]="commerce.description"  innerHtml="{{commerce.description}}"></textarea> 
 
 			<small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
 			Descripcion de comercio requerida

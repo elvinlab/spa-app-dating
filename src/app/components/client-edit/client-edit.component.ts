@@ -10,7 +10,7 @@ import { global } from '../../services/global';
 	providers: [ClientService]
 })
 export class ClientEditComponent implements OnInit {
-	
+
 	public page_title: string;
 	public client: Client;
 	public identity;

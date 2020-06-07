@@ -20,6 +20,7 @@ import { LoginCommerceComponent } from './components/login-commerce/login-commer
 import { ClientEditComponent } from './components/client-edit/client-edit.component';
 import { CommerceEditComponent } from './components/commerce-edit/commerce-edit.component';
 import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
+import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { CategoryDetailComponent } from './components/category-detail/category-d
     ClientEditComponent,
     CommerceEditComponent,
     CategoryDetailComponent,
+    CategoryEditComponent,
   ],
   imports: [
     BrowserModule,

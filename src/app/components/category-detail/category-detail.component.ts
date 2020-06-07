@@ -27,6 +27,7 @@ export class CategoryDetailComponent implements OnInit {
     private _CommerceService: CommerceService
   ) {
     this.url = global.url;
+    this.page_title = 'Listado de categorias';
     this.identity = this._CommerceService.getIdentity();
     this.token = this._CommerceService.getToken();
   }
