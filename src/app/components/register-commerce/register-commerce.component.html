@@ -8,8 +8,8 @@
 		El registro se ha completado correctamente, <a [routerLink]="['/login-comercio']">logeate aquí</a>
 	</div>
 
-	<div class="alert alert-danger col-md-5" *ngIf="status == 'error'">
-		El registro no se ha completado, vuelve a intentarlo mas tarde
+	<div class="alert alert-danger col-md-8" *ngIf="status == 'error'">
+		El registro no se ha completado, puede que el correo ya este en uso!
 	</div>
 
 	<!--Formulario de registro-->

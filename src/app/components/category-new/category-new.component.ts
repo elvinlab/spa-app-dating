@@ -26,7 +26,7 @@ export class CategoryNewComponent implements OnInit {
 		this.page_title = "Crear nueva categoria";
 		this.identity = this._CommerceService.getIdentity();
 		this.token = this._CommerceService.getToken();
-		this.category = new Category(1, '','');
+		this.category = new Category(1, '','','');
 	}
 
 	public froala_options: Object = {
