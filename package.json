@@ -19,13 +19,14 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "angular-file-uploader": "5.0.2",
+    "angular-froala-wysiwyg": "3.1.1-1",
+    "bootstrap": "4.5.0",
+    "jquery": "3.5.1",
+    "ngx-pagination": "^5.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "jquery":"3.5.1",
-    "bootstrap": "4.5.0",
-    "angular-froala-wysiwyg": "3.1.1-1",
-    "angular-file-uploader": "5.0.2"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.901.4",

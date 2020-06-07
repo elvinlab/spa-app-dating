@@ -29,6 +29,7 @@ const appRoutes: Routes = [
 	{path: 'login-comercio', component: LoginCommerceComponent},
 	{path: 'gestionar-categorias', component: CategoryDetailComponent},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
+	{path: 'eliminar-categoria/:id', component: CategoryDetailComponent},
 	{path: 'error', component: ErrorComponent},
 	{path: '**', component: ErrorComponent}
 ];

@@ -21,6 +21,8 @@ import { ClientEditComponent } from './components/client-edit/client-edit.compon
 import { CommerceEditComponent } from './components/commerce-edit/commerce-edit.component';
 import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { FilterPipe } from './pipes/filter.pipe';
 
 
 @NgModule({
@@ -37,9 +39,11 @@ import { CategoryEditComponent } from './components/category-edit/category-edit.
     CommerceEditComponent,
     CategoryDetailComponent,
     CategoryEditComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     routing,
     FormsModule,
     HttpClientModule,
