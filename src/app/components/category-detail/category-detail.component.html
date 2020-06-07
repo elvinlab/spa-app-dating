@@ -28,9 +28,12 @@
                         <td innerHtml="{{category.description}}"></td>
                         <td>{{category.created_at}}</td>
                         <td>{{category.updated_at}}</td>
-                        <td><button type="button" class="btn btn-success">Editar<i class="fas fa-edit"></i></button>
-                            | <button type="button" class="btn btn-danger">Eliminar<i
+                        <td *ngIf="identity.id == category.commerce_id"><button type="button" class="btn btn-warning" [routerLink]="['/editar-categoria', category.id]" >Editar<i class="fas fa-edit"></i></button>
+                            | <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)">Eliminar<i
                                     class="far fa-trash-alt"></i></button>
+                        </td>
+                        <td *ngIf="identity.id != category.commerce_id">
+                            Sin permisos
                         </td>
                     </tr>
                 </tbody>

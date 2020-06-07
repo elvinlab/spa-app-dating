@@ -1,1 +1,43 @@
-<p>category-edit works!</p>
+-<div class="col-md-12 mt-3">
+	<h1>{{page_title}}</h1>
+
+    <p *ngIf="status != 'success'">
+		Editar categoria
+	  </p>
+	  <hr/>
+  
+	  <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
+		  La categoría se ha creado correctamente !!
+	  </div>
+  
+	  <div class="alert alert-danger col-md-8" *ngIf="status == 'error'">
+        La categoría se ha creado correctamente, puede que el nombre ya este en uso!!
+      </div>
+      
+	<!--Formulario de editae categoria-->
+
+	<form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)" class="col-md-8">
+		<div class="form-group">
+			<label for="name">Nombre</label>
+			<input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="category.name" required />
+			<small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
+				El nombre de la categoría no es válido
+			</small>
+		</div>
+
+		<div class="form-group">
+			<label for="description">Descripcion</label>
+			<textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
+				[(ngModel)]="category.description"></textarea>
+
+			<small *ngIf="!description.valid && description.touched" class="invalid-feedback d-block">
+				Descripcion de categoria requerida
+			</small>
+		</div>
+
+		<input type="submit" value="Guardar" class="btn btn-success" [disabled]="categoryForm.invalid" />
+	</form>
+
+	<br>
+
+</div>

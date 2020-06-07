@@ -60,14 +60,13 @@ export class CategoryDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getCategories();
-    console.log(this.categories);
   }
 
 
   getCategories() {
     this.identity.id;
     //mandar el token tambien a la hora de subir imagen
-    this._categoryService.getCategories(this.token, this.identity.id).subscribe(
+    this._categoryService.getCategories(this.token).subscribe(
       response => {
         if (response.status == 'success') {
           this.categories = response.categories;
@@ -79,8 +78,7 @@ export class CategoryDetailComponent implements OnInit {
     );
 
   }
-
-
+  
   deleteCategory(id) {
     this._categoryService.delete(this.token, id).subscribe(
       response => {

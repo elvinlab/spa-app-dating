@@ -14,14 +14,27 @@ export class CategoryService {
 		this.url = global.url;
 	}
 
-	create(token, category):Observable<any>{
+	create(token, category): Observable<any> {
+		let json = JSON.stringify(category);
+		let params = "json=" + json;
+
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+			.set('Authorization', token);
+
+		return this._http.post(this.url + 'category', params, { headers: headers });
+	}
+	
+	update(token, category, id):Observable<any>{
+		// Limpiar campo content (editor texto enriquecido) htmlEntities > utf8
+		category.description = global.htmlEntities(category.description);
+
 		let json = JSON.stringify(category);
 		let params = "json="+json;
 
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
 
-		return this._http.post(this.url + 'category', params, {headers: headers});							   
+	   return this._http.put(this.url + 'category/' + id, params, {headers: headers});						   
 	}
 
 	delete(token, id){
@@ -32,15 +45,16 @@ export class CategoryService {
 	}
 
 
-	getCategory(id):Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-		return this._http.get(this.url + 'category/' + id, {headers: headers});
+	getCategory(token, id): Observable<any> {
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+			.set('Authorization', token);
+		return this._http.get(this.url + 'category/' + id, { headers: headers });
 	}
 
-	getCategories(token, id):Observable<any>{
+	getCategories(token):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
-		return this._http.get(this.url + 'category/getcategories/' + id, {headers: headers});
+		return this._http.get(this.url + 'category', {headers: headers});
 	}
 
 }
