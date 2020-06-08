@@ -1,1 +1,11 @@
-<p>promotion-detail works!</p>
+<div class="container-fluid mt-3" *ngIf="promotions">
+	<h1>{{page_title}}</h1>
+	<hr>
+
+	<!--LISTADO DE ENTRADAS-->
+	<app-promotions-list [promotions]="promotions"
+	           [identity]="identity"
+               [url]="url"
+               (delete) ="deletePromotion($event)" > </app-promotions-list>
+
+</div>

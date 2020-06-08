@@ -15,6 +15,8 @@ import { CategoryNewComponent } from './components/category-new/category-new.com
 import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 import { CategoryEditComponent } from './components/category-edit/category-edit.component';
 import { PromotionNewComponent } from './components/promotion-new/promotion-new.component';
+import { PromotionEditComponent } from './components/promotion-edit/promotion-edit.component';
+import { PromotionDetailComponent } from './components/promotion-detail/promotion-detail.component';
 import { IdentityGuard } from './services/identity.guard';
 
 // DEFINIR RUTAS
@@ -32,7 +34,9 @@ const appRoutes: Routes = [
 	{path: 'gestionar-categorias', component: CategoryDetailComponent},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
 	{path: 'editar-categoria/:id', component: CategoryEditComponent, canActivate: [IdentityGuard]},
+	{path: 'gestionar-promociones', component: PromotionDetailComponent},
 	{path: 'crear-promocion', component: PromotionNewComponent, canActivate: [IdentityGuard]},
+	{path: 'editar-promocion/:id', component: PromotionEditComponent, canActivate: [IdentityGuard]},
 	{path: 'error', component: ErrorComponent},
 	{path: '**', component: ErrorComponent}
 ];

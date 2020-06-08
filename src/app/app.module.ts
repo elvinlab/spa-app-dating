@@ -27,6 +27,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { PromotionNewComponent } from './components/promotion-new/promotion-new.component';
 import { PromotionEditComponent } from './components/promotion-edit/promotion-edit.component';
 import { PromotionDetailComponent } from './components/promotion-detail/promotion-detail.component';
+import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { PromotionDetailComponent } from './components/promotion-detail/promotio
     PromotionNewComponent,
     PromotionEditComponent,
     PromotionDetailComponent,
+    PromotionsListComponent,
   ],
   imports: [
     BrowserModule,

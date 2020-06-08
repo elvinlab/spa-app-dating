@@ -47,7 +47,7 @@
 
         <div class="form-group">
             <br />
-            <label for="expiry">Elegir fecha de expiracion</label>
+            <label for="expiry">Elegir fecha de expiracion:</label>
             <br />
             <ngb-datepicker #dp [(ngModel)]="dateSelected" name="first" [minDate]="minDate"
                 (navigate)="date = $event.next" required>
@@ -66,19 +66,20 @@
             </small>
         </div>
 
-
+        <hr />
         <div class="form-group">
             <label for="image">Imagen de promocion</label>
 
             <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)" >
             </angular-file-uploader>
         </div>
-
-
+        <hr />
+        <br />
+        <label for="description">Descripcion</label>
         <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
             [(ngModel)]="promotion.description" required></textarea>
 
-
+            <br />
         <input type="submit" value="Guardar" class="btn btn-success" [disabled]="promotionForm.invalid" />
     </form>
 
