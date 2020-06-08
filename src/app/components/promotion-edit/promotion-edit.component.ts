@@ -32,7 +32,7 @@ export class PromotionEditComponent implements OnInit {
     this.page_title = "Editar Promocion";
     this.identity = this._commerceService.getIdentity();
       this.token = this._commerceService.getToken();
-      this.promotion = new Promotion(1, '','',1,1,'','','',1);
+      this.promotion = new Promotion(1, '','',0,0,'','','',0);
       this.minDate = this.calendar.getToday();
    }
 
@@ -112,7 +112,7 @@ export class PromotionEditComponent implements OnInit {
 
   onSubmit(form) {
 
-		this.promotion.expiry = this.dateSelected.year + "-" + this.dateSelected.month + "-" + this.dateSelected.day + " 00:00:00";
+		this.promotion.expiry = this.dateSelected.year + "-" + this.dateSelected.month + "-" + this.dateSelected.day;
 
 		console.log(this.promotion.expiry);
 		console.log(this.dateSelected);

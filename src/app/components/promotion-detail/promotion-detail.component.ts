@@ -4,6 +4,7 @@ import { PromotionService } from '../../services/promotion.service';
 import { Promotion } from '../../models/promotion';
 import { global } from '../../services/global';
 import { CommerceService } from '../../services/commerce.service';
+import { NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-promotion-detail',
@@ -42,7 +43,8 @@ export class PromotionDetailComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _promotionService: PromotionService,
-    private _CommerceService: CommerceService
+    private _CommerceService: CommerceService,
+    private calendar: NgbCalendar,
 
   ) {
 
@@ -79,11 +81,16 @@ export class PromotionDetailComponent implements OnInit {
   }
 
   getPromotions() {
-    this._promotionService.getPromotions(this.token).subscribe(
+
+   let minDate = this.calendar.getToday();
+
+    let expiry = minDate.year + "-" + minDate.month + "-" + minDate.day;
+
+    this._promotionService.getValidPromotion(this.token, expiry).subscribe(
       response => {
         if (response.status == 'success') {
           this.promotions = response.promotions;
-          console.log(response.promotions);
+          console.log(this.promotions );
         }
       },
       error => {

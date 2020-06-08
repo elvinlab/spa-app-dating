@@ -57,6 +57,12 @@ export class PromotionService {
 		return this._http.get(this.url + 'promotion/getpromos/' + id, {headers: headers});
 	}
 
+	getValidPromotion(token, expiry):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+		return this._http.get(this.url + 'promotion/getvalidpromotion/' + expiry, {headers: headers});
+	}
+
 	getPromotions(token):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);

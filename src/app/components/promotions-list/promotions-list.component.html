@@ -28,14 +28,12 @@
 			</div>
 			<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" class="form-control"  [innerHTML]="'Comercio: ' + promotion.name_commerce"></div>
 			<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" class="form-control"  [innerHTML]="'Maximo de cupones: ' + promotion.max"></div>
-			<div class="form-control"  [innerHTML]="'Cupos disponibles: ' + promotion.amount"></div>
+			<div class="form-control"  [innerHTML]="'Cupos usados: ' + promotion.amount"></div>
 			<div class="form-control"  [innerHTML]="'Descuento de ' + promotion.discount + '%'"></div>
 			<div class="form-control"  [innerHTML]="'Expira el  ' + promotion.expiry"></div>
 
 			<textarea [froalaEditor]="froala_options" name="description" class="form-control"
 			[innerHTML]="promotion.description"></textarea>
-
-		
 
 
 			<!--botones de acción-->
