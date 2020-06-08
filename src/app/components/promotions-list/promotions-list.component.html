@@ -11,7 +11,7 @@
 <div class="card-columns">
 	<article class="card w-100" *ngFor="let promotion of promotions  | filter:filterPromotion">
 		
-		<div class="card-header">
+		<div class="card-header bg-warning">
 			<h3>
 				<a>{{promotion.coupon}}</a>
 			</h3>
@@ -26,13 +26,24 @@
 			<div class="promotion-image w-100" *ngIf="!promotion.image">
 				<img src="assets/images/default.jpg" class="w-100" />
 			</div>
-			<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" class="form-control"  [innerHTML]="'Comercio: ' + promotion.name_commerce"></div>
-			<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" class="form-control"  [innerHTML]="'Maximo de cupones: ' + promotion.max"></div>
-			<div class="form-control"  [innerHTML]="'Cupos usados: ' + promotion.amount"></div>
-			<div class="form-control"  [innerHTML]="'Descuento de ' + promotion.discount + '%'"></div>
-			<div class="form-control"  [innerHTML]="'Expira el  ' + promotion.expiry"></div>
 
-			<textarea [froalaEditor]="froala_options" name="description" class="form-control"
+			<div class="container">
+				<hr/>
+				<div style="color: darkgoldenrod;" *ngIf="identity && identity.role == 'ROLE_CLIENT'" [innerHTML]="'Comercio: ' + promotion.name_commerce"></div>
+				<hr/>
+				<div style="color: darkgoldenrod;"  *ngIf="identity && identity.role == 'ROLE_COMMERCE'" [innerHTML]="'Maximo de cupones: ' + promotion.max"></div>
+				<hr/>
+				<div style="color: darkred;"  [innerHTML]="'Cupos usados: ' + promotion.amount"></div>
+				<hr/>
+				<div style="color: darkgreen ;"  [innerHTML]="'Descuento de ' + promotion.discount + '%'"></div>
+				<hr/>
+				<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" style="color: darkgreen ;"  [innerHTML]="'Ubicacion: ' + identity.address"></div>
+				<hr/>
+				<div style="color: darkred ;" [innerHTML]="'Expira el  ' + promotion.expiry"></div>
+				<hr/>
+			</div>
+
+			<textarea [froalaEditor]="froala_options" name="description" 
 			[innerHTML]="promotion.description"></textarea>
 
 

@@ -34,8 +34,8 @@
             </small>
 
             <small *ngIf="promotion.amount > promotion.max" class="invalid-feedback d-block">
-                No puedes elegir un maxio menor a la cantidad  de: {{promotion.amount}} cupones en uso
-            </small> 
+                No puedes elegir un maxio menor a la cantidad de: {{promotion.amount}} cupones en uso
+            </small>
         </div>
 
         <div class="form-group">
@@ -51,8 +51,8 @@
 
         <div class="form-group">
             <label for="discount">Descuento</label>
-            <input type="text" name="discount" min="0" max="99" size="1" maxlength="2" class="form-control" #discount="ngModel" [(ngModel)]="promotion.discount"
-                required pattern="[0-9]+">
+            <input type="text" name="discount" min="0" max="99" size="1" maxlength="2" class="form-control"
+                #discount="ngModel" [(ngModel)]="promotion.discount" required pattern="[0-9]+">
 
             <small *ngIf="!discount.valid && discount.touched" class="invalid-feedback d-block">
                 Solo numeros del 0 al 99
@@ -60,10 +60,18 @@
         </div>
 
         <hr />
-        <div class="form-group">
+      
+        <div *ngIf="promotion && promotion.image">
             <label for="image">Imagen de promocion</label>
+            <img src="{{url + 'promotion/image/' + promotion.image}}" class="avatar_edit" />
+            <hr />
+        </div>
 
-            <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)" >
+      
+        <div class="form-group">
+            <label for="image">Elegir imagen de promocion</label>
+
+            <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)">
             </angular-file-uploader>
         </div>
         <hr />
@@ -72,7 +80,7 @@
         <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
             [(ngModel)]="promotion.description" required></textarea>
 
-            <br />
+        <br />
         <input type="submit" value="Guardar" class="btn btn-success" [disabled]="promotionForm.invalid" />
     </form>
 

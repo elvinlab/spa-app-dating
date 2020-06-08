@@ -72,6 +72,7 @@ export class PromotionDetailComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           this.promotions = response.promotions;
+          console.log(this.promotions);
         }
       },
       error => {

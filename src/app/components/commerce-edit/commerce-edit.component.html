@@ -38,7 +38,7 @@
 
 		<div class="form-group">
 			<label for="name_commerce">Nombre del comercio</label>
-			<input type="text" name="name_commerce" class="form-control" #name_commerce="ngModel" [(ngModel)]="commerce.name_commerce"
+			<input type="text" name="name_commerce" maxlength="30" class="form-control" #name_commerce="ngModel" [(ngModel)]="commerce.name_commerce"
 				required>
 
 			<small *ngIf="!name_commerce.valid && name_commerce.touched" class="invalid-feedback d-block">
@@ -49,8 +49,7 @@
 		        
         <div class="form-group">
 			<label for="name_owner">Nombre de el dueño</label>
-			<input type="text" name="name_owner" class="form-control" #name_owner="ngModel" [(ngModel)]="commerce.name_owner" required
-				pattern="[a-zA-Z]+">
+			<input type="text" name="name_owner"  maxlength="30" class="form-control" #name_owner="ngModel" [(ngModel)]="commerce.name_owner" required>
 
 			<small *ngIf="!name_owner.valid && name_owner.touched" class="invalid-feedback d-block">
 				El nombre no es válido
@@ -60,7 +59,7 @@
 		<div class="form-group">
 			<label for="cell">Numero celular</label>
 			<input type="text" name="cell" class="form-control" #cell="ngModel" [(ngModel)]="commerce.cell"
-				required>
+				required pattern="[0-9]+">
 
 			<small *ngIf="!cell.valid && cell.touched" class="invalid-feedback d-block">
 				Numero celular requerido
@@ -70,7 +69,7 @@
         <div class="form-group">
 			<label for="tell">Numero telefonico</label>
 			<input type="text" name="tell" class="form-control" #tell="ngModel" [(ngModel)]="commerce.tell"
-				required>
+				required pattern="[0-9]+">
 
 			<small *ngIf="!tell.valid && tell.touched" class="invalid-feedback d-block">
 				Numero de telefono requerido

@@ -34,6 +34,7 @@ export class PromotionEditComponent implements OnInit {
 		this.token = this._commerceService.getToken();
 		this.promotion = new Promotion(1, '', '', 0, 0, '', '', '', 0);
 		this.minDate = this.calendar.getToday();
+		this.url = global.url;
 	}
 
 

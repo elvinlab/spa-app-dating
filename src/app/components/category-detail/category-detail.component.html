@@ -1,48 +1,61 @@
-<div class="container">
-    <h1>{{page_title}}</h1>
-    <hr/>
-    <br/>
-    <div class="row">
-        <div class="col-5">
-            <div class="form-group">
-                <input type="text" class="form-control" name="filterCategory"
-                    placeholder="Buscar por nombre o descripcion" [(ngModel)]="filterCategory">
+<div class="loading" *ngIf="categories == 0">
+    Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="categories != 0">
+
+    <div class="container">
+        <h1>{{page_title}}</h1>
+        <hr />
+        <br />
+        <div class="row">
+            <div class="col-5">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="filterCategory"
+                        placeholder="Buscar por nombre o descripcion" [(ngModel)]="filterCategory">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Orden</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Creado el</th>
+                            <th scope="col">Actualizado el</th>
+                            <th scope="col">Funcion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            *ngFor="let category of categories |  filter:filterCategory | paginate: config; let i =index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{category.name}}</td>
+                            <td>{{category.created_at}}</td>
+                            <td>{{category.updated_at}}</td>
+                            <td *ngIf="identity.id == category.commerce_id"><button type="button"
+                                    class="btn btn-warning" [routerLink]="['/editar-categoria', category.id]">Editar<i
+                                        class="fas fa-edit"></i></button>
+                                | <button type="button" class="btn btn-danger"
+                                    (click)="deleteCategory(category.id)">Eliminar<i
+                                        class="far fa-trash-alt"></i></button>
+                            </td>
+                            <td *ngIf="identity.id != category.commerce_id">
+                                Sin permisos
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Orden</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Creado el</th>
-                        <th scope="col">Actualizado el</th>
-                        <th scope="col">Funcion</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let category of categories |  filter:filterCategory | paginate: config; let i =index">
-                        <th scope="row">{{i+1}}</th>
-                        <td>{{category.name}}</td>
-                        <td>{{category.created_at}}</td>
-                        <td>{{category.updated_at}}</td>
-                        <td *ngIf="identity.id == category.commerce_id"><button type="button" class="btn btn-warning" [routerLink]="['/editar-categoria', category.id]" >Editar<i class="fas fa-edit"></i></button>
-                                                                       | <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)">Eliminar<i
-                                    class="far fa-trash-alt"></i></button>
-                        </td>
-                        <td *ngIf="identity.id != category.commerce_id">
-                            Sin permisos
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
+        [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+        [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+        [screenReaderPageLabel]="labels.screenReaderPageLabel"
+        [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)">
+    </pagination-controls>
+
 </div>
-<pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
-    [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
-    [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
-    [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
-    (pageChange)="onPageChange($event)"></pagination-controls>
