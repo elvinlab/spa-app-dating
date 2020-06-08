@@ -47,11 +47,11 @@
 
         <div class="form-group">
             <label for="discount">Descuento</label>
-            <input type="text" name="discount" class="form-control" #discount="ngModel" [(ngModel)]="promotion.discount"
+            <input type="text" name="discount" min="0" max="99" size="1" maxlength="2" class="form-control" #discount="ngModel" [(ngModel)]="promotion.discount"
                 required pattern="[0-9]+">
 
             <small *ngIf="!discount.valid && discount.touched" class="invalid-feedback d-block">
-                Solo numeros porfavor
+                Solo numeros del 1 al 99
             </small>
         </div>
 
