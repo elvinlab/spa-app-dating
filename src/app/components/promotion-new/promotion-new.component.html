@@ -1,69 +1,86 @@
 <div class="col-md-12 mt-3">
-	<h1>{{page_title}}</h1>
-	
-	<p *ngIf="status != 'success'">
-		Crea una promocion y has crecer tu negocio
-	  </p>
-	  <hr/>
-  
-	  <div class="alert alert-success col-md-5 mt-3" *ngIf="status == 'success'">
-		  La promocion se ha creado correctamente !!
-	  </div>
-  
-	  <div class="alert alert-danger col-md-8" *ngIf="status == 'error'">
-		La promocion se ha creado correctamente, puede que el nombre ya este en uso!!
-	  </div>
-	<!--Formulario de crear promotion-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <h1>{{page_title}}</h1>
 
-	<form #promotionForm="ngForm" (ngSubmit)="onSubmit(promotionForm)" class="col-md-8">
-        
+    <p *ngIf="status != 'success'">
+        Crea una promocion y has crecer tu negocio
+    </p>
+    <hr />
+
+    <div class="alert alert-danger col-md-8" *ngIf="status == 'error'">
+        La promocion se ha creado correctamente, puede que el nombre ya este en uso!!
+    </div>
+    <!--Formulario de crear promotion-->
+
+    <form #promotionForm="ngForm" (ngSubmit)="onSubmit(promotionForm)" class="col-md-8">
+
         <div class="form-group">
-			<label for="coupon">Nombre del cumpon</label>
-			<input type="text" name="coupon" class="form-control" #coupon="ngModel" [(ngModel)]="promotion.coupon" required
-				pattern="[A-Za-z0-9]+">
+            <label for="coupon">Nombre del cumpon</label>
+            <input type="text" name="coupon" class="form-control" #coupon="ngModel" [(ngModel)]="promotion.coupon"
+                required pattern="[A-Za-z0-9]+">
 
-			<small *ngIf="!coupon.valid && coupon.touched" class="invalid-feedback d-block">
+            <small *ngIf="!coupon.valid && coupon.touched" class="invalid-feedback d-block">
                 El nombre del cupon no es válido
-			</small>
+            </small>
         </div>
 
         <div class="form-group">
-			<label for="max">Maximo</label>
-			<input type="text" name="max" class="form-control" #max="ngModel" [(ngModel)]="promotion.max" required
-				pattern="[0-9]+">
+            <label for="max">Maximo</label>
+            <input type="text" name="max" class="form-control" #max="ngModel" [(ngModel)]="promotion.max" required
+                pattern="[0-9]+">
 
-			<small *ngIf="!max.valid && max.touched" class="invalid-feedback d-block">
+            <small *ngIf="!max.valid && max.touched" class="invalid-feedback d-block">
                 Solo numeros porfavor
-			</small>
+            </small>
         </div>
 
         <div class="form-group">
-			<label for="amount">Cantidad</label>
-			<input type="text" name="amount" class="form-control" #amount="ngModel" [(ngModel)]="promotion.amount" required
-				pattern="[0-9]+">
+            <label for="amount">Cantidad</label>
+            <input type="text" name="amount" class="form-control" #amount="ngModel" [(ngModel)]="promotion.amount"
+                required pattern="[0-9]+">
 
-			<small *ngIf="!amount.valid && amount.touched" class="invalid-feedback d-block">
+            <small *ngIf="!amount.valid && amount.touched" class="invalid-feedback d-block">
                 Solo numeros porfavor
-			</small>
+            </small>
         </div>
-        
+
+
+        <div class="form-group">
+            <br />
+            <label for="expiry">Elegir fecha de expiracion</label>
+            <br />
+            <ngb-datepicker #dp [(ngModel)]="dateSelected" name="first" [minDate]="minDate"
+                (navigate)="date = $event.next" required>
+            </ngb-datepicker>
+            <br />
+            <br />
+        </div>
+
+        <div class="form-group">
+            <label for="discount">Descuento</label>
+            <input type="text" name="discount" class="form-control" #discount="ngModel" [(ngModel)]="promotion.discount"
+                required pattern="[0-9]+">
+
+            <small *ngIf="!discount.valid && discount.touched" class="invalid-feedback d-block">
+                Solo numeros porfavor
+            </small>
+        </div>
+
+
+        <div class="form-group">
+            <label for="image">Imagen de promocion</label>
+
+            <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)" >
+            </angular-file-uploader>
+        </div>
+
+
         <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
-        [(ngModel)]="promotion.description"></textarea>
-		
+            [(ngModel)]="promotion.description" required></textarea>
 
-		<input type="submit" value="Guardar" class="btn btn-success" [disabled]="promotionForm.invalid" />
-	</form>
 
-	<br>
+        <input type="submit" value="Guardar" class="btn btn-success" [disabled]="promotionForm.invalid" />
+    </form>
 
+    <br>
 </div>
-
-<ngb-datepicker #dp [(ngModel)]="model" (navigate)="navigateEvent($event)"></ngb-datepicker>
-
-  <button class="btn btn-sm btn-outline-primary mr-2" (click)="selectToday()">Select Today</button>
-  <button class="btn btn-sm btn-outline-primary mr-2" (click)="setCurrent()">To current month</button>
-  <button class="btn btn-sm btn-outline-primary mr-2" (click)="setDate()">To Feb 2013</button>
-
-
-  <pre>Month: {{ date.month }}.{{ date.year }}</pre>
-  <pre>Model: {{ model | json }}</pre>

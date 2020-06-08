@@ -5,7 +5,7 @@ export class Promotion {
         public coupon: string,
         public max: number,
         public amount: number,
-        public expiry: any,
+        public expiry: string,
         public description: string,
         public image: string,
         public discount: number,

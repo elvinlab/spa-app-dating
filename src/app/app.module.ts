@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { routing, appRoutingProviders } from './app.routing';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { RegisterClientComponent } from './components/register-client/register-client.component';
@@ -27,7 +28,6 @@ import { PromotionNewComponent } from './components/promotion-new/promotion-new.
 import { PromotionEditComponent } from './components/promotion-edit/promotion-edit.component';
 import { PromotionDetailComponent } from './components/promotion-detail/promotion-detail.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +49,7 @@ import { PromotionDetailComponent } from './components/promotion-detail/promotio
   ],
   imports: [
     BrowserModule,
+    NgbModule,
     NgxPaginationModule,
     routing,
     FormsModule,
@@ -56,7 +57,6 @@ import { PromotionDetailComponent } from './components/promotion-detail/promotio
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
     AngularFileUploaderModule
-    
   ],
   providers: [
     appRoutingProviders,
