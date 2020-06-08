@@ -22,6 +22,10 @@
 			<div class="promotion-image w-100" *ngIf="promotion.image">
 				<img src="{{ url + 'promotion/image/' + promotion.image }}" class="w-100" />
 			</div>
+
+			<div class="promotion-image w-100" *ngIf="!promotion.image">
+				<img src="assets/images/default.jpg" class="w-100" />
+			</div>
 			<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" class="form-control"  [innerHTML]="'Comercio: ' + promotion.name_commerce"></div>
 			<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" class="form-control"  [innerHTML]="'Maximo de cupones: ' + promotion.max"></div>
 			<div class="form-control"  [innerHTML]="'Cupos disponibles: ' + promotion.amount"></div>
@@ -31,9 +35,7 @@
 			<textarea [froalaEditor]="froala_options" name="description" class="form-control"
 			[innerHTML]="promotion.description"></textarea>
 
-			<div class="promotion-image w-100" *ngIf="!promotion.image">
-				<img src="assets/images/default.jpg" class="w-100" />
-			</div>
+		
 
 
 			<!--botones de acción-->
