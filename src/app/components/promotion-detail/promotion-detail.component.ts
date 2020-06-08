@@ -37,8 +37,6 @@ export class PromotionDetailComponent implements OnInit {
   public identity;
   public token;
   filterPromotion = '';
-
-
   constructor(
 
     private _route: ActivatedRoute,

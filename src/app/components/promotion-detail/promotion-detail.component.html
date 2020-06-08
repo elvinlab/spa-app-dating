@@ -1,11 +1,8 @@
-<div class="container-fluid mt-3" *ngIf="promotions">
+<div class="container">
 	<h1>{{page_title}}</h1>
-	<hr>
-
-	<!--LISTADO DE ENTRADAS-->
+	
 	<app-promotions-list [promotions]="promotions"
-	           [identity]="identity"
-               [url]="url"
-               (delete) ="deletePromotion($event)" > </app-promotions-list>
-
-</div>
+	[identity]="identity"
+	[url]="url"
+	[filterPromotion]="filterPromotion"
+	(delete) ="deletePromotion($event)" > </app-promotions-list>

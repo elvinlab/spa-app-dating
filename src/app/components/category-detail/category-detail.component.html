@@ -17,7 +17,6 @@
                     <tr>
                         <th scope="col">Orden</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Descripcion</th>
                         <th scope="col">Creado el</th>
                         <th scope="col">Actualizado el</th>
                         <th scope="col">Funcion</th>
@@ -27,11 +26,10 @@
                     <tr *ngFor="let category of categories |  filter:filterCategory | paginate: config; let i =index">
                         <th scope="row">{{i+1}}</th>
                         <td>{{category.name}}</td>
-                        <td innerHtml="{{category.description}}"></td>
                         <td>{{category.created_at}}</td>
                         <td>{{category.updated_at}}</td>
                         <td *ngIf="identity.id == category.commerce_id"><button type="button" class="btn btn-warning" [routerLink]="['/editar-categoria', category.id]" >Editar<i class="fas fa-edit"></i></button>
-                                                                        <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)">Eliminar<i
+                                                                       | <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)">Eliminar<i
                                     class="far fa-trash-alt"></i></button>
                         </td>
                         <td *ngIf="identity.id != category.commerce_id">

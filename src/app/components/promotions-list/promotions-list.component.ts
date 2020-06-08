@@ -10,6 +10,7 @@ export class PromotionsListComponent implements OnInit {
   @Input() promotions;
 	@Input() identity;
   @Input() url;
+  @Input() filterPromotion;
 
 
   @Output() delete = new EventEmitter();
