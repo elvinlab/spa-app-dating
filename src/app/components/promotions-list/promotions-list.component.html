@@ -1,9 +1,9 @@
 <br/>
 <div class="row">
-	<div class="col-5">
+	<div class="col-12">
 		<div class="form-group">
 			<input type="text" class="form-control" name="filterPromotion"
-				placeholder="Buscar por nombre o descripcion" [(ngModel)]="filterPromotion">
+				placeholder="Buscar por nombre de comercio, descripcion del cupo, nombre de cupo,fecha de expiracion" [(ngModel)]="filterPromotion">
 		</div>
 	</div>
 </div>
@@ -22,6 +22,14 @@
 			<div class="promotion-image w-100" *ngIf="promotion.image">
 				<img src="{{ url + 'promotion/image/' + promotion.image }}" class="w-100" />
 			</div>
+			<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" class="form-control"  [innerHTML]="'Comercio: ' + promotion.name_commerce"></div>
+			<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" class="form-control"  [innerHTML]="'Maximo de cupones: ' + promotion.max"></div>
+			<div class="form-control"  [innerHTML]="'Cupos disponibles: ' + promotion.amount"></div>
+			<div class="form-control"  [innerHTML]="'Descuento de ' + promotion.discount + '%'"></div>
+			<div class="form-control"  [innerHTML]="'Expira el  ' + promotion.expiry"></div>
+
+			<textarea [froalaEditor]="froala_options" name="description" class="form-control"
+			[innerHTML]="promotion.description"></textarea>
 
 			<div class="promotion-image w-100" *ngIf="!promotion.image">
 				<img src="assets/images/default.jpg" class="w-100" />
@@ -31,8 +39,7 @@
 			<!--botones de acción-->
 			<div class="promotion-buttons mt-3">
 		
-
-				<span *ngIf="identity && identity.sub == promotion.user_id">
+				<span *ngIf="identity && identity.id == promotion.commerce_id">
 					<a [routerLink]="['/editar-promocion', promotion.id]" class="btn btn-warning mr-2">Editar</a>
 					
 					<!-- Button to Open the Modal -->
@@ -65,6 +72,11 @@
 					    </div>
 					  </div>
 					</div>
+
+				</span>
+
+				<span *ngIf="identity && identity.role == 'ROLE_CLIENT'">
+					<a class="btn btn-success mr-2">Ir al comercio ya!</a>
 
 				</span>
 			</div>

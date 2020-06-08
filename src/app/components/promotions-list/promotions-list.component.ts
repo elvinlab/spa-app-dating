@@ -6,16 +6,17 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./promotions-list.component.css']
 })
 export class PromotionsListComponent implements OnInit {
-
+	public linkImage: string = 'http://127.0.0.1:8000/api/promotion/image/';
   @Input() promotions;
 	@Input() identity;
   @Input() url;
   @Input() filterPromotion;
 
-
   @Output() delete = new EventEmitter();
   
-  constructor() { }
+  constructor() { 
+  
+  }
 
   ngOnInit(): void {
   }
@@ -24,5 +25,13 @@ export class PromotionsListComponent implements OnInit {
   this.delete.emit(id);
   }
 
+  public froala_options: Object = {
+		charCounterCount: false,
+		language: 'es',
+		toolbarButtons: ['.', '.', '.', '.'],
+		toolbarButtonsXS: ['.', '.', '.', '.'],
+		toolbarButtonsSM: ['.', '.', '.', '.'],
+		toolbarButtonsMD: ['.', '.', '.', '.'],
+    }
 
 }

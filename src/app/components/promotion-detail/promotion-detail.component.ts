@@ -53,22 +53,37 @@ export class PromotionDetailComponent implements OnInit {
 
   }
 
-  onPageChange(event) {
-    console.log(event);
-    this.config.currentPage = event;
-  }
-
   ngOnInit() {
-    this.getPromotions();
+    if(this.identity && this.identity.role == 'ROLE_COMMERCE'){
+      this.getPromotionsCommerce();
+    }else if(this.identity && this.identity.role == 'ROLE_CLIENT'){
+      this.getPromotions();
+     
+    }
+   
   }
 
 
-  getPromotions() {
-    //mandar el token tambien a la hora de subir imagen
-    this._promotionService.getPromotions(this.token, this.identity.id).subscribe(
+  getPromotionsCommerce() {
+
+    this._promotionService.getPromotionsCommerce(this.token, this.identity.id).subscribe(
       response => {
         if (response.status == 'success') {
           this.promotions = response.promotions;
+        }
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
+  getPromotions() {
+    this._promotionService.getPromotions(this.token).subscribe(
+      response => {
+        if (response.status == 'success') {
+          this.promotions = response.promotions;
+          console.log(response.promotions);
         }
       },
       error => {
@@ -81,7 +96,7 @@ export class PromotionDetailComponent implements OnInit {
   deletePromotion(id) {
     this._promotionService.delete(this.token, id).subscribe(
       response => {
-        this.getPromotions();
+        this.getPromotionsCommerce();
       },
       error => {
         console.log(error);

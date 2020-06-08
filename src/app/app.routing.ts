@@ -34,7 +34,7 @@ const appRoutes: Routes = [
 	{path: 'gestionar-categorias', component: CategoryDetailComponent},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
 	{path: 'editar-categoria/:id', component: CategoryEditComponent, canActivate: [IdentityGuard]},
-	{path: 'gestionar-promociones', component: PromotionDetailComponent},
+	{path: 'listar-promociones', component: PromotionDetailComponent},
 	{path: 'crear-promocion', component: PromotionNewComponent, canActivate: [IdentityGuard]},
 	{path: 'editar-promocion/:id', component: PromotionEditComponent, canActivate: [IdentityGuard]},
 	{path: 'error', component: ErrorComponent},

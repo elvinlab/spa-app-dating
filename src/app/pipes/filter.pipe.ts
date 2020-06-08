@@ -26,6 +26,18 @@ export class FilterPipe implements PipeTransform {
           resultList.push(array);
         }
       }
+
+      if(array.name_commerce){
+        if (array.name_commerce.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultList.push(array);
+        }
+      }
+      
+      if(array.expiry){
+        if (array.expiry.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultList.push(array);
+        }
+      }
     
     }
     return resultList;

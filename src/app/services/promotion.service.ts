@@ -51,10 +51,16 @@ export class PromotionService {
 		return this._http.get(this.url + 'promotion/' + id, { headers: headers });
 	}
 
-	getPromotions(token, id):Observable<any>{
+	getPromotionsCommerce(token, id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
 		return this._http.get(this.url + 'promotion/getpromos/' + id, {headers: headers});
+	}
+
+	getPromotions(token):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+		return this._http.get(this.url + 'promotion/', {headers: headers});
 	}
 
 }
