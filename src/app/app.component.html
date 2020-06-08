@@ -4,6 +4,10 @@
       <a href="#" *ngIf="identity.image" class="img logo rounded-circle mb-5"
         style="background-image: url({{url}});"></a>
 
+        <div class="promotion-image w-100" *ngIf="!identity.image">
+          <img src="assets/images/default.jpg" class="w-100" />
+        </div>
+
       <ul class="list-unstyled components mb-5">
         <li class="active">
 
@@ -13,7 +17,6 @@
 
             <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/editar-cliente']">Subir foto de perfil</a>
             <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Subir foto de perfil</a>
-            <a [routerLink]="['/perfil']">Mi perfil</a>
             <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/editar-cliente']">Ajustes</a>
             <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/editar-comercio']">Ajustes</a>
 
@@ -87,40 +90,27 @@
                 class="sr-only">(current)</span></a>
           </li>
 
-        </ul>
-
-        <ul class="navbar-nav navbar-center">
           <li class="nav-item">
             <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
-              [routerLink]="['/registro-cliente']">Mis Citas</a>
+              [routerLink]="['/registro-cliente']">Agenda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
-              [routerLink]="['/registro-cliente']">Explorar Comercios</a>
+              [routerLink]="['/registro-cliente']">Explorar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
-            [routerLink]="['/listar-promociones']">Ver Promociones</a>
-          </li>
-
-
-          <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
-              [routerLink]="['/registro-cliente']">Control De Citas</a>
+            [routerLink]="['/listar-promociones']">Promociones</a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
-              [routerLink]="['/registro-cliente']">Mis Servicios</a>
+              [routerLink]="['/registro-cliente']">Agenda</a>
           </li>
 
-        </ul>
-
-        <ul class="navbar-nav navbar-right">
-
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
-              [routerLink]="['/registro-comercio']">Registra tu comercio</a>
+            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
+              [routerLink]="['/registro-cliente']">Servicios</a>
           </li>
 
           <li class="nav-item">
@@ -133,13 +123,16 @@
           </li>
 
 
-          <!-- Example single danger button -->
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary text-dark dropdown-toggle" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+        </ul>
+
+
+        <ul class="navbar-nav navbar-right">
+
+          <div class="dropdown">
+            <button class="btn btn-primary  text-dark  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Acceder como
             </button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" [routerLink]="['/login-cliente']">Cliente</a>
               <a class="dropdown-item" [routerLink]="['/login-comercio']">Comercio</a>
             </div>
