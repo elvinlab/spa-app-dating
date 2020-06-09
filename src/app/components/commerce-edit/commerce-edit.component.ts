@@ -42,15 +42,22 @@ export class CommerceEditComponent implements OnInit {
     hideProgressBar: false,
     hideResetBtn: true,
     hideSelectBtn: false,
-    attachPinText: 'Sube tu avatar de comercio',
-
+    replaceTexts: {
+      selectFileBtn: 'Select Files',
+      resetBtn: 'Reset',
+      uploadBtn: 'Upload',
+      dragNDropBox: 'Drag N Drop',
+      attachPinBtn: 'Sube tu imagen de comercio',
+      afterUploadMsg_success: 'Successfully Uploaded !',
+      afterUploadMsg_error: 'Upload Failed !'
+    }
   };
 
   constructor(
     private _commerceService: CommerceService
   ) {
     this.page_title = 'Ajustes de comercio';
-    this.commerce = new Commerce("", "", "", "",  "", "ROLE_COMMERCE", "", "", "", "", "", "");
+    this.commerce = new Commerce("", "", "", "", "", "ROLE_COMMERCE", "", "", "", "", "", "");
     this.identity = this._commerceService.getIdentity();
     this.token = this._commerceService.getToken();
     this.url = global.url;

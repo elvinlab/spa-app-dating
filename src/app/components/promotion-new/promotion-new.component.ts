@@ -66,7 +66,15 @@ export class PromotionNewComponent implements OnInit {
 		hideProgressBar: false,
 		hideResetBtn: true,
 		hideSelectBtn: false,
-		attachPinText: 'Sube tu avatar de cliente',
+		replaceTexts: {
+			selectFileBtn: 'Select Files',
+			resetBtn: 'Reset',
+			uploadBtn: 'Upload',
+			dragNDropBox: 'Drag N Drop',
+			attachPinBtn: 'Sube imagen de promocion',
+			afterUploadMsg_success: 'Successfully Uploaded !',
+			afterUploadMsg_error: 'Upload Failed !'
+		  }
 
 	};
 

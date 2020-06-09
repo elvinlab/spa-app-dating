@@ -57,11 +57,14 @@
 
         <hr />
         <div class="form-group">
-            <label for="image">Imagen de promocion</label>
+			<label for="image">Imagen de promocion</label>
 
-            <angular-file-uploader [config]="afuConfig" (ApiResponse)="imageUpload($event)" >
-            </angular-file-uploader>
-        </div>
+			<angular-file-uploader
+			      [config]="afuConfig"
+			      (ApiResponse)="imageUpload($event)">
+			</angular-file-uploader>
+		</div>
+
         <hr />
         <br />
         <label for="description">Descripcion</label>

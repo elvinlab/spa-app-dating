@@ -65,18 +65,17 @@
 			</small>
 		</div>
 
+		<label for="image">Foto de perfil</label>
+		<div *ngIf="identity && identity.image">
+			<img src="{{url + 'client/avatar/' + identity.image }}" class="avatar_edit" />
+		</div>
+
+		<br />
 		<div class="form-group">
-			<label for="image">Foto de perfil</label>
-
-			<div *ngIf="identity && identity.image">
-				<img src="{{url + 'client/avatar/' + identity.image }}" class="avatar_edit"/>
-			</div>
-
-			<angular-file-uploader
-			      [config]="afuConfig"
-			      (ApiResponse)="avatarUpload($event)">
+			<angular-file-uploader [config]="afuConfig" (ApiResponse)="avatarUpload($event)">
 			</angular-file-uploader>
 		</div>
+
 	
 		<input type="submit" value="Cambiar" class="btn btn-success" [disabled]="editForm.invalid" />
 	</form>
