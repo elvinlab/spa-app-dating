@@ -34,6 +34,7 @@ export class CategoryDetailComponent implements OnInit {
   public category: Category;
   public categories: any;
   public url: string;
+  public isSelect: boolean = false;
   public identity;
   public token;
   filterCategory = '';
@@ -50,6 +51,7 @@ export class CategoryDetailComponent implements OnInit {
     this.page_title = 'Listado de categorias';
     this.identity = this._CommerceService.getIdentity();
     this.token = this._CommerceService.getToken();
+    this.isSelect;
 
   }
 

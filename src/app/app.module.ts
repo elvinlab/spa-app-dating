@@ -28,6 +28,7 @@ import { PromotionNewComponent } from './components/promotion-new/promotion-new.
 import { PromotionEditComponent } from './components/promotion-edit/promotion-edit.component';
 import { PromotionDetailComponent } from './components/promotion-detail/promotion-detail.component';
 import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
+import { CategoriesListComponent } from './components/categories-list/categories-list.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { PromotionsListComponent } from './components/promotions-list/promotions
     PromotionEditComponent,
     PromotionDetailComponent,
     PromotionsListComponent,
+    CategoriesListComponent,
   ],
   imports: [
     BrowserModule,
