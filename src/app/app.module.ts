@@ -29,6 +29,10 @@ import { PromotionEditComponent } from './components/promotion-edit/promotion-ed
 import { PromotionDetailComponent } from './components/promotion-detail/promotion-detail.component';
 import { PromotionsListComponent } from './components/promotions-list/promotions-list.component';
 import { CategoriesListComponent } from './components/categories-list/categories-list.component';
+import { ServiceNewComponent } from './components/service-new/service-new.component';
+import { ServiceEditComponent } from './components/service-edit/service-edit.component';
+import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
+import { ServicesListComponent } from './components/services-list/services-list.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +54,10 @@ import { CategoriesListComponent } from './components/categories-list/categories
     PromotionDetailComponent,
     PromotionsListComponent,
     CategoriesListComponent,
+    ServiceNewComponent,
+    ServiceEditComponent,
+    ServiceDetailComponent,
+    ServicesListComponent,
   ],
   imports: [
     BrowserModule,

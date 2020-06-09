@@ -1,0 +1,59 @@
+<div class="col-md-12 mt-3">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <h1>{{page_title}}</h1>
+
+    <p *ngIf="status != 'success'">
+        Crea una service y has crecer tu negocio
+    </p>
+    <hr />
+
+    <div class="alert alert-danger col-md-8" *ngIf="status == 'error'">
+        La service se ha creado correctamente, puede que el nombre ya este en uso!!
+    </div>
+    <!--Formulario de crear service-->
+
+    <form #serviceForm="ngForm" (ngSubmit)="onSubmit(serviceForm)" class="col-md-12">
+
+        <div class="form-group">
+            <label for="coupon">Nombre del Servicio</label>
+            <input type="text" name="coupon" class="form-control" maxlength="30" #coupon="ngModel"
+                [(ngModel)]="service.name" required>
+
+            <small *ngIf="!coupon.valid && coupon.touched" class="invalid-feedback d-block">
+                El nombre no es válido
+            </small>
+        </div>
+        <hr />
+
+        <div class="form-group">
+            <label> Categoria seleccionada:</label>
+            <input type="text" class="col-2" name="category_id" #category_id="ngModel" [(ngModel)]="service.category_id"
+                disabled>
+            <app-categories-list [categories]="categories" [identity]="identity" [filterCategory]="filterCategory"
+                (delete)="deleteCategory($event)" (isSelectCagegory)="getCategorId($event)"> </app-categories-list>
+        </div>
+        <hr />
+        <div class="form-group">
+            <label for="price">Precio</label>
+            <input type="text" name="price" class="form-control" #price="ngModel" [(ngModel)]="service.price" required
+                pattern="[0-9]+">
+
+            <small *ngIf="!price.valid && price.touched" class="invalid-feedback d-block">
+                Solo numeros porfavor
+            </small>
+        </div>
+
+        <br />
+        <label for="description">Descripcion</label>
+        <textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
+            [(ngModel)]="service.description" required></textarea>
+
+        <br />
+        <div *ngIf="service.category_id">
+            <input type="submit" value="Guardar" class="btn btn-success" [disabled]="serviceForm.invalid" />
+        </div>
+
+    </form>
+
+    <br>
+</div>

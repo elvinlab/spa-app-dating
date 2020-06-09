@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <label for="coupon">Nombre del cumpon</label>
-            <input type="text" name="coupon" class="form-control" #coupon="ngModel" [(ngModel)]="promotion.coupon"
+            <input type="text" name="coupon" class="form-control" maxlength="15" #coupon="ngModel" [(ngModel)]="promotion.coupon"
                 required pattern="[A-Za-z0-9]+">
 
             <small *ngIf="!coupon.valid && coupon.touched" class="invalid-feedback d-block">

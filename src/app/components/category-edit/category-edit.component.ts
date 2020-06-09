@@ -57,7 +57,7 @@ export class CategoryEditComponent implements OnInit {
 
 						// Evitar que un usuario se pase de listo
 						if (category[0].commerce_id != this.identity.id) {
-							this._router.navigate(['/../gestionar-categorias']);
+							this._router.navigate(['/../listar-categorias']);
 						} else {
 							this.category = new Category(
 								category[0].id,
@@ -72,7 +72,7 @@ export class CategoryEditComponent implements OnInit {
 				},
 				error => {
 					console.log(error);
-					this._router.navigate(['/../gestionar-categorias']);
+					this._router.navigate(['/../listar-categorias']);
 				}
 			);
 
@@ -86,7 +86,7 @@ export class CategoryEditComponent implements OnInit {
 					this.category = response.category;
 					this.status = 'success';
 
-					this._router.navigate(['/../gestionar-categorias']);
+					this._router.navigate(['/../listar-categorias']);
 				} else {
 					this.status = 'error';
 				}

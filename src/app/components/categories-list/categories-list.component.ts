@@ -16,7 +16,7 @@ export class CategoriesListComponent implements OnInit {
   @Output() delete = new EventEmitter();
   @Output() isSelectCagegory = new EventEmitter();
 
-  public maxSize: number = 7;
+  public maxSize: number = 5;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;
@@ -49,7 +49,7 @@ export class CategoriesListComponent implements OnInit {
     this.delete.emit(id);
   }
 
-  isSelectCagegoryFuncion(id) {
+  getCategorId(id) {
     this.isSelectCagegory.emit(id);
   }
 

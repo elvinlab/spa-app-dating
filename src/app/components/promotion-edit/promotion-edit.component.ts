@@ -103,7 +103,7 @@ export class PromotionEditComponent implements OnInit {
 				},
 				error => {
 					console.log(error);
-					this._router.navigate(['/../gestionar-categorias']);
+					this._router.navigate(['/../listar-categorias']);
 				}
 			);
 
