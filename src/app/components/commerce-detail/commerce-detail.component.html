@@ -1,0 +1,8 @@
+<div class="loading" *ngIf="commerces == 0">
+	Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="commerces != 0">
+	<h1>{{page_title}}</h1>
+	<app-commerces-list [commerces]="commerces" [url]="url" [filterCommerce]="filterCommerce"> </app-commerces-list>
+</div>

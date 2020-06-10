@@ -20,6 +20,7 @@ import { PromotionDetailComponent } from './components/promotion-detail/promotio
 import { ServiceNewComponent } from './components/service-new/service-new.component';
 import { ServiceEditComponent } from './components/service-edit/service-edit.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
+import { CommerceDetailComponent } from './components/commerce-detail/commerce-detail.component';
 import { IdentityGuardClient } from './services/identity-client.guard';
 import { IdentityGuardCommerce } from './services/identity-commerce.guard';
 
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
 	{path: 'editar-promocion/:id', component: PromotionEditComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'gestionar-servicios', component: ServiceDetailComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'listar-servicios', component: ServiceDetailComponent, canActivate: [IdentityGuardClient]},
+	{path: 'listar-comercios', component: CommerceDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'crear-servicio', component: ServiceNewComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuardCommerce]},
 

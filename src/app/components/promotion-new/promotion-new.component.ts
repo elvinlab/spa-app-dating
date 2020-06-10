@@ -84,9 +84,6 @@ export class PromotionNewComponent implements OnInit {
 	onSubmit(form) {
 
 		this.promotion.expiry = this.dateSelected.year + "-" + this.dateSelected.month + "-" + this.dateSelected.day;
-
-		console.log(this.promotion.expiry);
-		console.log(this.dateSelected);
 		this._promotionService.create(this.token, this.promotion).subscribe(
 			response => {
 				if (response.status == 'success') {

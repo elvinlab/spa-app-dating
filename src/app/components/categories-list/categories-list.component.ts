@@ -40,7 +40,7 @@ export class CategoriesListComponent implements OnInit {
 
 
   onPageChange(event) {
-    console.log(event);
+
     this.config.currentPage = event;
   }
 

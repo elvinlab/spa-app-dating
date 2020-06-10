@@ -84,7 +84,6 @@ export class ClientEditComponent implements OnInit {
 		this._clientService.update(this.token, this.client).subscribe(
 			response => {
 				if (response && response.status) {
-					console.log(response);
 					this.status = 'success';
 
 					// Actualizar cliente en sesión

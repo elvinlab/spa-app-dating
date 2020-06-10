@@ -23,8 +23,6 @@ export class RegisterClientComponent implements OnInit {
   }
 
   ngOnInit() {
-  	console.log('Componente de registro lanzado!!');
-    console.log(this._clientService.test());
   }
 
   onSubmit(form){

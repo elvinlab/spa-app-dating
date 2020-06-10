@@ -34,6 +34,8 @@ import { ServiceNewComponent } from './components/service-new/service-new.compon
 import { ServiceEditComponent } from './components/service-edit/service-edit.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { ServicesListComponent } from './components/services-list/services-list.component';
+import { CommerceDetailComponent } from './components/commerce-detail/commerce-detail.component';
+import { CommercesListComponent } from './components/commerces-list/commerces-list.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { ServicesListComponent } from './components/services-list/services-list.
     ServiceEditComponent,
     ServiceDetailComponent,
     ServicesListComponent,
+    CommerceDetailComponent,
+    CommercesListComponent,
   ],
   imports: [
     BrowserModule,

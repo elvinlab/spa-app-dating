@@ -56,6 +56,12 @@ export class CommerceService {
 	   	return this._http.put(this.url + 'commerce/update', params, {headers: headers});
 	}
 
+	getCommerces():Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+		return this._http.get(this.url + 'getcommerces', {headers: headers});
+	}
+
+
 	getIdentity(){
 		let identity = JSON.parse(localStorage.getItem('identity_commerce'));
 

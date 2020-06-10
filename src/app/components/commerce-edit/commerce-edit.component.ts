@@ -87,7 +87,6 @@ export class CommerceEditComponent implements OnInit {
     this._commerceService.update(this.token, this.commerce).subscribe(
       response => {
         if (response && response.status) {
-          console.log(response);
           this.status = 'success';
 
           // Actualizar commercee en sesión

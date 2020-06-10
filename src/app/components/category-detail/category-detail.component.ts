@@ -54,7 +54,6 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   onPageChange(event) {
-    console.log(event);
     this.config.currentPage = event;
   }
 

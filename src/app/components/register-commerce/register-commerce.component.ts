@@ -23,8 +23,6 @@ export class RegisterCommerceComponent implements OnInit {
   }
 
   ngOnInit() {
-  	console.log('Componente de registro lanzado!!');
-    console.log(this._commerceService.test());
   }
 
   public froala_options: Object = {
