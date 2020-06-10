@@ -29,7 +29,7 @@ export class PromotionDetailComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
   };
-
+  
   public page_title: string;
   public promotion: Promotion;
   public promotions: any;

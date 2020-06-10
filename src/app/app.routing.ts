@@ -43,7 +43,8 @@ const appRoutes: Routes = [
 	{path: 'listar-promociones', component: PromotionDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'crear-promocion', component: PromotionNewComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'editar-promocion/:id', component: PromotionEditComponent, canActivate: [IdentityGuardCommerce]},
-	{path: 'listar-servicios', component: ServiceDetailComponent, canActivate: [IdentityGuardClient, IdentityGuardCommerce]},
+	{path: 'gestionar-servicios', component: ServiceDetailComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'listar-servicios', component: ServiceDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'crear-servicio', component: ServiceNewComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuardCommerce]},
 

@@ -57,7 +57,7 @@ export class ServiceNewComponent implements OnInit {
           this.service = response.category;
           this.status = 'success';
 
-          this._router.navigate(['/../listar-prmociones']);
+          this._router.navigate(['/../gestionar-servicios']);
         } else {
           this.status = 'error';
         }

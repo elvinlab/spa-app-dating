@@ -44,16 +44,11 @@ export class CommerceServiceService {
 	   return this._http.delete(this.url + 'service/' + id, {headers: headers});
 	}
 
-	getservice(id): Observable<any> {
+	getService(id): Observable<any> {
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-		return this._http.get(this.url + 'service/' + id, { headers: headers });
+		return this._http.get(this.url + 'getservicecommerce/' + id, { headers: headers });
 	}
-
-	getServicesCategory():Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-		return this._http.get(this.url + 'service/getServicesCategory/', {headers: headers});
-	}
-
+	
 	getServices():Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'service/', {headers: headers});

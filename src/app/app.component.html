@@ -51,7 +51,7 @@
           <ul class="collapse list-unstyled" id="controlPromotion">
 
             <a  [routerLink]="['/crear-promocion']">Crear Promocion</a>
-            <a  [routerLink]="['/gestionar-promociones']">Listar mis Promociones</a>
+            <a  [routerLink]="['/gestionar-promociones']">Gestionar mis Promociones</a>
 
           </ul>
         </li>
@@ -82,21 +82,33 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+      <div class="dropdown">
+        <button  *ngIf="identity.role == 'ROLE_COMMERCE'" class="btn btn-primary  text-dark  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Servicios
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" [routerLink]="['/crear-servicio']">Crear servicios</a>
+          <a class="dropdown-item" [routerLink]="['/gestionar-servicios']">Gestionar servicios</a>
+        </div>
+      </div>
+      
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link text-warning" [routerLink]="['/inicio']">Inicio <span
-                class="sr-only">(current)</span></a>
-          </li>
+          <div class="dropdown">
+            <button  *ngIf="identity.role == 'ROLE_CLIENT'" class="btn btn-primary  text-dark  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Explorar
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" [routerLink]="['/listar-comercios']">Comercios</a>
+              <a class="dropdown-item" [routerLink]="['/listar-servicios']">Servicios</a>
+            </div>
+          </div>
 
           <li class="nav-item">
             <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
               [routerLink]="['/registro-cliente']">Agenda</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
-              [routerLink]="['/registro-cliente']">Explorar</a>
-          </li>
+ 
           <li class="nav-item">
             <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_CLIENT'"
             [routerLink]="['/listar-promociones']">Promociones</a>
@@ -105,11 +117,6 @@
           <li class="nav-item">
             <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
               [routerLink]="['/registro-cliente']">Agenda</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity.role == 'ROLE_COMMERCE'"
-              [routerLink]="['/registro-cliente']">Servicios</a>
           </li>
 
           <li class="nav-item">
