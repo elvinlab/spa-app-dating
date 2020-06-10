@@ -36,6 +36,10 @@ import { ServiceDetailComponent } from './components/service-detail/service-deta
 import { ServicesListComponent } from './components/services-list/services-list.component';
 import { CommerceDetailComponent } from './components/commerce-detail/commerce-detail.component';
 import { CommercesListComponent } from './components/commerces-list/commerces-list.component';
+import { AppointmentNewComponent } from './components/appointment-new/appointment-new.component';
+import { AppointmentEditComponent } from './components/appointment-edit/appointment-edit.component';
+import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
+import { AppointmentsListComponent } from './components/appointments-list/appointments-list.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +67,10 @@ import { CommercesListComponent } from './components/commerces-list/commerces-li
     ServicesListComponent,
     CommerceDetailComponent,
     CommercesListComponent,
+    AppointmentNewComponent,
+    AppointmentEditComponent,
+    AppointmentDetailComponent,
+    AppointmentsListComponent,
   ],
   imports: [
     BrowserModule,

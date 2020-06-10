@@ -20,9 +20,37 @@ export class FilterPipe implements PipeTransform {
           resultList.push(array);
         }
       }
-     
       if(array.coupon){
         if (array.coupon.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultList.push(array);
+        }
+      }
+     
+      if(array.name_owner){
+        if (array.name_owner.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultList.push(array);
+        }
+      }
+
+      if(array.address){
+        if (array.address.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultList.push(array);
+        }
+      }
+      if(array.tell){
+        if (array.tell.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultList.push(array);
+        }
+      }
+        
+      if(array.cell){
+        if (array.cell.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+          resultList.push(array);
+        }
+      }
+
+      if(array.name_commerce){
+        if (array.name_commerce.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
           resultList.push(array);
         }
       }

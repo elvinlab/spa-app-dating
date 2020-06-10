@@ -40,7 +40,7 @@ export class CommerceDetailComponent implements OnInit {
   ) {
 
     this.url = global.url;
-    this.page_title = 'Exploarar comercios';
+    this.page_title = 'Explorar comercios';
   }
 
   ngOnInit() {

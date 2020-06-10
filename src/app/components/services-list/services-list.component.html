@@ -37,10 +37,10 @@
 					[innerHTML]="'Categoria: ' + service.category_id"><hr /></div>
 					<hr />
 				<div style="color: darkred;" [innerHTML]="'Precio: ' + service.price"></div>
-				
-				<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" style="color: darkgreen ;"
-					[innerHTML]="'Ubicacion: ' + identity.address"> <hr /></div>
-		
+				<hr />
+				<div *ngIf="!identity" style="color: darkgreen ;"
+					[innerHTML]="'Ubicacion: ' + service.address"> <hr /></div>
+					<hr />
 				<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" style="color: darkgreen ;"
 					[innerHTML]="'Creado el: ' + service.created_at"> <hr /></div>
 
@@ -93,7 +93,7 @@
 				</span>
 
 				<span *ngIf="!identity">
-					<a class="btn btn-success mr-2">Ir al comercio ya!</a>
+					<a class="btn btn-success mr-2">Reservar servicio</a>
 
 				</span>
 			</div>

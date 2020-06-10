@@ -21,6 +21,9 @@ import { ServiceNewComponent } from './components/service-new/service-new.compon
 import { ServiceEditComponent } from './components/service-edit/service-edit.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
 import { CommerceDetailComponent } from './components/commerce-detail/commerce-detail.component';
+import { AppointmentNewComponent } from './components/appointment-new/appointment-new.component';
+import { AppointmentEditComponent } from './components/appointment-edit/appointment-edit.component';
+import { AppointmentDetailComponent } from './components/appointment-detail/appointment-detail.component';
 import { IdentityGuardClient } from './services/identity-client.guard';
 import { IdentityGuardCommerce } from './services/identity-commerce.guard';
 
@@ -49,7 +52,10 @@ const appRoutes: Routes = [
 	{path: 'listar-comercios', component: CommerceDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'crear-servicio', component: ServiceNewComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuardCommerce]},
-
+	{path: 'crear-cita', component: AppointmentNewComponent, canActivate: [IdentityGuardClient]},
+	{path: 'editar-cita/:id', component: AppointmentEditComponent, canActivate: [IdentityGuardClient]},
+	{path: 'listar-cita', component: AppointmentDetailComponent, canActivate: [IdentityGuardClient]},
+	{path: 'gestionar-cita', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'error', component: ErrorComponent},
 	{path: '**', component: ErrorComponent}
 ];
