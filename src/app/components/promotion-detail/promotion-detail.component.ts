@@ -30,7 +30,6 @@ export class PromotionDetailComponent implements OnInit {
     screenReaderCurrentLabel: `You're on page`
   };
 
-
   public page_title: string;
   public promotion: Promotion;
   public promotions: any;
@@ -39,7 +38,7 @@ export class PromotionDetailComponent implements OnInit {
   public token;
   filterPromotion = '';
   constructor(
-
+    
     private _route: ActivatedRoute,
     private _router: Router,
     private _promotionService: PromotionService,
