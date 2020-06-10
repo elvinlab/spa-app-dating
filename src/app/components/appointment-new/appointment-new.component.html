@@ -1,1 +1,122 @@
-<p>appointment-new works!</p>
+<h1>{{page_title}}</h1>
+<hr />
+<form #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm)" class="col-md-12">
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<label>Nombre de comercio</label>
+			<input class="form-control" placeholder="{{commerce.name_commerce}}" disabled>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label>Dueño</label>
+			<input class="form-control" placeholder="{{commerce.name_owner}}" disabled>
+		</div>
+	</div>
+
+	<div class="form-row">
+
+		<div class="form-group col-md-6">
+			<label>Celular</label>
+			<input class="form-control" placeholder="{{commerce.cell}}" disabled>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label>Telefono</label>
+			<input class="form-control" placeholder="{{commerce.tell}}" disabled>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label>Ubicacion</label>
+			<textarea class="form-control" placeholder="{{commerce.address}}"></textarea>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label>Description</label>
+			<textarea [froalaEditor]="froala_options" name="description" class="form-control" #description="ngModel"
+				[(ngModel)]="commerce.description" innerHtml="{{commerce.description}}"></textarea>
+		</div>
+	</div>
+	<hr />
+
+	<label> Categoria seleccionada:</label>
+	<input type="text" class="col-2" name="category_id" #category_id="ngModel" [(ngModel)]="appointment.service_id"
+		disabled>
+
+	<div class="row">
+		<div class="col-5">
+			<div class="form-group">
+				<input type="text" class="form-control" name="filterService"
+					placeholder="Buscar categoria por nombre o descripcion" [(ngModel)]="filterService">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">Orden</th>
+						<th scope="col">Nombre</th>
+						<th scope="col">precio</th>
+						<th scope="col">Descripcion</th>
+						<th scope="col">Seleccion</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let service of services |  filter:filterService | paginate: config; let i =index">
+						<th scope="row">{{i+1}}</th>
+						<td>{{service.name}}</td>
+
+						<td> {{service.price}} </td>
+						
+						<td>
+							<!-- Button to Open the Modal -->
+							<button type="button" class="btn btn-success" data-toggle="modal"
+								[attr.data-target]="'#myModal'+ i">
+								ver
+							</button></td>
+
+						<td>
+							<button type="button" class="btn btn-info" (click)="getServiceId(service.id)">Seleccionar<i
+									class="fas fa-edit"></i></button>
+						</td>
+
+						<!-- The Modal -->
+						<div class="modal" id="{{ 'myModal'+ i}}">
+							<div class="modal-dialog">
+								<div class="modal-content">
+
+
+									<!-- Modal body -->
+									<div class="modal-body">
+										<div [innerHTML]="service.description"></div>
+									</div>
+
+									<!-- Modal footer -->
+									<div class="modal-footer">
+
+										<button type="button" class="btn btn-warning"
+											data-dismiss="modal">Close</button>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
+		[responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+		[screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+		[screenReaderPageLabel]="labels.screenReaderPageLabel"
+		[screenReaderCurrentLabel]="labels.screenReaderCurrentLabel" (pageChange)="onPageChange($event)">
+	</pagination-controls>
+
+
+	<div *ngIf="appointment.service_id">
+		<input type="submit" value="Guardar" class="btn btn-success" [disabled]="appointmentForm.invalid" />
+	</div>
+
+</form>

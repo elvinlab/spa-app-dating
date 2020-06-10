@@ -52,7 +52,7 @@ const appRoutes: Routes = [
 	{path: 'listar-comercios', component: CommerceDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'crear-servicio', component: ServiceNewComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuardCommerce]},
-	{path: 'crear-cita', component: AppointmentNewComponent, canActivate: [IdentityGuardClient]},
+	{path: 'crear-cita/:id', component: AppointmentNewComponent, canActivate: [IdentityGuardClient]},
 	{path: 'editar-cita/:id', component: AppointmentEditComponent, canActivate: [IdentityGuardClient]},
 	{path: 'listar-cita', component: AppointmentDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'gestionar-cita', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},

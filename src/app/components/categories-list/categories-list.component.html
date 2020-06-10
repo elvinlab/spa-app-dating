@@ -28,7 +28,7 @@
                     <td>
                         <!-- Button to Open the Modal -->
                         <button type="button" class="btn btn-success" data-toggle="modal"
-                            [attr.data-target]="'#myModal'+category.name">
+                            [attr.data-target]="'#myModal' + i">
                             ver
                         </button></td>
                     <td>{{category.created_at}}</td>
@@ -49,7 +49,7 @@
                     </td>
 
                     <!-- The Modal -->
-                    <div class="modal" id="{{ 'myModal'+ category.name}}">
+                    <div class="modal" id="{{ 'myModal'+ i}}">
                         <div class="modal-dialog">
                             <div class="modal-content">
 
