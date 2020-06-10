@@ -3,18 +3,7 @@
 </div>
 
 <div class="container-fluid mt-3" *ngIf="promotions != 0">
-<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" class="container">
 	<h1>{{page_title}}</h1>
-
 	<app-promotions-list [promotions]="promotions" [identity]="identity" [url]="url" [filterPromotion]="filterPromotion"
 		(delete)="deletePromotion($event)"> </app-promotions-list>
-</div>
-
-<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" class="container">
-	<h1>{{page_title}}</h1>
-
-	<app-promotions-list [promotions]="promotions" [identity]="identity" [url]="url" [filterPromotion]="filterPromotion"
-		(delete)="deletePromotion($event)"> </app-promotions-list>
-</div>
-
 </div>

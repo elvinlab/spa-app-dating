@@ -57,7 +57,7 @@ export class CommerceService {
 	}
 
 	getIdentity(){
-		let identity = JSON.parse(localStorage.getItem('identity'));
+		let identity = JSON.parse(localStorage.getItem('identity_commerce'));
 
 		if(identity && identity != "undefined"){
 			this.identity = identity;
@@ -69,7 +69,7 @@ export class CommerceService {
 	}
 
 	getToken(){
-		let token = localStorage.getItem('token');
+		let token = localStorage.getItem('token_commerce');
 
 		if(token && token != "undefined"){
 			this.token = token;

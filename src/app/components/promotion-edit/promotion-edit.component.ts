@@ -37,7 +37,6 @@ export class PromotionEditComponent implements OnInit {
 		this.url = global.url;
 	}
 
-
 	public froala_options: Object = {
 		charCounterCount: true,
 		language: 'es',
@@ -71,29 +70,26 @@ export class PromotionEditComponent implements OnInit {
 			afterUploadMsg_success: 'Successfully Uploaded !',
 			afterUploadMsg_error: 'Upload Failed !'
 		  }
-		
-
 	};
 
 	ngOnInit(): void {
 		this.getPromotion();
 	}
 
-
 	getPromotion() {
 		this._route.params.subscribe(params => {
 			let id = +params['id'];
 
 
-			this._promotionService.getpromotion(this.token, id).subscribe(
+			this._promotionService.getpromotion(id).subscribe(
 				response => {
 					if (response.status == 'success') {
 						let promotion = response.promotion;
-
-
+					
 						if (promotion[0].commerce_id != this.identity.id) {
-							this._router.navigate(['/../listar-promociones']);
+							this._router.navigate(['/../gestionar-promociones']);
 						} else {
+						
 							this.promotion = new Promotion(
 								promotion[0].id,
 								promotion[0].commerce_id,
@@ -112,17 +108,14 @@ export class PromotionEditComponent implements OnInit {
 				},
 				error => {
 					console.log(error);
-					this._router.navigate(['/../listar-categorias']);
+					this._router.navigate(['/../gestionar-categorias']);
 				}
 			);
 
 		});
 	}
 
-
 	onSubmit(form) {
-
-
 		this.promotion.expiry = this.dateSelected.year + "-" + this.dateSelected.month + "-" + this.dateSelected.day;
 		console.log(this.promotion.expiry);
 		console.log(this.dateSelected);
@@ -132,7 +125,7 @@ export class PromotionEditComponent implements OnInit {
 					this.promotion = response.category;
 					this.status = 'success';
 
-					this._router.navigate(['/../listar-promociones']);
+					this._router.navigate(['/../gestionar-promociones']);
 				} else {
 					this.status = 'error';
 				}
@@ -143,7 +136,6 @@ export class PromotionEditComponent implements OnInit {
 			}
 		);
 	}
-
 
 	imageUpload(data) {
 		let image_data = JSON.parse(data.response);

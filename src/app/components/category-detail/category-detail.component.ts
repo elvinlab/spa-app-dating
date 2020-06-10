@@ -64,9 +64,7 @@ export class CategoryDetailComponent implements OnInit {
 
 
   getCategories() {
-    this.identity.id;
-    //mandar el token tambien a la hora de subir imagen
-    this._categoryService.getCategories(this.token).subscribe(
+    this._categoryService.getCategories().subscribe(
       response => {
         if (response.status == 'success') {
           this.categories = response.categories;

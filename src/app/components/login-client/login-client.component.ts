@@ -44,12 +44,8 @@ export class LoginClientComponent implements OnInit {
 						response => {
 							this.identity = response;
 
-							// PERSISTIR DATOS USUARIO IDENTIFICADO
-							console.log(this.token);
-							console.log(this.identity);
-
-							localStorage.setItem('token', this.token);
-							localStorage.setItem('identity', JSON.stringify(this.identity));
+							localStorage.setItem('token_client', this.token);
+							localStorage.setItem('identity_client', JSON.stringify(this.identity));
 
 							// Redirección a inicio
 							this._router.navigate(['inicio']);
@@ -76,8 +72,8 @@ export class LoginClientComponent implements OnInit {
 			let logout = +params['sure'];
 
 			if(logout == 1){
-				localStorage.removeItem('identity');
-				localStorage.removeItem('token');
+				localStorage.removeItem('identity_client');
+				localStorage.removeItem('token_client');
 
 				this.identity = null;
 				this.token = null;

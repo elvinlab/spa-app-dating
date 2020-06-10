@@ -45,16 +45,14 @@ export class CategoryService {
 	}
 
 
-	getCategory(token, id): Observable<any> {
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-			.set('Authorization', token);
+	getCategory(id): Observable<any> {
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'category/' + id, { headers: headers });
 	}
 
-	getCategories(token):Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-									   .set('Authorization', token);
+	getCategories():Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'category', {headers: headers});
 	}
-
+	
 }

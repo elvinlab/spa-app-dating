@@ -15,7 +15,8 @@ import { ErrorComponent } from './components/error/error.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
 import { ClientService } from './services/client.service';
 import { CommerceService } from './services/commerce.service';
-import { IdentityGuard } from './services/identity.guard';
+import { IdentityGuardClient } from './services/identity-client.guard';
+import { IdentityGuardCommerce } from './services/identity-commerce.guard';
 import { LoginClientComponent } from './components/login-client/login-client.component';
 import { LoginCommerceComponent } from './components/login-commerce/login-commerce.component';
 import { ClientEditComponent } from './components/client-edit/client-edit.component';
@@ -72,7 +73,8 @@ import { ServicesListComponent } from './components/services-list/services-list.
   ],
   providers: [
     appRoutingProviders,
-    IdentityGuard,
+    IdentityGuardClient,
+    IdentityGuardCommerce,
     ClientService,
     CommerceService
   ],

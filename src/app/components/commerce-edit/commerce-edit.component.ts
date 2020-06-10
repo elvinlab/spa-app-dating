@@ -134,7 +134,7 @@ export class CommerceEditComponent implements OnInit {
           }
 
           this.identity = this.commerce;
-          localStorage.setItem('identity', JSON.stringify(this.identity));
+          localStorage.setItem('identity_commerce', JSON.stringify(this.identity));
 
         } else {
           this.status = 'error';

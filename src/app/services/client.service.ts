@@ -55,7 +55,7 @@ export class ClientService {
 	}
 
 	getIdentity(){
-		let identity = JSON.parse(localStorage.getItem('identity'));
+		let identity = JSON.parse(localStorage.getItem('identity_client'));
 
 		if(identity && identity != "undefined"){
 			this.identity = identity;
@@ -67,7 +67,7 @@ export class ClientService {
 	}
 
 	getToken(){
-		let token = localStorage.getItem('token');
+		let token = localStorage.getItem('token_client');
 
 		if(token && token != "undefined"){
 			this.token = token;

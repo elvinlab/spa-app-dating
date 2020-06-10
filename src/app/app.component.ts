@@ -23,7 +23,7 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngOnInit() {
-    console.log('Webapp cargada correctamente :)');
+    this.loadAccount();
   }
 
   ngDoCheck() {
@@ -34,21 +34,18 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   loadAccount() {
-    if (this._clientService.getIdentity()) {
-      if (this._clientService.getIdentity().role == "ROLE_CLIENT") {
-        this.identity = this._clientService.getIdentity();
-        this.token = this._clientService.getToken();
-        this.role = 'client/avatar/';
-      } else if (this._clientService.getIdentity().role == "ROLE_COMMERCE") {
-        this.identity = this._commerceService.getIdentity();
-        this.token = this._commerceService.getToken();
-        this.role = 'commerce/avatar/';
-      }
+    if (this._clientService.getIdentity() && this._clientService.getIdentity().role == "ROLE_CLIENT") {
+      this.identity = this._clientService.getIdentity();
+      this.token = this._clientService.getToken();
+      this.role = 'client/avatar/';
+    } else if (this._commerceService.getIdentity() && this._commerceService.getIdentity().role == "ROLE_COMMERCE") {
+      this.identity = this._commerceService.getIdentity();
+      this.token = this._commerceService.getToken();
+      this.role = 'commerce/avatar/';
     } else {
       this.token = null;
       this.role = null;
-      this.identity = 'none';
+      this.identity = 'null';
     }
   }
-
 }

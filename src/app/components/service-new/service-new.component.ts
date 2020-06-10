@@ -70,7 +70,7 @@ export class ServiceNewComponent implements OnInit {
   }
 
   getCategories() { 
-    this._categoryService.getCategories(this.token).subscribe(
+    this._categoryService.getCategories().subscribe(
       response => {
         if (response.status == 'success') {
           this.categories = response.categories;

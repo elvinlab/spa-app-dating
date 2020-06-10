@@ -44,22 +44,18 @@ export class CommerceServiceService {
 	   return this._http.delete(this.url + 'service/' + id, {headers: headers});
 	}
 
-
-	getservice(token, id): Observable<any> {
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-			.set('Authorization', token);
+	getservice(id): Observable<any> {
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'service/' + id, { headers: headers });
 	}
 
-	getServicesCommerce(token, id):Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-									   .set('Authorization', token);
-		return this._http.get(this.url + 'service/getpromos/' + id, {headers: headers});
+	getServicesCategory():Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+		return this._http.get(this.url + 'service/getServicesCategory/', {headers: headers});
 	}
 
-	getServices(token):Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-									   .set('Authorization', token);
+	getServices():Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'service/', {headers: headers});
 	}
 

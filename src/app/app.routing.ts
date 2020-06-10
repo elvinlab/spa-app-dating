@@ -20,7 +20,8 @@ import { PromotionDetailComponent } from './components/promotion-detail/promotio
 import { ServiceNewComponent } from './components/service-new/service-new.component';
 import { ServiceEditComponent } from './components/service-edit/service-edit.component';
 import { ServiceDetailComponent } from './components/service-detail/service-detail.component';
-import { IdentityGuard } from './services/identity.guard';
+import { IdentityGuardClient } from './services/identity-client.guard';
+import { IdentityGuardCommerce } from './services/identity-commerce.guard';
 
 // DEFINIR RUTAS
 const appRoutes: Routes = [
@@ -34,15 +35,17 @@ const appRoutes: Routes = [
 	{path: 'editar-comercio', component: CommerceEditComponent},
 	{path: 'logout-comercio/:sure', component: LoginCommerceComponent},
 	{path: 'login-comercio', component: LoginCommerceComponent},
-	{path: 'listar-categorias', component: CategoryDetailComponent, canActivate: [IdentityGuard]},
-	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuard]},
-	{path: 'editar-categoria/:id', component: CategoryEditComponent, canActivate: [IdentityGuard]},
-	{path: 'listar-promociones', component: PromotionDetailComponent, canActivate: [IdentityGuard]},
-	{path: 'crear-promocion', component: PromotionNewComponent, canActivate: [IdentityGuard]},
-	{path: 'editar-promocion/:id', component: PromotionEditComponent, canActivate: [IdentityGuard]},
-	{path: 'listar-servicios', component: ServiceDetailComponent, canActivate: [IdentityGuard]},
-	{path: 'crear-servicio', component: ServiceNewComponent, canActivate: [IdentityGuard]},
-	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuard]},
+	{path: 'gestionar-categorias', component: CategoryDetailComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'listar-categorias', component: CategoryDetailComponent, canActivate: [IdentityGuardClient]},
+	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'editar-categoria/:id', component: CategoryEditComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'gestionar-promociones', component: PromotionDetailComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'listar-promociones', component: PromotionDetailComponent, canActivate: [IdentityGuardClient]},
+	{path: 'crear-promocion', component: PromotionNewComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'editar-promocion/:id', component: PromotionEditComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'listar-servicios', component: ServiceDetailComponent, canActivate: [IdentityGuardClient, IdentityGuardCommerce]},
+	{path: 'crear-servicio', component: ServiceNewComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuardCommerce]},
 
 	{path: 'error', component: ErrorComponent},
 	{path: '**', component: ErrorComponent}

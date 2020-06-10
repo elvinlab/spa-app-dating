@@ -38,17 +38,13 @@ export class LoginCommerceComponent implements OnInit {
 					this.status = 'success';
 					this.token = response;
 
-					// OBJETO USUARIO IDENTIFICADO
+					// OBJETO COMERCIO IDENTIFICADO
 					this._commerceService.signup(this.commerce, true).subscribe(
 						response => {
 							this.identity = response;
 
-							// PERSISTIR DATOS USUARIO IDENTIFICADO
-							console.log(this.token);
-							console.log(this.identity);
-
-							localStorage.setItem('token', this.token);
-							localStorage.setItem('identity', JSON.stringify(this.identity));
+							localStorage.setItem('token_commerce', this.token);
+							localStorage.setItem('identity_commerce', JSON.stringify(this.identity));
 
 							// Redirección a inicio
 							this._router.navigate(['inicio']);
@@ -75,8 +71,8 @@ export class LoginCommerceComponent implements OnInit {
 			let logout = +params['sure'];
 
 			if(logout == 1){
-				localStorage.removeItem('identity');
-				localStorage.removeItem('token');
+				localStorage.removeItem('identity_commerce');
+				localStorage.removeItem('token_commerce');
 
 				this.identity = null;
 				this.token = null;

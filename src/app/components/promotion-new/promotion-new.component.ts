@@ -93,7 +93,7 @@ export class PromotionNewComponent implements OnInit {
 					this.promotion = response.category;
 					this.status = 'success';
 
-					this._router.navigate(['/../listar-promociones']);
+					this._router.navigate(['/../gestionar-promociones']);
 				} else {
 					this.status = 'error';
 				}

@@ -50,14 +50,14 @@ export class CategoryEditComponent implements OnInit {
 			let id = +params['id'];
 
 			// Peticion ajax para sacar los datos de la categoria
-			this._categoryService.getCategory(this.token, id).subscribe(
+			this._categoryService.getCategory(id).subscribe(
 				response => {
 					if (response.status == 'success') {
 						let category = response.category;
 
 						// Evitar que un usuario se pase de listo
 						if (category[0].commerce_id != this.identity.id) {
-							this._router.navigate(['/../listar-categorias']);
+							this._router.navigate(['/../gestionar-categorias']);
 						} else {
 							this.category = new Category(
 								category[0].id,
@@ -72,7 +72,7 @@ export class CategoryEditComponent implements OnInit {
 				},
 				error => {
 					console.log(error);
-					this._router.navigate(['/../listar-categorias']);
+					this._router.navigate(['/../gestionar-categorias']);
 				}
 			);
 
@@ -86,7 +86,7 @@ export class CategoryEditComponent implements OnInit {
 					this.category = response.category;
 					this.status = 'success';
 
-					this._router.navigate(['/../listar-categorias']);
+					this._router.navigate(['/../gestionar-categorias']);
 				} else {
 					this.status = 'error';
 				}

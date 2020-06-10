@@ -120,7 +120,7 @@ export class ClientEditComponent implements OnInit {
 					}
 
 					this.identity = this.client;
-					localStorage.setItem('identity', JSON.stringify(this.identity));
+					localStorage.setItem('identity_client', JSON.stringify(this.identity));
 
 				} else {
 					this.status = 'error';

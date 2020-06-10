@@ -45,21 +45,18 @@ export class PromotionService {
 	}
 
 
-	getpromotion(token, id): Observable<any> {
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-			.set('Authorization', token);
+	getpromotion(id): Observable<any> {
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'promotion/' + id, { headers: headers });
 	}
 
-	getPromotionsCommerce(token, id):Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-									   .set('Authorization', token);
+	getPromotionsCommerce(id):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'promotion/getpromos/' + id, {headers: headers});
 	}
 
-	getValidPromotion(token, expiry):Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-									   .set('Authorization', token);
+	getValidPromotion(expiry):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'promotion/getvalidpromotion/' + expiry, {headers: headers});
 	}
 

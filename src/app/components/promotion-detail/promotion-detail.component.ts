@@ -58,17 +58,15 @@ export class PromotionDetailComponent implements OnInit {
   ngOnInit() {
     if(this.identity && this.identity.role == 'ROLE_COMMERCE'){
       this.getPromotionsCommerce();
-    }else if(this.identity && this.identity.role == 'ROLE_CLIENT'){
+    }else {
       this.getPromotions();
-     
     }
    
   }
 
-
   getPromotionsCommerce() {
 
-    this._promotionService.getPromotionsCommerce(this.token, this.identity.id).subscribe(
+    this._promotionService.getPromotionsCommerce(this.identity.id).subscribe(
       response => {
         if (response.status == 'success') {
           this.promotions = response.promotions;
@@ -87,7 +85,7 @@ export class PromotionDetailComponent implements OnInit {
 
     let expiry = minDate.year + "-" + minDate.month + "-" + minDate.day;
 
-    this._promotionService.getValidPromotion(this.token, expiry).subscribe(
+    this._promotionService.getValidPromotion(expiry).subscribe(
       response => {
         if (response.status == 'success') {
           this.promotions = response.promotions;
