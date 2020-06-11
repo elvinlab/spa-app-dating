@@ -190,7 +190,7 @@ export class AppointmentEditComponent implements OnInit {
 					this.appointment = response.appointment;
 					this.status = 'success';
 
-					this._router.navigate(['/../historial-citas']);
+					this._router.navigate(['/../historial-citas/1']);
 				} else {
 					this.status = 'error';
 				}

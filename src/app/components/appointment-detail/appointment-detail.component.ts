@@ -64,17 +64,17 @@ export class AppointmentDetailComponent implements OnInit {
   }
 
   getAppointmentsClient() {
-  
-    this._route.params.subscribe(params => {
-			let direction = +params['sure'];
 
-			if(direction == 1){
-      
+    this._route.params.subscribe(params => {
+      let direction = +params['sure'];
+
+      if (direction == 1) {
+
         this._appointmentService.getAppointmentsClient(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-              
+
             }
           },
           error => {
@@ -82,13 +82,13 @@ export class AppointmentDetailComponent implements OnInit {
           }
         );
 
-			}else if(direction == 2){
+      } else if (direction == 2) {
 
         this._appointmentService.getAppointmentsClient2(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-              
+
             }
           },
           error => {
@@ -97,54 +97,65 @@ export class AppointmentDetailComponent implements OnInit {
         );
 
 
-      }else if(direction == 3){
-        
+      } else if (direction == 3) {
+
         this._appointmentService.getAppointmentsClient3(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-              
+
             }
           },
           error => {
             console.log(error);
           }
         );
-        
-      }else if(direction == 4){
+
+      } else if (direction == 4) {
 
         this._appointmentService.getAppointmentsClient4(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-              
+
             }
           },
           error => {
             console.log(error);
           }
         );
-      }else if(direction == 5){
+      } else if (direction == 5) {
         this.identity = this._commerceService.getIdentity();
         this.token = this._commerceService.getToken();
         this._appointmentService.getAppointmentsCommerce(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-              
+
             }
           },
           error => {
             console.log(error);
           }
         );
-      }
-		});
-
-
-
+      } 
+    });
   }
-  
+
+  appointmentStatus(id, status) {
+    this._appointmentService.appointmentStatus(this.token, id, status).subscribe(
+      response => {
+        if (response.status == 'success') {
+
+          this._router.navigate(['/../historial-citas']);
+        }
+      },
+      error => {
+        console.log(<any>error);
+      }
+    );
+  }
+
   deleteAppointment(id) {
     this._appointmentService.delete(this.token, id).subscribe(
       response => {
@@ -155,4 +166,6 @@ export class AppointmentDetailComponent implements OnInit {
       }
     );
   }
+
+
 }

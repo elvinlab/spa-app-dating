@@ -43,5 +43,4 @@ export class AppointmentsListComponent implements OnInit {
   deleteAppointment(id) {
     this.delete.emit(id);
   }
-
 }

@@ -23,7 +23,7 @@
         </li>
        
         <li>
-          <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/historial-citas/1']">Historial de Citas</a>
+          <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/historial-citas/1']">Mis Citas</a>
         </li>
 
         <li class="active">
@@ -100,29 +100,12 @@
               <a class="dropdown-item" [routerLink]="['/gestionar-servicios']">Gestionar de citas</a>
             </div>
           </div>
-         || 
-          <div class="dropdown">
-            <button  *ngIf="identity.role == 'ROLE_CLIENT'" class="btn btn-info  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Mis Citas
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/historial-citas/2']">Confirmadas</a>
-              <a class="dropdown-item" [routerLink]="['/historial-citas/3']">Canceladas</a>
-              <a class="dropdown-item" [routerLink]="['/historial-citas/4']">Pendientes</a>
-            </div>
-          </div>
+
           || 
           <button *ngIf="identity.role == 'ROLE_CLIENT'"  [routerLink]="['/listar-promociones']"  type="button" class="btn btn-primary text-dark ">Promociones</button>
 
-          <div class="dropdown">
-            <button  *ngIf="identity.role == 'ROLE_COMMERCE'" class="btn btn-info  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-             Control de reservas
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/control-citas/6']">Confirmadar Citas</a>
-              <a class="dropdown-item" [routerLink]="['/registros-citas/5']">Historial</a>
-            </div>
-          </div>
+      
+          <button *ngIf="identity.role == 'ROLE_COMMERCE'" type="button" class="btn btn-info" [routerLink]="['/registros-citas/5']">  Control de reservas</button>
 
           <li class="nav-item">
             <a class="nav-link text-warning"*ngIf="identity == 'null'" [routerLink]="['/registro-cliente']">Registro de

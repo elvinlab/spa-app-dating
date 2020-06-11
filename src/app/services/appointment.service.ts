@@ -37,6 +37,14 @@ export class AppointmentService {
 	   return this._http.put(this.url + 'appointment/' + id, params, {headers: headers});						   
 	}
 
+	appointmentStatus(token, status, id):Observable<any>{
+		
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+
+	   return this._http.put(this.url + 'appointmentstatus/' + id +'/'+status, {headers: headers});						   
+	}
+	
 	delete(token, id){
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
