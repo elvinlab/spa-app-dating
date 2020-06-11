@@ -23,7 +23,7 @@
         </li>
        
         <li>
-          <a *ngIf="identity.role == 'ROLE_CLIENT'"[routerLink]="['/historial-citas']">Historial de Citas</a>
+          <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/historial-citas/1']">Historial de Citas</a>
         </li>
 
         <li class="active">
@@ -106,8 +106,9 @@
             Mis Citas
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/crear-servicio']">Confirmadas</a>
-              <a class="dropdown-item" [routerLink]="['/gestionar-servicios']">Pendientes</a>
+              <a class="dropdown-item" [routerLink]="['/historial-citas/2']">Confirmadas</a>
+              <a class="dropdown-item" [routerLink]="['/historial-citas/3']">Canceladas</a>
+              <a class="dropdown-item" [routerLink]="['/historial-citas/4']">Pendientes</a>
             </div>
           </div>
           || 
@@ -118,8 +119,8 @@
              Control de reservas
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/crear-servicio']">Confirmadas</a>
-              <a class="dropdown-item" [routerLink]="['/gestionar-servicios']">Historial</a>
+              <a class="dropdown-item" [routerLink]="['/control-citas/6']">Confirmadar Citas</a>
+              <a class="dropdown-item" [routerLink]="['/registros-citas/5']">Historial</a>
             </div>
           </div>
 

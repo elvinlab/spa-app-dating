@@ -50,9 +50,9 @@ export class AppointmentService {
 		return this._http.get(this.url + 'appointment/' + id, { headers: headers });
 	}
 
-	getAppointmentsCommerce(id):Observable<any>{
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-		return this._http.get(this.url + 'appointment/getpromos/' + id, {headers: headers});
+	getAppointmentsCommerce(token, id):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
+		return this._http.get(this.url + 'getappointmentscommerce/' + id, {headers: headers});
 	}
 
 	getAppointmentsClient(token, id):Observable<any>{
@@ -60,5 +60,23 @@ export class AppointmentService {
 									   .set('Authorization', token);
 		return this._http.get(this.url + 'getappointmentsclient/' + id, {headers: headers});
 	}
-	
+
+	getAppointmentsClient2(token, id):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+		return this._http.get(this.url + 'getappointmentsclient2/' + id, {headers: headers});
+	}
+
+	getAppointmentsClient3(token, id):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+		return this._http.get(this.url + 'getappointmentsclient3/' + id, {headers: headers});
+	}	
+
+	getAppointmentsClient4(token, id):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+		return this._http.get(this.url + 'getappointmentsclient4/' + id, {headers: headers});
+	}
+
 }

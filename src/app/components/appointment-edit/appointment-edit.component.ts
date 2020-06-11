@@ -96,7 +96,7 @@ export class AppointmentEditComponent implements OnInit {
 				response => {
 					if (response.status == 'success') {
 						this.services = response.servicesCommerce;
-						console.log(this.services);
+					
 					}
 				},
 				error => {
@@ -117,8 +117,6 @@ export class AppointmentEditComponent implements OnInit {
 					if (response.status == 'success') {
 	
 						let commerce = response.commerce;
-	
-						console.log( response.commerce);
 						this.commerce = new Commerce(
 						    commerce[0].id,
 							'',
@@ -171,7 +169,6 @@ export class AppointmentEditComponent implements OnInit {
 
 							);
 							this.commerce_id = 	this.appointment.commerce_id
-							console.log(this.appointment);
 						}
 
 					}

@@ -95,7 +95,6 @@ export class AppointmentNewComponent implements OnInit {
 					if (response.status == 'success') {
            
             this.services = response.servicesCommerce;
-            console.log(  this.services);
 					}
 				},
 				error => {

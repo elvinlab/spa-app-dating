@@ -3,12 +3,13 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Appointment } from '../../models/appointment';
 import { AppointmentService } from '../../services/appointment.service';
 import { ClientService } from '../../services/client.service';
+import { CommerceService } from '../../services/commerce.service';
 
 @Component({
   selector: 'app-appointment-detail',
   templateUrl: './appointment-detail.component.html',
   styleUrls: ['./appointment-detail.component.css'],
-  providers: [AppointmentService, ClientService]
+  providers: [AppointmentService, ClientService, CommerceService]
 })
 export class AppointmentDetailComponent implements OnInit {
 
@@ -44,7 +45,8 @@ export class AppointmentDetailComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _appointmentService: AppointmentService,
-    private _clientService: ClientService
+    private _clientService: ClientService,
+    private _commerceService: CommerceService
 
   ) {
     this.page_title = 'Historial de mis citas';
@@ -62,17 +64,84 @@ export class AppointmentDetailComponent implements OnInit {
   }
 
   getAppointmentsClient() {
-    this._appointmentService.getAppointmentsClient(this.token, this.identity.id).subscribe(
-      response => {
-        if (response.status == 'success') {
-          this.appointments = response.appointments;
-          
-        }
-      },
-      error => {
-        console.log(error);
+  
+    this._route.params.subscribe(params => {
+			let direction = +params['sure'];
+
+			if(direction == 1){
+      
+        this._appointmentService.getAppointmentsClient(this.token, this.identity.id).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.appointments = response.appointments;
+              
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
+
+			}else if(direction == 2){
+
+        this._appointmentService.getAppointmentsClient2(this.token, this.identity.id).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.appointments = response.appointments;
+              
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
+
+
+      }else if(direction == 3){
+        
+        this._appointmentService.getAppointmentsClient3(this.token, this.identity.id).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.appointments = response.appointments;
+              
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
+        
+      }else if(direction == 4){
+
+        this._appointmentService.getAppointmentsClient4(this.token, this.identity.id).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.appointments = response.appointments;
+              
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }else if(direction == 5){
+        this.identity = this._commerceService.getIdentity();
+        this.token = this._commerceService.getToken();
+        this._appointmentService.getAppointmentsCommerce(this.token, this.identity.id).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.appointments = response.appointments;
+              
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
       }
-    );
+		});
+
+
 
   }
   

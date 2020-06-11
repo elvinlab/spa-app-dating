@@ -54,9 +54,7 @@ export class CommerceServiceService {
 		return this._http.get(this.url + 'service', {headers: headers});
 	}
 	getServicesCommerce(id):Observable<any>{
-		console.log(id);
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 		return this._http.get(this.url + 'getservicecommerce/'+id, {headers: headers});
 	}
-
 }

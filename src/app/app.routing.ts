@@ -54,8 +54,9 @@ const appRoutes: Routes = [
 	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'crear-cita/:id', component: AppointmentNewComponent, canActivate: [IdentityGuardClient]},
 	{path: 'editar-cita/:id/:commerce_id', component: AppointmentEditComponent, canActivate: [IdentityGuardClient]},
-	{path: 'historial-citas', component: AppointmentDetailComponent, canActivate: [IdentityGuardClient]},
-	{path: 'gestionar-cita', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'historial-citas/:sure', component: AppointmentDetailComponent, canActivate: [IdentityGuardClient]},
+	{path: 'control-citas/:sure', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'registros-citas/:sure', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'error', component: ErrorComponent},
 	{path: '**', component: ErrorComponent}
 ];
