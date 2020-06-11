@@ -1,1 +1,12 @@
-<p>appointment-detail works!</p>
+<div class="loading" *ngIf="appointments == 0">
+    Cargando...
+</div>
+
+<div class="container-fluid mt-3" *ngIf="appointments != 0">
+    <h1>{{page_title}}</h1>
+    <hr />
+    <br />
+    <app-appointments-list [appointments]="appointments" [identity]="identity" [filterAppointment]="filterAppointment"
+    (delete)="deleteAppointment($event)"> </app-appointments-list>
+
+</div>

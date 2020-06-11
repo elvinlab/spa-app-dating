@@ -18,7 +18,7 @@ export class PromotionDetailComponent implements OnInit {
     itemsPerPage: 5,
     currentPage: 1,
   };
-  public maxSize: number = 7;
+  public maxSize: number = 100;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;

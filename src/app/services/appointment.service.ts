@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {Appointment} from '../models/appointment';
 import {global} from './global';
 
-
 @Injectable()
 export class AppointmentService {
 	public url: string;
@@ -45,8 +44,9 @@ export class AppointmentService {
 	   return this._http.delete(this.url + 'appointment/' + id, {headers: headers});
   }
   
-	getAppointment(id): Observable<any> {
-		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+	getAppointment(token, id): Observable<any> {
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+										.set('Authorization', token);
 		return this._http.get(this.url + 'appointment/' + id, { headers: headers });
 	}
 
@@ -55,10 +55,10 @@ export class AppointmentService {
 		return this._http.get(this.url + 'appointment/getpromos/' + id, {headers: headers});
 	}
 
-	getAppointments(token):Observable<any>{
+	getAppointmentsClient(token, id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
-		return this._http.get(this.url + 'appointment/', {headers: headers});
+		return this._http.get(this.url + 'getappointmentsclient/' + id, {headers: headers});
 	}
-
+	
 }

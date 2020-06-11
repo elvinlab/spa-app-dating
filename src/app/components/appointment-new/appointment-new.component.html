@@ -37,16 +37,43 @@
 		</div>
 	</div>
 	<hr />
+	<h2>Elegir fecha para la cita</h2>
+	<br />
+	<div class="form-group col-md-6">
+		<ngb-datepicker #dp [(ngModel)]="dateSelected" name="first" [minDate]="minDate" (navigate)="date = $event.next"
+			required>
+		</ngb-datepicker>
 
-	<label> Categoria seleccionada:</label>
-	<input type="text" class="col-2" name="category_id" #category_id="ngModel" [(ngModel)]="appointment.service_id"
+	</div>
+	<hr />
+
+	<div class="form-group col-md-6">
+		<h2>Elegir hora de la cita</h2>
+		<select name="afs" #schedule_hour="ngModel" [(ngModel)]="appointment.schedule_hour" class="form-control">
+			<option value="08:00:00">8 am</option>
+			<option value="09:00:00">9 am</option>
+			<option value="10:00:00">10 am</option>
+			<option value="10:00:00">11 am</option>
+			<option value="13:00:00">1 pm</option>
+			<option value="14:00:00">2 pm</option>
+			<option value="15:00:00">3 pm</option>
+			<option value="16:00:00">4 pm</option>
+			<option value="17:00:00">5 pm</option>
+		</select>
+	</div>
+
+	<hr />
+	<h2>Elegir servicio</h2>
+	<br />
+	<label> Servicio seleccionado:</label>
+	<input type="text" class="col-2" name="category_id" #service_id="ngModel" [(ngModel)]="appointment.service_id"
 		disabled>
 
 	<div class="row">
 		<div class="col-5">
 			<div class="form-group">
 				<input type="text" class="form-control" name="filterService"
-					placeholder="Buscar categoria por nombre o descripcion" [(ngModel)]="filterService">
+					placeholder="Buscar servicio por nombre o descripcion" [(ngModel)]="filterService">
 			</div>
 		</div>
 	</div>
@@ -56,6 +83,7 @@
 				<thead>
 					<tr>
 						<th scope="col">Orden</th>
+						<th scope="col">ID</th>
 						<th scope="col">Nombre</th>
 						<th scope="col">precio</th>
 						<th scope="col">Descripcion</th>
@@ -65,10 +93,11 @@
 				<tbody>
 					<tr *ngFor="let service of services |  filter:filterService | paginate: config; let i =index">
 						<th scope="row">{{i+1}}</th>
+						<td>{{service.id}}</td>
 						<td>{{service.name}}</td>
 
 						<td> {{service.price}} </td>
-						
+
 						<td>
 							<!-- Button to Open the Modal -->
 							<button type="button" class="btn btn-success" data-toggle="modal"
@@ -115,7 +144,7 @@
 	</pagination-controls>
 
 
-	<div *ngIf="appointment.service_id">
+	<div *ngIf="appointment.service_id && appointment.schedule_hour">
 		<input type="submit" value="Guardar" class="btn btn-success" [disabled]="appointmentForm.invalid" />
 	</div>
 

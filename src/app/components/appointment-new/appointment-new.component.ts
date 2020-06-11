@@ -16,7 +16,7 @@ import { Service } from '../../models/service';
 	providers: [ClientService, AppointmentService, CommerceService , CommerceServiceService]
 })
 export class AppointmentNewComponent implements OnInit {
-  
+  AppointmentEditComponent
   public page_title: string;
 	public identity;
 	public token;
@@ -24,7 +24,7 @@ export class AppointmentNewComponent implements OnInit {
   public commerce: Commerce;
   public service: Service;
   public services: any;
-	public status: string;
+  public status: string;
 	public minDate;
 	public url;
   dateSelected;
@@ -52,21 +52,6 @@ export class AppointmentNewComponent implements OnInit {
 
   }
 
-  getServicesClient() {
-
-    this._commerceServiceService.getServices().subscribe(
-      response => {
-        if (response.status == 'success') {
-          this.services = response.services;
-        }
-      },
-      error => {
-        console.log(error);
-      }
-    );
-
-  }
-
   onPageChange(event) {
     this.config.currentPage = event;
   }
@@ -76,7 +61,7 @@ export class AppointmentNewComponent implements OnInit {
     currentPage: 1,
   };
 
-  public maxSize: number = 7;
+  public maxSize: number = 100;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;
@@ -99,7 +84,25 @@ export class AppointmentNewComponent implements OnInit {
 
 	ngOnInit(): void {
     this.getCommerce();
-    this. getServicesClient();
+    this. getServicesCommerce();
+  }
+
+  getServicesCommerce() {
+		this._route.params.subscribe(params => {
+
+			this._commerceServiceService.getServicesCommerce(params['id']).subscribe(
+				response => {
+					if (response.status == 'success') {
+           
+            this.services = response.servicesCommerce;
+            console.log(  this.services);
+					}
+				},
+				error => {
+					console.log(error);
+				}
+			);
+		});
   }
 
 	getCommerce() {
@@ -112,7 +115,9 @@ export class AppointmentNewComponent implements OnInit {
             let commerce = response.commerce;
 
             this.commerce = new Commerce(
-              commerce[0].id,'','',
+              this.appointment.commerce_id = commerce[0].id,
+              '',
+              '',
               commerce[0].name_owner,
               commerce[0].name_commerce,
               '',
@@ -124,7 +129,7 @@ export class AppointmentNewComponent implements OnInit {
               commerce[0].image,
        
             );
-            console.log(this.commerce);
+
 					}
 				},
 				error => {
@@ -135,15 +140,14 @@ export class AppointmentNewComponent implements OnInit {
   }
   
 	onSubmit(form) {
-
 		this.appointment.schedule_day = this.dateSelected.year + "-" + this.dateSelected.month + "-" + this.dateSelected.day;
 		this._appointmentService.create(this.token, this.appointment).subscribe(
 			response => {
 				if (response.status == 'success') {
-					this.appointment = response.category;
+					this.appointment = response.appointment;
 					this.status = 'success';
 
-					this._router.navigate(['/../citas-pendientes']);
+					this._router.navigate(['/../historial-citas']);
 				} else {
 					this.status = 'error';
 				}
@@ -158,5 +162,4 @@ export class AppointmentNewComponent implements OnInit {
   getServiceId(id){
     this.appointment.service_id = id;
   }
-  
 }

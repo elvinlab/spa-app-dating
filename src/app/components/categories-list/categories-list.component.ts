@@ -16,7 +16,7 @@ export class CategoriesListComponent implements OnInit {
   @Output() delete = new EventEmitter();
   @Output() isSelectCagegory = new EventEmitter();
 
-  public maxSize: number = 5;
+  public maxSize: number = 100;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;

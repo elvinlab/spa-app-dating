@@ -18,7 +18,7 @@ export class CategoryDetailComponent implements OnInit {
     currentPage: 1,
   };
 
-  public maxSize: number = 7;
+  public maxSize: number = 100;
   public directionLinks: boolean = true;
   public autoHide: boolean = false;
   public responsive: boolean = true;

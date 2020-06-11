@@ -1,1 +1,52 @@
-<p>appointments-list works!</p>
+<div class="row">
+    <div class="col-5">
+        <div class="form-group">
+            <input type="text" class="form-control" name="filterAppointment"
+                placeholder="Buscar cita por nombre o comercio" [(ngModel)]="filterAppointment">
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Comercio</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Creada el</th>
+                    <th scope="col">Modificada el</th>
+                    <th scope="col">Estado</th>
+                    <th *ngIf="identity" scope="col">Funcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of appointments |  filter:filterAppointment | paginate: config; let i =index">
+                    <td >{{appointment.name_commerce}}</td>
+                    <td>{{appointment.name}}</td>
+                    <td>{{appointment.price}}</td>
+                    <td>{{appointment.schedule_day}}</td>
+                    <td>{{appointment.schedule_hour}}</td>
+                    <td>{{appointment.created_at}}</td>
+                    <td>{{appointment.updated_at}}</td>
+                    <td>{{appointment.status}}</td>
+                    <td *ngIf="identity && identity.id == appointment.client_id"><button type="button" class="btn btn-warning"
+                            [routerLink]="['/editar-cita', appointment.id,appointment.commerce_id]">Editar<i class="fas fa-edit"></i></button>
+                            
+                        | <button type="button" class="btn btn-danger" (click)="deleteAppointment(appointment.id)">Eliminar<i
+                                class="far fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
+    [responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
+    [screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
+    [screenReaderPageLabel]="labels.screenReaderPageLabel" [screenReaderCurrentLabel]="labels.screenReaderCurrentLabel"
+    (pageChange)="onPageChange($event)">
+</pagination-controls>
