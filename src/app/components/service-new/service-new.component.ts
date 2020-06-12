@@ -55,7 +55,7 @@ export class ServiceNewComponent implements OnInit {
     this._commerceServiceService.create(this.token, this.service).subscribe(
       response => {
         if (response.status == 'success') {
-          this.service = response.category;
+          this.service = response.service;
           this.status = 'success';
 
           this._router.navigate(['/../gestionar-servicios']);
@@ -74,6 +74,7 @@ export class ServiceNewComponent implements OnInit {
     this._categoryService.getCategories().subscribe(
       response => {
         if (response.status == 'success') {
+          this.service.category_id = response.categories.id;
           this.categories = response.categories;
         }
       },

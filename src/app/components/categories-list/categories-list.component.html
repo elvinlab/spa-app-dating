@@ -1,11 +1,18 @@
-<div class="row">
-    <div class="col-5">
-        <div class="form-group">
-            <input type="text" class="form-control" name="filterCategory"
-                placeholder="Buscar categoria por nombre o descripcion" [(ngModel)]="filterCategory">
-        </div>
+<form>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" name="filterCategory" placeholder="Buscar categoria por nombre o descripcion" [(ngModel)]="filterCategory">
+      </div>
+      <div *ngIf="service" class="col">
+        <label> Categoria seleccionada:</label>
+        <input type="text" class="col-2"  name="category_id" [(ngModel)]="service.category_id" disabled>
+      </div>
+      <div class="col">
+        <button [routerLink]="['/crear-categoria']" type="button" class="btn btn-dark">Crear Categoria</button>
+      </div>
     </div>
-</div>
+  </form>   
+  <br/>
 <div class="row">
     <div class="col">
         <table class="table table-striped">
@@ -16,7 +23,7 @@
                     <th scope="col">Descripcion</th>
                     <th scope="col">Creado el</th>
                     <th scope="col">Actualizado el</th>
-                    <th *ngIf="identity" scope="col">Funcion</th>
+                    <th *ngIf="!isShow && identity" scope="col">Funcion</th>
                     <th *ngIf="isShow"  scope="col">Seleccion</th>
                 </tr>
             </thead>
@@ -33,7 +40,7 @@
                         </button></td>
                     <td>{{category.created_at}}</td>
                     <td>{{category.updated_at}}</td>
-                    <td *ngIf="identity && identity.id == category.commerce_id"><button type="button" class="btn btn-warning"
+                    <td *ngIf="!isShow && identity && identity.id == category.commerce_id"><button type="button" class="btn btn-warning"
                             [routerLink]="['/editar-categoria', category.id]">Editar<i class="fas fa-edit"></i></button>
                             
                         | <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)">Eliminar<i
@@ -46,6 +53,7 @@
                     <td *ngIf="isShow" >
                         <button type="button" class="btn btn-info" (click)="getCategorId(category.id)">Seleccionar<i
                                 class="fas fa-edit"></i></button>
+                                
                     </td>
 
                     <!-- The Modal -->

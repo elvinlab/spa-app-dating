@@ -47,7 +47,8 @@
 					<input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="dateSelected"
 						[minDate]="minDate" ngbDatepicker #d="ngbDatepicker" required>
 					<div class="input-group-append">
-						<button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">📅</button>
+						<button class="btn btn-outline-secondary calendar" (click)="d.toggle()"
+							type="button">📅</button>
 					</div>
 				</div>
 			</div>
@@ -73,18 +74,20 @@
 	<hr />
 	<h2>Elegir servicio</h2>
 	<br />
-	<label> Servicio seleccionado:</label>
-	<input type="text" class="col-2" name="category_id" #service_id="ngModel" [(ngModel)]="appointment.service_id"
-		disabled>
-
-	<div class="row">
-		<div class="col-5">
-			<div class="form-group">
+	<form>
+		<div class="row">
+			<div class="col">
 				<input type="text" class="form-control" name="filterService"
 					placeholder="Buscar servicio por nombre o descripcion" [(ngModel)]="filterService">
 			</div>
+			<div class="col">
+				<label> Servicio seleccionado:</label>
+				<input type="text" class="col-2" name="category_id" #service_id="ngModel"
+					[(ngModel)]="appointment.service_id" disabled>
+			</div>
 		</div>
-	</div>
+	</form>
+
 	<div class="row">
 		<div class="col">
 			<table class="table table-striped">

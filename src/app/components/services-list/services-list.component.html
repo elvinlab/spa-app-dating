@@ -20,35 +20,32 @@
 
 		<div class="card-body">
 
-			<div class="promotion-image w-100" *ngIf="service.image">
+			<div class="promotion-image w-100" *ngIf="identity && identity.role == 'ROLE_CLIENT'">
 				<img src="{{ url + 'commerce/avatar/' + service.image }}" class="w-100" />
 			</div>
 
-			<div class="promotion-image w-100" *ngIf="!service.image">
+			<div class="promotion-image w-100" *ngIf="identity && identity.role == 'ROLE_CLIENT'">
 				<img src="assets/images/default.jpg" class="w-100" />
 			</div>
 
 			<div class="container">
 				<hr />
-				<div style="color: darkgoldenrod;" 
+				<div  *ngIf="identity && identity.role == 'ROLE_CLIENT'" style="color: darkgoldenrod;" 
 					[innerHTML]="'Comercio: ' + service.name_commerce"> <hr /></div>
-				
-				<div style="color: darkgoldenrod;" *ngIf="identity  && service.category_id && identity.role == 'ROLE_COMMERCE'"
-					[innerHTML]="'Categoria: ' + service.category_id"><hr /></div>
-					<hr />
+				<hr />
 				<div style="color: darkred;" [innerHTML]="'Precio: ' + service.price"></div>
 				<hr />
-				<div *ngIf="!identity" style="color: darkgreen ;"
+				<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" style="color: darkgreen ;"
 					[innerHTML]="'Ubicacion: ' + service.address"> <hr /></div>
 					<hr />
 				<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" style="color: darkgreen ;"
-					[innerHTML]="'Creado el: ' + service.created_at"> <hr /></div>
+					[innerHTML]="'Creado: ' + service.created_at"> <hr /></div>
 
 				<div *ngIf="identity && identity.role == 'ROLE_COMMERCE'" style="color: darkgreen ;"
-					[innerHTML]="'Actualizado el: ' + service.updated_at"><hr /></div>
+					[innerHTML]="'Actualizado: ' + service.updated_at"><hr /></div>
 				<hr />
 			</div>
-
+			<label>Descripcion:</label>
 			<textarea [froalaEditor]="froala_options" name="description" [innerHTML]="service.description"></textarea>
 
 			<!--botones de acción-->
@@ -76,7 +73,7 @@
 
 								<!-- Modal body -->
 								<div class="modal-body">
-									Vas a borrar definitivamente {{service.title}}
+									Vas a borrar definitivamente {{service.name}} y todas las citas relacionadas seran borradas tambien
 								</div>
 
 								<!-- Modal footer -->

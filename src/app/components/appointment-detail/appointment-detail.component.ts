@@ -50,7 +50,7 @@ export class AppointmentDetailComponent implements OnInit {
     private _commerceService: CommerceService
 
   ) {
-    this.page_title = 'Historial de mis citas';
+    this.page_title = 'Gestionar Citas';
     this.identity = this._clientService.getIdentity();
     this.token = this._clientService.getToken();
 

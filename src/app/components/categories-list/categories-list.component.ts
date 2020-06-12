@@ -9,11 +9,11 @@ export class CategoriesListComponent implements OnInit {
 
   @Input() categories;
   @Input() identity;
+  @Input() service;
   @Input() url;
   @Input() filterCategory;
   @Input() isSelect;
   @Input() isShow;
-
   @Output() delete = new EventEmitter();
   @Output() isSelectCagegory = new EventEmitter();
 
@@ -28,8 +28,10 @@ export class CategoriesListComponent implements OnInit {
     screenReaderPageLabel: 'page',
     screenReaderCurrentLabel: `You're on page`
   };
+  public category_id;
+  constructor(
 
-  constructor() { }
+  ) { }
 
   ngOnInit(): void {
   }

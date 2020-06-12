@@ -13,7 +13,6 @@
     <!--Formulario de crear service-->
 
     <form #serviceForm="ngForm" (ngSubmit)="onSubmit(serviceForm)" class="col-md-12">
-
         <div class="form-group">
             <label for="coupon">Nombre del Servicio</label>
             <input type="text" name="coupon" class="form-control" maxlength="30" #coupon="ngModel"
@@ -26,10 +25,7 @@
         <hr />
 
         <div class="form-group">
-            <label> Categoria seleccionada:</label>
-            <input type="text" class="col-2" name="category_id" #category_id="ngModel" [(ngModel)]="service.category_id"
-                disabled>
-            <app-categories-list [categories]="categories" [identity]="identity" [isShow]="isShow" [filterCategory]="filterCategory"
+            <app-categories-list [categories]="categories"  [service]="service" [identity]="identity" [isShow]="isShow" [filterCategory]="filterCategory"
                 (delete)="deleteCategory($event)" (isSelectCagegory)="getCategorId($event)"> </app-categories-list>
         </div>
         <hr />
