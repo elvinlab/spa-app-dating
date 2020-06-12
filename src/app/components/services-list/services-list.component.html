@@ -30,7 +30,7 @@
 
 			<div class="container">
 				<hr />
-				<div style="color: darkgoldenrod;" *ngIf="!identity"
+				<div style="color: darkgoldenrod;" 
 					[innerHTML]="'Comercio: ' + service.name_commerce"> <hr /></div>
 				
 				<div style="color: darkgoldenrod;" *ngIf="identity  && service.category_id && identity.role == 'ROLE_COMMERCE'"
@@ -54,7 +54,7 @@
 			<!--botones de acción-->
 			<div class="service-buttons mt-3">
 
-				<span *ngIf="identity">
+				<span *ngIf="identity.role == 'ROLE_COMMERCE'">
 					<a [routerLink]="['/editar-servicio', service.id]" class="btn btn-warning mr-2">Editar</a>
 
 					<!-- Button to Open the Modal -->
@@ -92,7 +92,7 @@
 
 				</span>
 
-				<span *ngIf="!identity">
+				<span *ngIf="identity.role == 'ROLE_CLIENT'">
 					<a class="btn btn-success mr-2"[routerLink]="['/crear-cita/', service.commerce_id]" > Reservar Cita</a>
 
 				</span>

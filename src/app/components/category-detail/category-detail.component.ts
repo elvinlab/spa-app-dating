@@ -36,6 +36,7 @@ export class CategoryDetailComponent implements OnInit {
   public url: string;
   public identity;
   public token;
+  public isShow : boolean = true;
   filterCategory = '';
 
   constructor(
@@ -58,6 +59,7 @@ export class CategoryDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.isShow  = false;
     this.getCategories();
   }
 

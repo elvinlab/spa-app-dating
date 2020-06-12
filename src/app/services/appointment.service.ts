@@ -58,33 +58,40 @@ export class AppointmentService {
 		return this._http.get(this.url + 'appointment/' + id, { headers: headers });
 	}
 
-	getAppointmentsCommerce(token, id):Observable<any>{
+	getAppointmentsCommerceRecord(token, id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded').set('Authorization', token);
-		return this._http.get(this.url + 'getappointmentscommerce/' + id, {headers: headers});
+		return this._http.get(this.url + 'getappointmentscommercerecord/' + id, {headers: headers});
 	}
 
-	getAppointmentsClient(token, id):Observable<any>{
+	getAppointmentsClientRecord(token, id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
-		return this._http.get(this.url + 'getappointmentsclient/' + id, {headers: headers});
+		return this._http.get(this.url + 'getappointmentsclientrecord/' + id, {headers: headers});
 	}
 
-	getAppointmentsClient2(token, id):Observable<any>{
+	getAppointmentsByClientConfirmed(token, id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
-		return this._http.get(this.url + 'getappointmentsclient2/' + id, {headers: headers});
+		return this._http.get(this.url + 'getappointmentsclientconfirmed/' + id, {headers: headers});
 	}
 
-	getAppointmentsClient3(token, id):Observable<any>{
+	getAppointmentsByClientCanceled(token, id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
-		return this._http.get(this.url + 'getappointmentsclient3/' + id, {headers: headers});
+		return this._http.get(this.url + 'getcppointmentsclientcanceled/' + id, {headers: headers});
 	}	
 
-	getAppointmentsClient4(token, id):Observable<any>{
+	getAppointmentsByClientPending(token, id):Observable<any>{
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
-		return this._http.get(this.url + 'getappointmentsclient4/' + id, {headers: headers});
+		return this._http.get(this.url + 'getppointmentsclientpending/' + id, {headers: headers});
 	}
+
+	getAppointmentsByCommercePending(token, id):Observable<any>{
+		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+									   .set('Authorization', token);
+		return this._http.get(this.url + 'getppointmentscommercepending/' + id, {headers: headers});
+	}
+
 
 }

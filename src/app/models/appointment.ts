@@ -7,6 +7,5 @@ export class Appointment {
         public schedule_day: string,
         public schedule_hour: string,
         public status: string,
-        //Quiza ocupe mostrar el createAt: any
     ) { }
 }

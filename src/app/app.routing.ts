@@ -39,7 +39,7 @@ const appRoutes: Routes = [
 	{path: 'editar-comercio', component: CommerceEditComponent},
 	{path: 'logout-comercio/:sure', component: LoginCommerceComponent},
 	{path: 'login-comercio', component: LoginCommerceComponent},
-	{path: 'gestionar-categorias', component: CategoryDetailComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'gestionar-categorias/:show', component: CategoryDetailComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'listar-categorias', component: CategoryDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'crear-categoria', component: CategoryNewComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'editar-categoria/:id', component: CategoryEditComponent, canActivate: [IdentityGuardCommerce]},
@@ -54,9 +54,9 @@ const appRoutes: Routes = [
 	{path: 'editar-servicio/:id', component: ServiceEditComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'crear-cita/:id', component: AppointmentNewComponent, canActivate: [IdentityGuardClient]},
 	{path: 'editar-cita/:id/:commerce_id', component: AppointmentEditComponent, canActivate: [IdentityGuardClient]},
-	{path: 'historial-citas/:sure', component: AppointmentDetailComponent, canActivate: [IdentityGuardClient]},
+	{path: 'historial-citas/:rutes', component: AppointmentDetailComponent, canActivate: [IdentityGuardClient]},
 	{path: 'control-citas/:sure', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},
-	{path: 'registros-citas/:sure', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},
+	{path: 'registros-citas/:rutes', component: AppointmentDetailComponent, canActivate: [IdentityGuardCommerce]},
 	{path: 'error', component: ErrorComponent},
 	{path: '**', component: ErrorComponent}
 ];

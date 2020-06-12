@@ -29,7 +29,7 @@
             <label> Categoria seleccionada:</label>
             <input type="text" class="col-2" name="category_id" #category_id="ngModel" [(ngModel)]="service.category_id"
                 disabled>
-            <app-categories-list [categories]="categories" [identity]="identity" [filterCategory]="filterCategory"
+            <app-categories-list [categories]="categories" [identity]="identity" [isShow]="isShow" [filterCategory]="filterCategory"
                 (delete)="deleteCategory($event)" (isSelectCagegory)="getCategorId($event)"> </app-categories-list>
         </div>
         <hr />

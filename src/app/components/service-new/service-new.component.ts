@@ -18,6 +18,7 @@ export class ServiceNewComponent implements OnInit {
   public categories: any;
   public service: Service;
   public status: string;
+  public isShow : boolean = true;
   filterCategory = '';
 
   constructor(

@@ -12,6 +12,7 @@ export class CategoriesListComponent implements OnInit {
   @Input() url;
   @Input() filterCategory;
   @Input() isSelect;
+  @Input() isShow;
 
   @Output() delete = new EventEmitter();
   @Output() isSelectCagegory = new EventEmitter();

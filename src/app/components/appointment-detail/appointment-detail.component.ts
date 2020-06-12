@@ -38,6 +38,7 @@ export class AppointmentDetailComponent implements OnInit {
   public price_service;
   public url: string;
   public identity;
+  public status;
   public token;
   filterAppointment = '';
 
@@ -66,11 +67,12 @@ export class AppointmentDetailComponent implements OnInit {
   getAppointmentsClient() {
 
     this._route.params.subscribe(params => {
-      let direction = +params['sure'];
+      console.log(params);
+      let direction = params['rutes'];
 
-      if (direction == 1) {
-
-        this._appointmentService.getAppointmentsClient(this.token, this.identity.id).subscribe(
+      if (direction == 'mi-historial') {
+        this.status = 'mi-historial';
+        this._appointmentService.getAppointmentsClientRecord(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
@@ -82,9 +84,9 @@ export class AppointmentDetailComponent implements OnInit {
           }
         );
 
-      } else if (direction == 2) {
-
-        this._appointmentService.getAppointmentsClient2(this.token, this.identity.id).subscribe(
+      } else if (direction == 'citas-confirmadas') {
+        this.status = 'citas-confirmadas';
+        this._appointmentService.getAppointmentsByClientConfirmed(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
@@ -97,9 +99,9 @@ export class AppointmentDetailComponent implements OnInit {
         );
 
 
-      } else if (direction == 3) {
-
-        this._appointmentService.getAppointmentsClient3(this.token, this.identity.id).subscribe(
+      } else if (direction == 'citas-canceladas') {
+        this.status = 'citas-canceladas';
+        this._appointmentService.getAppointmentsByClientCanceled(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
@@ -111,26 +113,28 @@ export class AppointmentDetailComponent implements OnInit {
           }
         );
 
-      } else if (direction == 4) {
-
-        this._appointmentService.getAppointmentsClient4(this.token, this.identity.id).subscribe(
+      } else if (direction == 'citas-pendientes') {
+        this.status = 'citas-pendientes';
+        this._appointmentService.getAppointmentsByClientPending(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-
+              console.log(this.appointments)
             }
           },
           error => {
             console.log(error);
           }
         );
-      } else if (direction == 5) {
+      } else if (direction == 'reservas-pendientes') {
+        this.status = 'reservas-pendientes';
         this.identity = this._commerceService.getIdentity();
         this.token = this._commerceService.getToken();
-        this._appointmentService.getAppointmentsCommerce(this.token, this.identity.id).subscribe(
+        this._appointmentService.getAppointmentsByCommercePending(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
+              console.log(this.appointments)
 
             }
           },
@@ -138,7 +142,22 @@ export class AppointmentDetailComponent implements OnInit {
             console.log(error);
           }
         );
-      } 
+      } else if (direction == 'mis-reservas') {
+        this.status = 'mis-reservas';
+        this.identity = this._commerceService.getIdentity();
+        this.token = this._commerceService.getToken();
+        this._appointmentService.getAppointmentsCommerceRecord(this.token, this.identity.id).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.appointments = response.appointments;
+  
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }
     });
   }
 

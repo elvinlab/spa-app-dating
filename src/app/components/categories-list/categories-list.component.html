@@ -17,7 +17,7 @@
                     <th scope="col">Creado el</th>
                     <th scope="col">Actualizado el</th>
                     <th *ngIf="identity" scope="col">Funcion</th>
-                    <th scope="col">Seleccion</th>
+                    <th *ngIf="isShow"  scope="col">Seleccion</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,7 +43,7 @@
                         Sin permisos
                     </td>
 
-                    <td >
+                    <td *ngIf="isShow" >
                         <button type="button" class="btn btn-info" (click)="getCategorId(category.id)">Seleccionar<i
                                 class="fas fa-edit"></i></button>
                     </td>

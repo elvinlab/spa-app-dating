@@ -9,6 +9,7 @@ export class AppointmentsListComponent implements OnInit {
   
   @Input() appointments;
   @Input() identity;
+  @Input() status;
   @Input() filterAppointment;
 
   @Output() delete = new EventEmitter();
