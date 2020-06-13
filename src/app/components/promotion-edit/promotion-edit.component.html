@@ -15,7 +15,7 @@
     <form #promotionForm="ngForm" (ngSubmit)="onSubmit(promotionForm)" class="col-md-8">
 
         <div class="form-group">
-            <label for="coupon">Nombre del cumpon</label>
+            <label for="coupon">Nombre del cupon</label>
             <input type="text" name="coupon" class="form-control" maxlength="15" #coupon="ngModel" [(ngModel)]="promotion.coupon"
                 required pattern="[A-Za-z0-9]+">
 
@@ -34,7 +34,7 @@
             </small>
 
             <small *ngIf="promotion.amount > promotion.max" class="invalid-feedback d-block">
-                No puedes elegir un maxio menor a la cantidad de: {{promotion.amount}} cupones en uso
+                No puedes elegir un maximo menor a la cantidad de: {{promotion.amount}} cupones en uso
             </small>
         </div>
 
