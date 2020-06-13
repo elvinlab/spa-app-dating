@@ -146,7 +146,7 @@ export class AppointmentNewComponent implements OnInit {
 					this.appointment = response.appointment;
 					this.status = 'success';
 
-					this._router.navigate(['/../historial-citas/1']);
+					this._router.navigate(['/../historial-citas/citas-pendientes']);
 				} else {
 					this.status = 'error';
 				}

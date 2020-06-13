@@ -3,7 +3,7 @@
 	<div class="col-12">
 		<div class="form-group">
 			<input type="text" class="form-control" name="filterService"
-				placeholder="Buscar por nombre de comercio, descripcion del servicio, nombre "
+				placeholder="Buscar nombre comercio, servicio, precio, descripcion, direccion"
 				[(ngModel)]="filterService">
 		</div>
 	</div>
@@ -20,11 +20,11 @@
 
 		<div class="card-body">
 
-			<div class="promotion-image w-100" *ngIf="identity && identity.role == 'ROLE_CLIENT'">
+			<div class="promotion-image w-100" *ngIf="identity && service.image && identity.role == 'ROLE_CLIENT'">
 				<img src="{{ url + 'commerce/avatar/' + service.image }}" class="w-100" />
 			</div>
 
-			<div class="promotion-image w-100" *ngIf="identity && identity.role == 'ROLE_CLIENT'">
+			<div class="promotion-image w-100" *ngIf="!service.image">
 				<img src="assets/images/default.jpg" class="w-100" />
 			</div>
 
