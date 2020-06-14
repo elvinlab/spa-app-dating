@@ -2,6 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 import { ClientService } from './services/client.service';
 import { CommerceService } from './services/commerce.service';
 import { global } from './services/global';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit, DoCheck {
   public token;
   public url;
   public role;
+
 
   constructor(
     private _clientService: ClientService,
@@ -47,5 +49,16 @@ export class AppComponent implements OnInit, DoCheck {
       this.role = null;
       this.identity = 'null';
     }
+  }
+
+  public sidebarActive(active) {
+    const sidebar = document.querySelector('#sidebar');
+    if (sidebar.className != active) {
+      sidebar.className = active;
+     
+    } else {
+      sidebar.className = '';
+    }
+
   }
 }
