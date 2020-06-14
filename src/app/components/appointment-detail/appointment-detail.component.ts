@@ -69,7 +69,6 @@ export class AppointmentDetailComponent implements OnInit {
   getAppointmentsClient() {
 
     this._route.params.subscribe(params => {
-      console.log(params);
       let direction = params['rutes'];
 
       if (direction == 'mi-historial') {
@@ -125,7 +124,6 @@ export class AppointmentDetailComponent implements OnInit {
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-              console.log(this.appointments)
             }
           },
           error => {
@@ -141,7 +139,6 @@ export class AppointmentDetailComponent implements OnInit {
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-              console.log(this.appointments)
 
             }
           },
