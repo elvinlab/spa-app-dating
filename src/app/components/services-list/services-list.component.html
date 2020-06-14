@@ -24,7 +24,7 @@
 				<img src="{{ url + 'commerce/avatar/' + service.image }}" class="w-100" />
 			</div>
 
-			<div class="promotion-image w-100" *ngIf="!service.image">
+			<div class="promotion-image w-100" *ngIf="!service.image && identity.role == 'ROLE_CLIENT'">
 				<img src="assets/images/default.jpg" class="w-100" />
 			</div>
 

@@ -22,38 +22,70 @@
           </ul>
         </li>
 
-        <li>
-          <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/historial-citas/','mi-historial']">Mis Citas</a>
+        <li class="active">
+
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlCommerce" data-toggle="collapse"
+            aria-expanded="false" class="dropdown-toggle text-light">Control de Citas</a>
+          <ul class="collapse list-unstyled" id="controlCommerce">
+
+            <a [routerLink]="['/registros-citas/', 'reservas-pendientes']">Confirmar citas</a>
+            <a [routerLink]="['/registros-citas/', 'mis-reservas']">Historial de citas</a>
+
+          </ul>
         </li>
 
         <li class="active">
 
-          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlCategory" data-toggle="collapse"
-            aria-expanded="false" class="dropdown-toggle">Categorias</a>
-          <ul class="collapse list-unstyled" id="controlCategory">
+          <a *ngIf="identity.role == 'ROLE_CLIENT'" href="#controlDate" data-toggle="collapse" aria-expanded="false"
+            class="dropdown-toggle text-light"> Mis Citas</a>
+          <ul class="collapse list-unstyled" id="controlDate">
 
-            <a [routerLink]="['/crear-categoria']">Crear Categoria</a>
-            <a [routerLink]="['/gestionar-categorias/mostrar']">Listar todas las Categorias</a>
+            <a [routerLink]="['/historial-citas/','citas-confirmadas']">Confirmadas</a>
+            <a [routerLink]="['/historial-citas/','citas-canceladas']">Canceladas</a>
+            <a [routerLink]="['/historial-citas/','citas-pendientes']">Pendientes</a>
 
           </ul>
+        </li>
+
+        <li>
+          <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/historial-citas/','mi-historial']">Historial de citas</a>
         </li>
 
         <li class="active">
 
           <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlPromotion" data-toggle="collapse"
-            aria-expanded="false" class="dropdown-toggle">Promociones</a>
+            aria-expanded="false" class="dropdown-toggle text-light">Promociones</a>
           <ul class="collapse list-unstyled" id="controlPromotion">
 
             <a [routerLink]="['/crear-promocion']">Crear Promocion</a>
-            <a [routerLink]="['/gestionar-promociones']">Gestionar mis Promociones</a>
+            <a [routerLink]="['/gestionar-promociones']">Gestionar mis promociones</a>
 
           </ul>
         </li>
 
-        <li>
-          <a *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/logout-cliente/1']">Cerrar Sesion</a>
-          <a *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/logout-comercio/1']">Cerrar Sesion</a>
+        <li class="active">
+
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlCategory" data-toggle="collapse"
+            aria-expanded="false" class="dropdown-toggle text-light">Categorias</a>
+          <ul class="collapse list-unstyled" id="controlCategory">
+
+            <a [routerLink]="['/crear-categoria']">Crear Categoria</a>
+            <a [routerLink]="['/gestionar-categorias/mostrar']">Listar todas las categorias</a>
+
+          </ul>
         </li>
+
+        <li class="active">
+
+          <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlServices" data-toggle="collapse"
+            aria-expanded="false" class="dropdown-toggle text-light">Servicios</a>
+          <ul class="collapse list-unstyled" id="controlServices">
+
+            <a [routerLink]="['/crear-servicio']">Crear servicios</a>
+            <a [routerLink]="['/gestionar-servicios']">Gestionar de Servicios</a>
+          </ul>
+        </li>
+
       </ul>
       <iframe class="img logo rounded-circle mb-5"
         src="http://free.timeanddate.com/clock/i7baxjk3/n2506/szw120/szh120/hoc00f/hbw0/hfc000/cf100/hgr0/facf90/mqcfff/mql6/mqw2/mqd74/mhcfff/mhl6/mhw1/mhd74/mmcf90/mml4/mmw1/mmd74/hhcfff/hmcfff"
@@ -81,75 +113,53 @@
             <a class="nav-link text-warning" [routerLink]="['/inicio']"> <span class="sr-only">(current)</span></a>
           </li>
 
-          <div class="dropdown">
-            <button *ngIf="identity.role == 'ROLE_CLIENT'" class="btn btn-info  dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Gestor de Citas
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/historial-citas/','citas-confirmadas']">Confirmadas</a>
-              <a class="dropdown-item" [routerLink]="['/historial-citas/','citas-canceladas']">Canceladas</a>
-              <a class="dropdown-item" [routerLink]="['/historial-citas/','citas-pendientes']">Pendientes</a>
-            </div>
-          </div>
-          ||
-          <div class="dropdown">
-            <button *ngIf="identity.role == 'ROLE_CLIENT'" class="btn btn-success  dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Explorar
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/listar-comercios']">Comercios</a>
-              <a class="dropdown-item" [routerLink]="['/listar-servicios']">Servicios</a>
-            </div>
-          </div>
-          ||
-          <div class="dropdown">
-            <button *ngIf="identity.role == 'ROLE_COMMERCE'" class="btn btn-success  dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Servicios
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/crear-servicio']">Crear servicios</a>
-              <a class="dropdown-item" [routerLink]="['/gestionar-servicios']">Gestionar de Servicios</a>
-            </div>
-          </div>
-          || 
-          <div class="dropdown">
-            <button *ngIf="identity.role == 'ROLE_COMMERCE'" class="btn btn-info  dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Control de Citas
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/registros-citas/', 'reservas-pendientes']">Confirmar citas</a>
-              <a class="dropdown-item" [routerLink]="['/registros-citas/', 'mis-reservas']">Historial de citas</a>
-            </div>
-          </div>
-          <button *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/listar-promociones']" type="button"
-            class="btn btn-primary text-dark ">Promociones</button>
+          <li *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/listar-comercios']" class="nav-item active">
+            <a class="nav-link text-warning">COMERCIOS</a>
+          </li>
+
+          <li *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/listar-servicios']" class="nav-item active">
+            <a class="nav-link text-warning">SERVICIOS</a>
+          </li>
+
+          <li *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/registros-citas/', 'reservas-pendientes']"
+            class="nav-item active">
+            <a class="nav-link text-warning">CONFIRMAR RESERVAS</a>
+          </li>
+
+          <li *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/gestionar-servicios']" class="nav-item active">
+            <a class="nav-link text-warning">GESTIONAR SERVICIOS</a>
+          </li>
+
+          <li *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/listar-promociones']" class="nav-item active">
+            <a class="nav-link text-warning">PROMOCIONES</a>
+          </li>
 
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity == 'null'" [routerLink]="['/registro-cliente']">Registro de
-              cliente</a>
+            <a class="nav-link text-warning" *ngIf="identity == 'null'" [routerLink]="['/registro-cliente']">REGISTRO DE CLIENTE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-warning" *ngIf="identity == 'null'" [routerLink]="['/registro-comercio']">Registro
-              de
-              comercio</a>
+            <a class="nav-link text-warning" *ngIf="identity == 'null'" [routerLink]="['/registro-comercio']">REGISTRO DE COMERCIO</a>
           </li>
 
         </ul>
 
         <ul class="navbar-nav navbar-right">
 
+          <li *ngIf="identity.role == 'ROLE_CLIENT'" [routerLink]="['/logout-cliente/1']" class="nav-item active">
+            <a class="nav-link text-warning">CERRAR SESION</a>
+          </li>
+          <li *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/logout-comercio/1']" class="nav-item active">
+            <a class="nav-link text-warning">CERRAR SESION</a>
+          </li>
+
           <div class="dropdown">
             <button *ngIf="identity == 'null'" class="btn btn-primary  text-dark  dropdown-toggle" type="button"
               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Acceder como
+              ACCEDER COMO
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" [routerLink]="['/login-cliente']">Cliente</a>
-              <a class="dropdown-item" [routerLink]="['/login-comercio']">Comercio</a>
+              <a class="dropdown-item" [routerLink]="['/login-cliente']">CLIENTE</a>
+              <a class="dropdown-item" [routerLink]="['/login-comercio']">COMERCIO</a>
             </div>
           </div>
         </ul>

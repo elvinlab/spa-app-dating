@@ -155,7 +155,7 @@ export class AppointmentEditComponent implements OnInit {
 						let appointment = response.appointment;
 
 						if (appointment[0].client_id != this.identity.id) {
-							this._router.navigate(['/../historial-citas']);
+							this._router.navigate(['/../historial-citas/citas-pendientes']);
 						} else {
 
 							this.appointment = new Appointment(
@@ -175,7 +175,7 @@ export class AppointmentEditComponent implements OnInit {
 				},
 				error => {
 					console.log(error);
-					this._router.navigate(['/../historial-citas']);
+					this._router.navigate(['/../historial-citas/citas-pendientes']);
 				}
 			);
 
@@ -190,7 +190,7 @@ export class AppointmentEditComponent implements OnInit {
 					this.appointment = response.appointment;
 					this.status = 'success';
 
-					this._router.navigate(['/../historial-citas/1']);
+					this._router.navigate(['/../historial-citas/citas-pendientes']);
 				} else {
 					this.status = 'error';
 				}
