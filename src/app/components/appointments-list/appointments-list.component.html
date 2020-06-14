@@ -38,9 +38,9 @@
                         <button type="button" class="btn btn-danger" (click)="deleteAppointment(appointment.id)">Eliminar<i class="far fa-trash-alt"></i></button>
                     </td>
 
-                    <td *ngIf="status == 'reservas-pendientes' && identity.role == 'ROLE_COMMERCE'"><button type="button" class="btn btn-warning"
-                        >CONFIRMAR<i class="fas fa-edit"></i></button>
-                       <button type="button" class="btn btn-danger" >RECHAZAR<i class="far fa-trash-alt"></i></button>
+                    <td *ngIf="status == 'reservas-pendientes' && identity.role == 'ROLE_COMMERCE'">
+                        <button type="button" class="btn btn-warning" (click)="changeStatus('CONFIRMADA',appointment.id)" >CONFIRMAR<i class="fas fa-edit"></i></button>
+                       <button type="button" class="btn btn-danger"   (click)="changeStatus('CANCELADA', appointment.id)">CANCELAR<i class="far fa-trash-alt"></i></button>
                 </td>
 
                 </tr>

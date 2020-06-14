@@ -1,16 +1,21 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Appointment } from '../../models/appointment';
+import { AppointmentService } from '../../services/appointment.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-appointments-list',
   templateUrl: './appointments-list.component.html',
-  styleUrls: ['./appointments-list.component.css']
+  styleUrls: ['./appointments-list.component.css'],
+  providers: [AppointmentService]
 })
 export class AppointmentsListComponent implements OnInit {
-  
+
   @Input() appointments;
   @Input() identity;
   @Input() status;
   @Input() filterAppointment;
+  @Input() token;
 
   @Output() delete = new EventEmitter();
 
@@ -26,7 +31,10 @@ export class AppointmentsListComponent implements OnInit {
     screenReaderCurrentLabel: `You're on page`
   };
 
-  constructor() { }
+  constructor(
+    private _appointmentService: AppointmentService,
+    private _router: Router,
+  ) { }
 
   ngOnInit(): void {
   }
@@ -43,5 +51,35 @@ export class AppointmentsListComponent implements OnInit {
 
   deleteAppointment(id) {
     this.delete.emit(id);
+  }
+
+  changeStatus(statusForm, id) {
+    let appointment = new Appointment(
+      id,
+      '',
+      '',
+      0,
+      '',
+      '',
+      statusForm,
+    )
+
+    this._appointmentService.changeStatus(this.token, appointment).subscribe(
+			response => {
+				if (response.status == 'success') {
+					this.status = 'mis-reservas';
+
+          this._router.navigate(['/../registros-citas/', 'mis-reservas']);
+				} else {
+					this.status = 'mis-reservas';
+				}
+			},
+			error => {
+				this.status = 'mis-reservas';
+				console.log(<any>error);
+			}
+		);
+
+   
   }
 }

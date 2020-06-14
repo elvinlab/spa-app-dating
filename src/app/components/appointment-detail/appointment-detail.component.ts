@@ -4,6 +4,7 @@ import { Appointment } from '../../models/appointment';
 import { AppointmentService } from '../../services/appointment.service';
 import { ClientService } from '../../services/client.service';
 import { CommerceService } from '../../services/commerce.service';
+import { NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-appointment-detail',
@@ -47,7 +48,8 @@ export class AppointmentDetailComponent implements OnInit {
     private _router: Router,
     private _appointmentService: AppointmentService,
     private _clientService: ClientService,
-    private _commerceService: CommerceService
+    private _commerceService: CommerceService,
+    private calendar: NgbCalendar,
 
   ) {
     this.page_title = 'Gestionar Citas';
@@ -72,6 +74,7 @@ export class AppointmentDetailComponent implements OnInit {
 
       if (direction == 'mi-historial') {
         this.status = 'mi-historial';
+        this.page_title = 'Mi historial de citas';
         this._appointmentService.getAppointmentsClientRecord(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
@@ -86,6 +89,7 @@ export class AppointmentDetailComponent implements OnInit {
 
       } else if (direction == 'citas-confirmadas') {
         this.status = 'citas-confirmadas';
+        this.page_title = 'Mis citas confirmadas';
         this._appointmentService.getAppointmentsByClientConfirmed(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
@@ -101,6 +105,7 @@ export class AppointmentDetailComponent implements OnInit {
 
       } else if (direction == 'citas-canceladas') {
         this.status = 'citas-canceladas';
+        this.page_title = 'Mis citas canceladas';
         this._appointmentService.getAppointmentsByClientCanceled(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
@@ -115,6 +120,7 @@ export class AppointmentDetailComponent implements OnInit {
 
       } else if (direction == 'citas-pendientes') {
         this.status = 'citas-pendientes';
+        this.page_title = 'Mis citas pendientes';
         this._appointmentService.getAppointmentsByClientPending(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
@@ -128,6 +134,7 @@ export class AppointmentDetailComponent implements OnInit {
         );
       } else if (direction == 'reservas-pendientes') {
         this.status = 'reservas-pendientes';
+        this.page_title = 'Mis reservas pendientes';
         this.identity = this._commerceService.getIdentity();
         this.token = this._commerceService.getToken();
         this._appointmentService.getAppointmentsByCommercePending(this.token, this.identity.id).subscribe(
@@ -144,13 +151,34 @@ export class AppointmentDetailComponent implements OnInit {
         );
       } else if (direction == 'mis-reservas') {
         this.status = 'mis-reservas';
+        this.page_title = 'Mi historial de reservas';
         this.identity = this._commerceService.getIdentity();
         this.token = this._commerceService.getToken();
         this._appointmentService.getAppointmentsCommerceRecord(this.token, this.identity.id).subscribe(
           response => {
             if (response.status == 'success') {
               this.appointments = response.appointments;
-  
+
+            }
+          },
+          error => {
+            console.log(error);
+          }
+        );
+      }else if (direction == 'mis-reservas-proximas') {
+        this.status = 'mis-reservas-proximas';
+        this.page_title = 'Mis proximas citas a atender';
+        this.identity = this._commerceService.getIdentity();
+        this.token = this._commerceService.getToken();
+
+        let minDate = this.calendar.getToday();
+
+        let date = minDate.year + "-" + minDate.month + "-" + minDate.day;
+        this._appointmentService.getApointmentsCommerceValid(this.token, date).subscribe(
+          response => {
+            if (response.status == 'success') {
+              this.appointments = response.appointments;
+
             }
           },
           error => {
@@ -159,20 +187,6 @@ export class AppointmentDetailComponent implements OnInit {
         );
       }
     });
-  }
-
-  appointmentStatus(id, status) {
-    this._appointmentService.appointmentStatus(this.token, id, status).subscribe(
-      response => {
-        if (response.status == 'success') {
-
-          this._router.navigate(['/../historial-citas']);
-        }
-      },
-      error => {
-        console.log(<any>error);
-      }
-    );
   }
 
   deleteAppointment(id) {

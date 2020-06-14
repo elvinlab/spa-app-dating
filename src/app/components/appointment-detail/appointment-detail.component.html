@@ -4,7 +4,7 @@
 
 <div class="container-fluid mt-3" *ngIf="appointments != 0">
     <h1>{{page_title}}</h1>
-    <app-appointments-list [appointments]="appointments" [identity]="identity" [status]="status" [filterAppointment]="filterAppointment"
+    <app-appointments-list [appointments]="appointments" [identity]="identity" [token]="token"  [status]="status"  [filterAppointment]="filterAppointment"
     (delete)="deleteAppointment($event)"> </app-appointments-list>
 
 </div>

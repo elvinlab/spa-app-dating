@@ -25,12 +25,12 @@
         <li class="active">
 
           <a *ngIf="identity.role == 'ROLE_COMMERCE'" href="#controlCommerce" data-toggle="collapse"
-            aria-expanded="false" class="dropdown-toggle text-light">Control de Citas</a>
+            aria-expanded="false" class="dropdown-toggle text-light">Control de citas</a>
           <ul class="collapse list-unstyled" id="controlCommerce">
 
+            <a [routerLink]="['/registros-citas/', 'mis-reservas-proximas']">Mis reservas proximas</a>
             <a [routerLink]="['/registros-citas/', 'reservas-pendientes']">Confirmar citas</a>
             <a [routerLink]="['/registros-citas/', 'mis-reservas']">Historial de citas</a>
-
           </ul>
         </li>
 
@@ -121,6 +121,10 @@
             <a class="nav-link text-warning">SERVICIOS</a>
           </li>
 
+          <li *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/registros-citas/', 'mis-reservas-proximas']"
+          class="nav-item active">
+          <a class="nav-link text-warning">MIS PROXIMAS CITAS</a>
+        </li>
           <li *ngIf="identity.role == 'ROLE_COMMERCE'" [routerLink]="['/registros-citas/', 'reservas-pendientes']"
             class="nav-item active">
             <a class="nav-link text-warning">CONFIRMAR RESERVAS</a>

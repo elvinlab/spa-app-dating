@@ -1,14 +1,9 @@
 <div class="col-md-12 mt-3">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <h1>{{page_title}}</h1>
-
-    <p *ngIf="status != 'success'">
-        Crea una service y has crecer tu negocio
-    </p>
     <hr />
-
     <div class="alert alert-danger col-md-8" *ngIf="status == 'error'">
-        La service se ha creado correctamente, puede que el nombre ya este en uso!!
+        El servicio no se ha creado correctamente, puede que el nombre ya este en uso!!
     </div>
     <!--Formulario de crear service-->
 
