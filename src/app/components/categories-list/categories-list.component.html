@@ -46,7 +46,7 @@
                         | <button type="button" class="btn btn-danger" (click)="deleteCategory(category.id)">Eliminar<i
                                 class="far fa-trash-alt"></i></button>
                     </td>
-                    <td *ngIf="identity && identity.role == 'ROLE_COMMERCE' && identity.id != category.commerce_id">
+                    <td *ngIf="identity && identity.role == 'ROLE_COMMERCE' && identity.id != category.commerce_id && !isShow">
                         Sin permisos
                     </td>
 
