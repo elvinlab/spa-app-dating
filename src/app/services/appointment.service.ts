@@ -86,16 +86,13 @@ export class AppointmentService {
 	}
 
 	changeStatus(token, appointment):Observable<any>{
-		// Limpiar campo content (editor texto enriquecido) htmlEntities > utf8
-		appointment.description = global.htmlEntities(appointment.description);
-
 		let json = JSON.stringify(appointment);
 		let params = "json="+json;
 
 		let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 									   .set('Authorization', token);
 
-	   return this._http.put(this.url + 'changestatus/' , params, {headers: headers});						   
+	   return this._http.put(this.url + 'changestatus', params, {headers: headers});						   
 	}
 
 	getApointmentsCommerceValid(token, date):Observable<any>{

@@ -19,17 +19,17 @@
 
 		<div class="card-body">
 			<!--imagen-->
-			<div class="promotion-image w-100" *ngIf="promotion.image">
+			<div class="promotion-image w-100" *ngIf="identity && promotion.image">
 				<img src="{{ url + 'promotion/image/' + promotion.image }}" class="w-100" />
 			</div>
 
-			<div class="promotion-image w-100" *ngIf="!promotion.image">
+			<div class="promotion-image w-100" *ngIf="!promotion.image && identity">
 				<img src="assets/images/default.jpg" class="w-100" />
 			</div>
 
 			<div class="container">
 				<hr />
-				<div style="color: darkgoldenrod;" *ngIf="!identity"
+				<div style="color: darkgoldenrod;" *ngIf="!identity && identity.role == 'ROLE_CLIENT'"
 					[innerHTML]="'Comercio: ' + promotion.name_commerce"></div>
 				<hr />
 				<div style="color: darkgoldenrod;" *ngIf="identity && identity.role == 'ROLE_COMMERCE'"

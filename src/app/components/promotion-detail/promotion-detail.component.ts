@@ -4,13 +4,14 @@ import { PromotionService } from '../../services/promotion.service';
 import { Promotion } from '../../models/promotion';
 import { global } from '../../services/global';
 import { CommerceService } from '../../services/commerce.service';
+import { ClientService } from '../../services/client.service';
 import { NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-promotion-detail',
   templateUrl: './promotion-detail.component.html',
   styleUrls: ['./promotion-detail.component.css'],
-  providers: [CommerceService, PromotionService]
+  providers: [CommerceService, PromotionService, ClientService]
 })
 export class PromotionDetailComponent implements OnInit {
 
@@ -43,21 +44,24 @@ export class PromotionDetailComponent implements OnInit {
     private _router: Router,
     private _promotionService: PromotionService,
     private _CommerceService: CommerceService,
+    private _clientService: ClientService,
     private calendar: NgbCalendar,
 
   ) {
-
     this.url = global.url;
     this.page_title = 'Listado de promociones';
     this.identity = this._CommerceService.getIdentity();
     this.token = this._CommerceService.getToken();
-
   }
 
   ngOnInit() {
     if(this.identity && this.identity.role == 'ROLE_COMMERCE'){
+      this.identity = this._CommerceService.getIdentity();
+      this.token = this._CommerceService.getToken();
       this.getPromotionsCommerce();
     }else {
+      this.identity = this._clientService.getIdentity();
+      this.token = this._clientService.getToken();
       this.getPromotions();
     }
    

@@ -16,7 +16,7 @@
 	<form class="col-md-12 ml-0 pl-0" #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
 		<div class="form-group">
 			<label for="name">Nombre</label>
-			<input type="text" name="name" class="form-control" #name="ngModel" [(ngModel)]="client.name" required
+			<input type="text" name="name" class="form-control" maxlength="30" #name="ngModel" [(ngModel)]="client.name" required
 				pattern="[a-zA-Z]+">
 
 			<small *ngIf="!name.valid && name.touched" class="invalid-feedback d-block">
@@ -26,7 +26,7 @@
 
 		<div class="form-group">
 			<label for="surname">Apellidos</label>
-			<input type="text" name="surname" class="form-control" #surname="ngModel" [(ngModel)]="client.surname"
+			<input type="text" name="surname" maxlength="30" class="form-control" #surname="ngModel" [(ngModel)]="client.surname"
 				required pattern="[a-zA-Z]+">
 
 			<small *ngIf="!surname.valid && surname.touched" class="invalid-feedback d-block">
@@ -56,8 +56,8 @@
 
 		<div class="form-group">
 			<label for="phone">Telefono</label>
-			<input type="text" name="phone" class="form-control" #phone="ngModel" [(ngModel)]="client.phone"
-				required>
+			<input type="text" name="phone" class="form-control" maxlength="30" #phone="ngModel" [(ngModel)]="client.phone"
+				required pattern="[0-9]+">
 
 			<small *ngIf="!phone.valid && phone.touched" class="invalid-feedback d-block">
 				Numero de telefono requerido
@@ -70,7 +70,7 @@
 				required>
 
 			<small *ngIf="!address.valid && address.touched" class="invalid-feedback d-block">
-				Direccion
+				Direccion requerida
 			</small>
 		</div>
 

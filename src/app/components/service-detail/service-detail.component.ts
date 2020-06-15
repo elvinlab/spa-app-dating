@@ -85,7 +85,6 @@ export class ServiceDetailComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           this.services = response.services;
-          console.log( this.services);
         }
       },
       error => {
