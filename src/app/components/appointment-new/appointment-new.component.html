@@ -38,6 +38,7 @@
 	</div>
 
 	<hr />
+	<div *ngIf="services != 0">
 	<div class="form-row">
 
 		<div class="form-group col-md-6">
@@ -69,6 +70,7 @@
 			</select>
 		</div>
 	</div>
+
 
 
 	<hr />
@@ -147,6 +149,9 @@
 			</table>
 		</div>
 	</div>
+
+
+
 	<pagination-controls [maxSize]="maxSize" [directionLinks]="directionLinks" [autoHide]="autoHide"
 		[responsive]="responsive" [previousLabel]="labels.previousLabel" [nextLabel]="labels.nextLabel"
 		[screenReaderPaginationLabel]="labels.screenReaderPaginationLabel"
@@ -158,5 +163,7 @@
 	<div *ngIf="appointment.service_id && appointment.schedule_hour">
 		<input type="submit" value="Guardar" class="btn btn-success" [disabled]="appointmentForm.invalid" />
 	</div>
-
+</div>
 </form>
+
+<label *ngIf="services == 0">Este comercio aun no tiene servicios, por favor volver mas tarde</label>

@@ -19,10 +19,11 @@
         </div>
         <hr />
 
-        <div class="form-group">
+        <div *ngIf="categories != 0"  class="form-group">
             <app-categories-list [categories]="categories"  [service]="service" [identity]="identity" [isShow]="isShow" [filterCategory]="filterCategory"
                 (delete)="deleteCategory($event)" (isSelectCagegory)="getCategorId($event)"> </app-categories-list>
         </div>
+        <label *ngIf="categories == 0">Sin categorias, por favor crear una</label>
         <hr />
         <div class="form-group">
             <label for="price">Precio</label>
