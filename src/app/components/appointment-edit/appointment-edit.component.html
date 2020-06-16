@@ -1,5 +1,9 @@
 <h1>{{page_title}}</h1>
 <hr />
+<div class="alert alert-danger col-md-8" *ngIf="status == 'error'">
+	Ya has creado una cita con la misma fecha y misma hora y con el mismo servicio
+</div>
+
 <form #appointmentForm="ngForm" (ngSubmit)="onSubmit(appointmentForm)" class="col-md-12">
 	<div class="form-row">
 		<div class="form-group col-md-6">
