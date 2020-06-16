@@ -40,7 +40,7 @@
 				<div style="color: darkgreen ;" [innerHTML]="'Descuento de ' + promotion.discount + '%'"></div>
 				<hr />
 				<div *ngIf="identity && identity.role == 'ROLE_CLIENT'" style="color: darkgreen ;"
-					[innerHTML]="'Ubicacion: ' + identity.address"></div>
+					[innerHTML]="'Ubicacion: ' + promotion.address"></div>
 				<hr />
 				<div style="color: darkred ;" [innerHTML]="'Expira el  ' + promotion.expiry"></div>
 				<hr />
