@@ -52,7 +52,7 @@ export class CommerceDetailComponent implements OnInit {
     this._CommerceService.getCommerces().subscribe(
       response => {
         if (response.status == 'success') {
-          this.commerces = response.commerces;
+          this.commerces = response.Data;
         }
       },
       error => {
