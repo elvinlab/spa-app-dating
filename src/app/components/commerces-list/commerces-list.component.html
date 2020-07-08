@@ -13,44 +13,44 @@
 
 		<div class="card-header bg-warning">
 			<h3>
-				<a>{{commerce.name_commerce}}</a>
+				<a>{{commerce.NameCommerce}}</a>
 			</h3>
 		</div>
 
 		<div class="card-body">
 
-			<div class="promotion-image w-100" *ngIf="commerce.image">
-				<img src="{{ url + 'commerce/avatar/' + commerce.image }}" class="w-100" />
+			<div class="promotion-image w-100" *ngIf="commerce.Image">
+				<img src="{{ url + 'commerce/avatar/' + commerce.Image }}" class="w-100" />
 			</div>
 
-			<div class="promotion-image w-100" *ngIf="!commerce.image">
+			<div class="promotion-image w-100" *ngIf="!commerce.Image">
 				<img src="assets/images/default.jpg" class="w-100" />
 			</div>
 
 			<div class="container">
 				<hr />
-				<div style="color: darkgoldenrod;" [innerHTML]="'Dueño: ' + commerce.name_owner">
+				<div style="color: darkgoldenrod;" [innerHTML]="'Dueño: ' + commerce.NameOwner">
 				</div>
 				<hr />
-				<div style="color: darkgreen ;" [innerHTML]="'Ubicacion: ' + commerce.address">
+				<div style="color: darkgreen ;" [innerHTML]="'Ubicacion: ' + commerce.Address">
 				</div>
 				<hr />
-				<div style="color: coral ;" [innerHTML]="'Celular: ' + commerce.cell">
+				<div style="color: coral ;" [innerHTML]="'Celular: ' + commerce.Cell">
 				</div>
 				<hr />
-				<div style="color: cornflowerblue ;" [innerHTML]="'Telefono: ' + commerce.tell">
+				<div style="color: cornflowerblue ;" [innerHTML]="'Telefono: ' + commerce.Tell">
 				</div>
 
 				<hr />
 			</div>
 
-			<textarea [froalaEditor]="froala_options" name="description" [innerHTML]="commerce.description"></textarea>
+			<textarea [froalaEditor]="froala_options" name="description" [innerHTML]="commerce.Description"></textarea>
 
 			<!--botones de acción-->
 			<div class="commerce-buttons mt-3">
 
 				<span>
-					<a class="btn btn-success mr-2"  [routerLink]="['/crear-cita/', commerce.id]">Reservar cita!</a>
+					<a class="btn btn-success mr-2"  [routerLink]="['/crear-cita/', commerce.Id]">Reservar cita!</a>
 
 				</span>
 			</div>

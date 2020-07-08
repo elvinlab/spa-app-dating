@@ -53,6 +53,7 @@ export class CommerceDetailComponent implements OnInit {
       response => {
         if (response.status == 'success') {
           this.commerces = response.Data;
+          console.log(response.Data);
         }
       },
       error => {
