@@ -15,6 +15,7 @@ export class AppComponent implements OnInit, DoCheck {
   public token;
   public url;
   public role;
+  public date = new Date().getFullYear();
 
 
   constructor(
