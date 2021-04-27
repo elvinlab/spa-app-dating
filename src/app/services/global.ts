@@ -1,5 +1,5 @@
 export var global = {
-	url: 'https://api-app-dating.herokuapp.com/api/',
+	url: 'https://reserva-tus-citas.herokuapp.com/api/',
 	htmlEntities: function(str) {
       return String(str).replace('&ntilde;', 'ñ')
                         .replace('&Ntilde;', 'Ñ')
